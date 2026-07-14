@@ -1,0 +1,1327 @@
+Commodity,BS_Month,Month_Name,Unit,Monthly_Min,Monthly_Max,Monthly_Avg,Daily_Records
+Amla,1,Baisakh,kg,90.0,100.0,95.0,5
+Amla,4,Shrawan,kg,100.0,160.0,125.56,9
+Amla,5,Bhadra,kg,60.0,130.0,81.83,31
+Amla,6,Ashwin,kg,50.0,90.0,76.78,29
+Amla,7,Kartik,kg,50.0,80.0,65.72,30
+Amla,8,Mangsir,kg,50.0,80.0,63.1,28
+Amla,9,Poush,kg,50.0,70.0,65.22,30
+Amla,10,Magh,kg,50.0,90.0,66.9,29
+Amla,11,Falgun,kg,60.0,110.0,80.0,29
+Amla,12,Chaitra,kg,80.0,140.0,105.72,30
+Apple(Fuji),1,Baisakh,kg,250.0,300.0,270.0,30
+Apple(Fuji),2,Jestha,kg,240.0,300.0,273.55,31
+Apple(Fuji),3,Asar,kg,250.0,300.0,277.03,32
+Apple(Fuji),4,Shrawan,kg,250.0,325.0,292.5,31
+Apple(Fuji),5,Bhadra,kg,250.0,300.0,269.33,30
+Apple(Fuji),6,Ashwin,kg,250.0,300.0,271.28,30
+Apple(Fuji),7,Kartik,kg,220.0,300.0,264.0,30
+Apple(Fuji),8,Mangsir,kg,220.0,280.0,249.52,26
+Apple(Fuji),9,Poush,kg,220.0,300.0,256.78,30
+Apple(Fuji),10,Magh,kg,250.0,300.0,275.69,29
+Apple(Fuji),11,Falgun,kg,250.0,300.0,275.98,29
+Apple(Fuji),12,Chaitra,kg,225.0,300.0,270.92,30
+Apple(Jholey),1,Baisakh,kg,180.0,250.0,203.0,15
+Apple(Jholey),2,Jestha,kg,180.0,220.0,203.1,14
+Apple(Jholey),5,Bhadra,kg,250.0,280.0,265.0,1
+Apple(Jholey),6,Ashwin,kg,250.0,280.0,265.0,1
+Apple(Jholey),8,Mangsir,kg,220.0,250.0,237.5,2
+Apple(Jholey),10,Magh,kg,250.0,280.0,262.5,20
+Apple(Jholey),11,Falgun,kg,180.0,260.0,210.4,29
+Apple(Jholey),12,Chaitra,kg,150.0,250.0,206.61,30
+Arum,1,Baisakh,kg,40.0,50.0,45.14,12
+Arum,3,Asar,kg,40.0,80.0,53.4,25
+Arum,4,Shrawan,kg,50.0,70.0,56.72,31
+Arum,5,Bhadra,kg,40.0,60.0,49.72,31
+Arum,6,Ashwin,kg,40.0,60.0,50.32,19
+Arum,7,Kartik,kg,40.0,60.0,50.58,28
+Arum,8,Mangsir,kg,40.0,50.0,45.95,26
+Arum,9,Poush,kg,30.0,50.0,45.61,30
+Arum,10,Magh,kg,40.0,50.0,45.3,28
+Arum,11,Falgun,kg,40.0,70.0,49.92,28
+Arum,12,Chaitra,kg,40.0,60.0,46.09,29
+Asparagus,1,Baisakh,kg,250.0,500.0,373.33,30
+Asparagus,2,Jestha,kg,150.0,350.0,222.42,31
+Asparagus,3,Asar,kg,200.0,350.0,255.42,32
+Asparagus,4,Shrawan,kg,200.0,600.0,414.01,31
+Asparagus,5,Bhadra,kg,400.0,900.0,531.72,31
+Asparagus,6,Ashwin,kg,0.0,900.0,453.89,30
+Asparagus,7,Kartik,kg,0.0,900.0,220.69,29
+Asparagus,8,Mangsir,kg,0.0,999.99,100.0,28
+Asparagus,9,Poush,kg,0.0,999.99,34.48,29
+Asparagus,10,Magh,kg,0.0,999.99,80.0,25
+Asparagus,11,Falgun,kg,0.0,999.99,631.61,29
+Asparagus,12,Chaitra,kg,350.0,600.0,430.83,30
+Avocado,1,Baisakh,kg,450.0,500.0,475.0,29
+Avocado,2,Jestha,kg,400.0,550.0,478.23,31
+Avocado,3,Asar,kg,450.0,550.0,518.1,29
+Avocado,4,Shrawan,kg,400.0,550.0,518.55,31
+Avocado,5,Bhadra,kg,200.0,550.0,291.99,31
+Avocado,6,Ashwin,kg,200.0,300.0,264.57,31
+Avocado,7,Kartik,kg,200.0,300.0,228.5,30
+Avocado,8,Mangsir,kg,200.0,300.0,250.65,28
+Avocado,9,Poush,kg,250.0,350.0,295.0,30
+Avocado,10,Magh,kg,250.0,500.0,335.06,29
+Avocado,11,Falgun,kg,350.0,600.0,501.72,29
+Avocado,12,Chaitra,kg,400.0,600.0,516.67,30
+Bakula,1,Baisakh,kg,40.0,100.0,72.08,8
+Bakula,2,Jestha,kg,130.0,150.0,140.0,1
+Bakula,6,Ashwin,kg,150.0,160.0,156.67,1
+Bakula,7,Kartik,kg,60.0,140.0,113.52,27
+Bakula,8,Mangsir,kg,60.0,120.0,90.72,28
+Bakula,9,Poush,kg,50.0,70.0,60.14,30
+Bakula,10,Magh,kg,50.0,70.0,62.93,29
+Bakula,11,Falgun,kg,40.0,80.0,64.49,29
+Bakula,12,Chaitra,kg,50.0,80.0,68.83,30
+Bamboo Shoot,1,Baisakh,kg,90.0,120.0,100.0,30
+Bamboo Shoot,2,Jestha,kg,110.0,120.0,115.38,31
+Bamboo Shoot,3,Asar,kg,110.0,140.0,129.36,32
+Bamboo Shoot,4,Shrawan,kg,110.0,140.0,121.35,31
+Bamboo Shoot,5,Bhadra,kg,110.0,130.0,124.63,31
+Bamboo Shoot,6,Ashwin,kg,100.0,120.0,107.74,31
+Bamboo Shoot,7,Kartik,kg,90.0,120.0,102.78,30
+Bamboo Shoot,8,Mangsir,kg,90.0,110.0,100.2,27
+Bamboo Shoot,9,Poush,kg,90.0,100.0,96.17,30
+Bamboo Shoot,10,Magh,kg,90.0,100.0,96.31,29
+Bamboo Shoot,11,Falgun,kg,90.0,100.0,96.32,29
+Bamboo Shoot,12,Chaitra,kg,90.0,100.0,95.53,30
+Banana,1,Baisakh,per dozen,120.0,160.0,143.39,30
+Banana,2,Jestha,per dozen,120.0,170.0,146.51,31
+Banana,3,Asar,per dozen,120.0,160.0,142.61,32
+Banana,4,Shrawan,per dozen,140.0,200.0,160.91,31
+Banana,5,Bhadra,per dozen,120.0,160.0,131.51,31
+Banana,6,Ashwin,per dozen,100.0,130.0,122.9,31
+Banana,7,Kartik,per dozen,100.0,140.0,120.45,30
+Banana,8,Mangsir,per dozen,120.0,150.0,131.49,28
+Banana,9,Poush,per dozen,120.0,140.0,127.78,30
+Banana,10,Magh,per dozen,120.0,160.0,135.4,29
+Banana,11,Falgun,per dozen,120.0,170.0,150.52,29
+Banana,12,Chaitra,per dozen,140.0,180.0,150.29,29
+Barela,1,Baisakh,kg,50.0,100.0,64.35,18
+Barela,2,Jestha,kg,90.0,120.0,97.08,8
+Barela,5,Bhadra,kg,150.0,180.0,165.0,2
+Barela,6,Ashwin,kg,70.0,150.0,103.81,14
+Barela,7,Kartik,kg,30.0,90.0,58.55,29
+Barela,8,Mangsir,kg,30.0,60.0,42.58,28
+Barela,9,Poush,kg,40.0,80.0,59.61,30
+Barela,10,Magh,kg,30.0,70.0,55.59,29
+Barela,11,Falgun,kg,20.0,70.0,44.74,29
+Barela,12,Chaitra,kg,40.0,90.0,66.5,30
+Bauhania flower,1,Baisakh,kg,150.0,450.0,268.08,13
+Bauhania flower,11,Falgun,kg,150.0,500.0,255.42,14
+Bauhania flower,12,Chaitra,kg,100.0,250.0,166.61,30
+Bitter Gourd,1,Baisakh,kg,20.0,90.0,50.75,30
+Bitter Gourd,2,Jestha,kg,20.0,40.0,25.96,31
+Bitter Gourd,3,Asar,kg,25.0,50.0,38.97,32
+Bitter Gourd,4,Shrawan,kg,10.0,50.0,25.88,31
+Bitter Gourd,5,Bhadra,kg,20.0,100.0,45.92,31
+Bitter Gourd,6,Ashwin,kg,50.0,100.0,70.59,30
+Bitter Gourd,7,Kartik,kg,50.0,120.0,80.87,29
+Bitter Gourd,8,Mangsir,kg,50.0,90.0,72.43,28
+Bitter Gourd,9,Poush,kg,60.0,140.0,100.42,30
+Bitter Gourd,10,Magh,kg,70.0,180.0,117.9,27
+Bitter Gourd,11,Falgun,kg,100.0,200.0,136.08,28
+Bitter Gourd,12,Chaitra,kg,90.0,140.0,112.33,30
+Bottle Gourd,1,Baisakh,kg,15.0,60.0,32.36,30
+Bottle Gourd,2,Jestha,kg,15.0,60.0,36.1,31
+Bottle Gourd,3,Asar,kg,30.0,60.0,47.87,32
+Bottle Gourd,4,Shrawan,kg,30.0,70.0,50.19,31
+Bottle Gourd,5,Bhadra,kg,25.0,70.0,45.59,31
+Bottle Gourd,6,Ashwin,kg,30.0,70.0,47.9,27
+Bottle Gourd,7,Kartik,kg,40.0,90.0,56.0,30
+Bottle Gourd,8,Mangsir,kg,30.0,60.0,43.73,28
+Bottle Gourd,9,Poush,kg,30.0,70.0,53.45,30
+Bottle Gourd,10,Magh,kg,50.0,80.0,57.16,29
+Bottle Gourd,11,Falgun,kg,40.0,70.0,56.5,29
+Bottle Gourd,12,Chaitra,kg,40.0,70.0,55.33,30
+Brd Leaf Mustard,1,Baisakh,kg,70.0,120.0,99.45,30
+Brd Leaf Mustard,2,Jestha,kg,40.0,100.0,71.18,31
+Brd Leaf Mustard,3,Asar,kg,50.0,120.0,88.28,32
+Brd Leaf Mustard,4,Shrawan,kg,50.0,200.0,100.47,31
+Brd Leaf Mustard,5,Bhadra,kg,60.0,160.0,93.88,31
+Brd Leaf Mustard,6,Ashwin,kg,70.0,200.0,130.0,31
+Brd Leaf Mustard,7,Kartik,kg,50.0,250.0,117.52,30
+Brd Leaf Mustard,8,Mangsir,kg,30.0,80.0,56.72,28
+Brd Leaf Mustard,9,Poush,kg,30.0,80.0,46.83,30
+Brd Leaf Mustard,10,Magh,kg,30.0,80.0,51.85,29
+Brd Leaf Mustard,11,Falgun,kg,30.0,70.0,42.62,29
+Brd Leaf Mustard,12,Chaitra,kg,30.0,90.0,61.31,30
+Brinjal Long,1,Baisakh,kg,40.0,70.0,57.85,29
+Brinjal Long,2,Jestha,kg,15.0,60.0,32.28,31
+Brinjal Long,3,Asar,kg,10.0,40.0,25.56,32
+Brinjal Long,4,Shrawan,kg,20.0,50.0,34.05,31
+Brinjal Long,5,Bhadra,kg,10.0,40.0,22.33,31
+Brinjal Long,6,Ashwin,kg,25.0,70.0,42.15,27
+Brinjal Long,7,Kartik,kg,20.0,90.0,52.79,30
+Brinjal Long,8,Mangsir,kg,20.0,50.0,32.05,28
+Brinjal Long,9,Poush,kg,25.0,70.0,41.39,30
+Brinjal Long,10,Magh,kg,40.0,70.0,57.84,29
+Brinjal Long,11,Falgun,kg,50.0,100.0,66.9,29
+Brinjal Long,12,Chaitra,kg,30.0,70.0,49.31,30
+Brinjal Round,1,Baisakh,kg,40.0,80.0,63.33,28
+Brinjal Round,2,Jestha,kg,25.0,70.0,44.36,30
+Brinjal Round,3,Asar,kg,20.0,60.0,39.17,32
+Brinjal Round,4,Shrawan,kg,40.0,70.0,52.56,31
+Brinjal Round,5,Bhadra,kg,30.0,50.0,37.29,31
+Brinjal Round,6,Ashwin,kg,40.0,80.0,57.26,19
+Brinjal Round,7,Kartik,kg,50.0,90.0,71.67,28
+Brinjal Round,8,Mangsir,kg,30.0,80.0,54.47,28
+Brinjal Round,9,Poush,kg,30.0,80.0,52.61,30
+Brinjal Round,10,Magh,kg,40.0,80.0,59.06,29
+Brinjal Round,11,Falgun,kg,50.0,100.0,66.21,29
+Brinjal Round,12,Chaitra,kg,30.0,70.0,49.81,30
+Brocauli,1,Baisakh,kg,50.0,160.0,109.6,29
+Brocauli,2,Jestha,kg,90.0,180.0,118.7,27
+Brocauli,3,Asar,kg,90.0,220.0,149.48,32
+Brocauli,4,Shrawan,kg,140.0,300.0,234.41,31
+Brocauli,5,Bhadra,kg,100.0,300.0,244.73,31
+Brocauli,6,Ashwin,kg,150.0,350.0,255.59,31
+Brocauli,7,Kartik,kg,100.0,200.0,139.61,30
+Brocauli,8,Mangsir,kg,60.0,120.0,90.66,28
+Brocauli,9,Poush,kg,40.0,70.0,56.76,30
+Brocauli,10,Magh,kg,25.0,80.0,51.76,28
+Brocauli,11,Falgun,kg,25.0,90.0,48.87,29
+Brocauli,12,Chaitra,kg,60.0,100.0,85.42,30
+Cabbage,1,Baisakh,kg,25.0,60.0,41.25,2
+Cabbage,9,Poush,kg,20.0,30.0,25.54,26
+Cabbage,10,Magh,kg,15.0,30.0,19.93,28
+Cabbage,11,Falgun,kg,10.0,20.0,16.74,28
+Cabbage,12,Chaitra,kg,10.0,20.0,13.71,21
+Cabbage(Local),1,Baisakh,kg,25.0,80.0,46.36,30
+Cabbage(Local),2,Jestha,kg,30.0,100.0,65.76,30
+Cabbage(Local),3,Asar,kg,40.0,100.0,63.26,31
+Cabbage(Local),4,Shrawan,kg,20.0,50.0,32.19,31
+Cabbage(Local),5,Bhadra,kg,25.0,50.0,37.43,31
+Cabbage(Local),6,Ashwin,kg,25.0,100.0,40.55,31
+Cabbage(Local),7,Kartik,kg,30.0,50.0,39.46,30
+Cabbage(Local),8,Mangsir,kg,25.0,45.0,34.61,27
+Cabbage(Local),9,Poush,kg,20.0,35.0,25.15,28
+Cabbage(Local),10,Magh,kg,15.0,35.0,20.49,28
+Cabbage(Local),11,Falgun,kg,10.0,25.0,16.83,29
+Cabbage(Local),12,Chaitra,kg,10.0,20.0,13.19,30
+Cabbage(Terai),1,Baisakh,kg,25.0,60.0,43.43,27
+Cabbage(Terai),2,Jestha,kg,30.0,70.0,52.92,8
+Cabbage(Terai),3,Asar,kg,40.0,70.0,52.38,7
+Cabbage(Terai),9,Poush,kg,18.0,30.0,23.49,22
+Cabbage(Terai),10,Magh,kg,12.0,30.0,19.46,29
+Cabbage(Terai),11,Falgun,kg,10.0,20.0,16.73,29
+Cabbage(Terai),12,Chaitra,kg,10.0,20.0,13.44,20
+Capsicum,1,Baisakh,kg,60.0,150.0,97.22,29
+Capsicum,2,Jestha,kg,60.0,200.0,114.36,30
+Capsicum,3,Asar,kg,50.0,200.0,122.95,32
+Capsicum,4,Shrawan,kg,50.0,140.0,90.84,31
+Capsicum,5,Bhadra,kg,40.0,80.0,59.21,30
+Capsicum,6,Ashwin,kg,40.0,190.0,119.17,28
+Capsicum,7,Kartik,kg,70.0,150.0,113.79,30
+Capsicum,8,Mangsir,kg,50.0,80.0,65.74,28
+Capsicum,9,Poush,kg,50.0,80.0,58.7,30
+Capsicum,10,Magh,kg,40.0,80.0,61.97,29
+Capsicum,11,Falgun,kg,50.0,180.0,85.41,29
+Capsicum,12,Chaitra,kg,90.0,160.0,118.61,30
+Carrot(Local),1,Baisakh,kg,30.0,100.0,54.32,30
+Carrot(Local),2,Jestha,kg,60.0,100.0,75.79,31
+Carrot(Local),3,Asar,kg,50.0,140.0,102.95,32
+Carrot(Local),4,Shrawan,kg,90.0,140.0,116.44,31
+Carrot(Local),5,Bhadra,kg,100.0,140.0,126.83,31
+Carrot(Local),6,Ashwin,kg,80.0,180.0,132.72,30
+Carrot(Local),7,Kartik,kg,55.0,160.0,132.83,29
+Carrot(Local),8,Mangsir,kg,60.0,130.0,94.13,28
+Carrot(Local),9,Poush,kg,40.0,70.0,55.87,30
+Carrot(Local),10,Magh,kg,18.0,50.0,28.33,29
+Carrot(Local),11,Falgun,kg,20.0,40.0,28.48,29
+Carrot(Local),12,Chaitra,kg,25.0,60.0,39.04,30
+Carrot(Terai),1,Baisakh,kg,25.0,40.0,32.26,13
+Carrot(Terai),3,Asar,kg,70.0,100.0,89.85,11
+Carrot(Terai),4,Shrawan,kg,80.0,110.0,88.56,30
+Carrot(Terai),5,Bhadra,kg,70.0,100.0,85.31,16
+Carrot(Terai),6,Ashwin,kg,80.0,180.0,117.78,18
+Carrot(Terai),7,Kartik,kg,100.0,120.0,112.22,3
+Carrot(Terai),9,Poush,kg,30.0,50.0,41.5,5
+Carrot(Terai),10,Magh,kg,12.0,40.0,22.03,28
+Carrot(Terai),11,Falgun,kg,15.0,35.0,22.22,29
+Carrot(Terai),12,Chaitra,kg,18.0,50.0,29.52,30
+Cauli Local,1,Baisakh,kg,40.0,90.0,57.87,30
+Cauli Local,2,Jestha,kg,40.0,100.0,60.73,31
+Cauli Local,3,Asar,kg,30.0,120.0,65.77,32
+Cauli Local,4,Shrawan,kg,60.0,140.0,86.43,31
+Cauli Local,5,Bhadra,kg,70.0,140.0,93.71,31
+Cauli Local,6,Ashwin,kg,25.0,220.0,88.65,31
+Cauli Local,7,Kartik,kg,30.0,140.0,55.06,30
+Cauli Local,8,Mangsir,kg,15.0,50.0,33.98,28
+Cauli Local,9,Poush,kg,20.0,60.0,37.3,30
+Cauli Local,10,Magh,kg,15.0,60.0,38.93,29
+Cauli Local,11,Falgun,kg,10.0,60.0,29.29,29
+Cauli Local,12,Chaitra,kg,40.0,70.0,52.76,30
+Cauli Local(Jyapu),1,Baisakh,kg,50.0,100.0,74.64,30
+Cauli Local(Jyapu),2,Jestha,kg,50.0,100.0,75.0,30
+Cauli Local(Jyapu),3,Asar,kg,50.0,130.0,87.78,12
+Cauli Local(Jyapu),4,Shrawan,kg,110.0,120.0,116.67,2
+Cauli Local(Jyapu),5,Bhadra,kg,100.0,120.0,113.33,1
+Cauli Local(Jyapu),6,Ashwin,kg,50.0,120.0,89.03,11
+Cauli Local(Jyapu),7,Kartik,kg,40.0,110.0,72.98,28
+Cauli Local(Jyapu),8,Mangsir,kg,30.0,60.0,47.62,28
+Cauli Local(Jyapu),9,Poush,kg,30.0,70.0,49.97,29
+Cauli Local(Jyapu),10,Magh,kg,25.0,70.0,50.5,29
+Cauli Local(Jyapu),11,Falgun,kg,15.0,70.0,39.04,29
+Cauli Local(Jyapu),12,Chaitra,kg,50.0,80.0,62.89,30
+Cauli Terai,9,Poush,kg,20.0,60.0,29.32,23
+Cauli Terai,10,Magh,kg,15.0,60.0,31.38,28
+Cauli Terai,11,Falgun,kg,10.0,25.0,17.94,15
+Cauli Terai,12,Chaitra,kg,40.0,50.0,43.89,3
+Celery,1,Baisakh,kg,150.0,500.0,363.61,30
+Celery,2,Jestha,kg,150.0,350.0,246.72,31
+Celery,3,Asar,kg,200.0,350.0,260.16,31
+Celery,4,Shrawan,kg,200.0,300.0,273.28,29
+Celery,5,Bhadra,kg,250.0,300.0,275.0,30
+Celery,6,Ashwin,kg,250.0,350.0,281.48,27
+Celery,7,Kartik,kg,250.0,400.0,318.62,29
+Celery,8,Mangsir,kg,300.0,350.0,327.78,27
+Celery,9,Poush,kg,120.0,350.0,252.17,30
+Celery,10,Magh,kg,120.0,350.0,237.82,29
+Celery,11,Falgun,kg,100.0,300.0,168.1,29
+Celery,12,Chaitra,kg,120.0,150.0,134.83,30
+Chilli Dry,1,Baisakh,kg,370.0,380.0,375.39,30
+Chilli Dry,2,Jestha,kg,360.0,380.0,374.95,31
+Chilli Dry,3,Asar,kg,370.0,400.0,378.02,32
+Chilli Dry,4,Shrawan,kg,380.0,440.0,408.93,31
+Chilli Dry,5,Bhadra,kg,420.0,440.0,430.11,31
+Chilli Dry,6,Ashwin,kg,400.0,440.0,424.62,31
+Chilli Dry,7,Kartik,kg,400.0,450.0,411.56,30
+Chilli Dry,8,Mangsir,kg,420.0,460.0,450.77,28
+Chilli Dry,9,Poush,kg,400.0,450.0,430.22,30
+Chilli Dry,10,Magh,kg,400.0,480.0,446.9,29
+Chilli Dry,11,Falgun,kg,400.0,450.0,425.92,29
+Chilli Dry,12,Chaitra,kg,420.0,480.0,458.5,30
+Chilli Green,1,Baisakh,kg,50.0,200.0,74.4,30
+Chilli Green,2,Jestha,kg,30.0,150.0,67.4,31
+Chilli Green,3,Asar,kg,25.0,60.0,38.16,32
+Chilli Green,4,Shrawan,kg,30.0,80.0,51.18,31
+Chilli Green,5,Bhadra,kg,40.0,90.0,66.11,31
+Chilli Green,6,Ashwin,kg,40.0,200.0,84.83,31
+Chilli Green,7,Kartik,kg,50.0,140.0,82.27,28
+Chilli Green,8,Mangsir,kg,40.0,80.0,54.1,28
+Chilli Green,9,Poush,kg,50.0,100.0,66.09,30
+Chilli Green,10,Magh,kg,60.0,90.0,74.4,29
+Chilli Green,11,Falgun,kg,60.0,200.0,104.58,29
+Chilli Green,12,Chaitra,kg,60.0,140.0,94.17,30
+Chilli Green(Akbare),1,Baisakh,kg,120.0,300.0,246.25,28
+Chilli Green(Akbare),2,Jestha,kg,150.0,350.0,259.68,31
+Chilli Green(Akbare),3,Asar,kg,80.0,350.0,185.36,32
+Chilli Green(Akbare),4,Shrawan,kg,120.0,300.0,188.11,30
+Chilli Green(Akbare),5,Bhadra,kg,80.0,200.0,112.85,31
+Chilli Green(Akbare),6,Ashwin,kg,70.0,200.0,104.41,27
+Chilli Green(Akbare),7,Kartik,kg,70.0,180.0,118.12,28
+Chilli Green(Akbare),8,Mangsir,kg,140.0,300.0,210.48,28
+Chilli Green(Akbare),9,Poush,kg,280.0,600.0,432.83,30
+Chilli Green(Akbare),10,Magh,kg,200.0,600.0,383.33,29
+Chilli Green(Akbare),11,Falgun,kg,80.0,400.0,283.53,25
+Chilli Green(Akbare),12,Chaitra,kg,250.0,350.0,285.0,30
+Chilli Green(Bullet),1,Baisakh,kg,50.0,200.0,74.22,30
+Chilli Green(Bullet),2,Jestha,kg,30.0,150.0,73.12,31
+Chilli Green(Bullet),3,Asar,kg,30.0,70.0,49.14,31
+Chilli Green(Bullet),4,Shrawan,kg,30.0,90.0,60.06,31
+Chilli Green(Bullet),5,Bhadra,kg,50.0,90.0,73.84,30
+Chilli Green(Bullet),6,Ashwin,kg,50.0,200.0,91.13,31
+Chilli Green(Bullet),7,Kartik,kg,50.0,150.0,93.45,28
+Chilli Green(Bullet),8,Mangsir,kg,40.0,80.0,61.73,28
+Chilli Green(Bullet),9,Poush,kg,50.0,120.0,66.59,30
+Chilli Green(Bullet),10,Magh,kg,60.0,90.0,73.83,29
+Chilli Green(Bullet),11,Falgun,kg,60.0,200.0,105.63,29
+Chilli Green(Bullet),12,Chaitra,kg,60.0,150.0,94.77,29
+Chilli Green(Machhe),1,Baisakh,kg,40.0,100.0,61.06,30
+Chilli Green(Machhe),2,Jestha,kg,30.0,80.0,48.82,31
+Chilli Green(Machhe),3,Asar,kg,40.0,90.0,70.68,32
+Chilli Green(Machhe),4,Shrawan,kg,50.0,80.0,60.06,31
+Chilli Green(Machhe),5,Bhadra,kg,50.0,80.0,66.35,31
+Chilli Green(Machhe),6,Ashwin,kg,50.0,120.0,83.87,25
+Chilli Green(Machhe),7,Kartik,kg,70.0,200.0,116.42,27
+Chilli Green(Machhe),8,Mangsir,kg,70.0,150.0,98.63,28
+Chilli Green(Machhe),9,Poush,kg,60.0,100.0,84.42,30
+Chilli Green(Machhe),10,Magh,kg,80.0,100.0,86.68,29
+Chilli Green(Machhe),11,Falgun,kg,60.0,120.0,80.92,29
+Chilli Green(Machhe),12,Chaitra,kg,70.0,140.0,103.17,30
+Christophine,1,Baisakh,kg,40.0,50.0,45.62,8
+Christophine,2,Jestha,kg,30.0,90.0,57.08,24
+Christophine,3,Asar,kg,20.0,60.0,45.92,32
+Christophine,4,Shrawan,kg,40.0,60.0,51.05,31
+Christophine,5,Bhadra,kg,15.0,50.0,23.89,31
+Christophine,6,Ashwin,kg,8.0,20.0,15.82,31
+Christophine,7,Kartik,kg,10.0,25.0,14.93,30
+Christophine,8,Mangsir,kg,12.0,30.0,22.27,28
+Christophine,9,Poush,kg,20.0,60.0,36.25,29
+Christophine,10,Magh,kg,40.0,60.0,45.54,29
+Christophine,11,Falgun,kg,30.0,50.0,43.35,29
+Christophine,12,Chaitra,kg,40.0,60.0,46.58,30
+Clive Dry,1,Baisakh,kg,120.0,250.0,149.29,28
+Clive Dry,2,Jestha,kg,120.0,170.0,150.54,31
+Clive Dry,3,Asar,kg,150.0,180.0,157.41,29
+Clive Dry,4,Shrawan,kg,150.0,180.0,163.98,31
+Clive Dry,5,Bhadra,kg,160.0,200.0,186.11,30
+Clive Dry,6,Ashwin,kg,180.0,250.0,208.97,29
+Clive Dry,7,Kartik,kg,200.0,320.0,217.74,28
+Clive Dry,8,Mangsir,kg,200.0,300.0,242.86,28
+Clive Dry,9,Poush,kg,250.0,300.0,280.78,30
+Clive Dry,10,Magh,kg,250.0,350.0,301.73,28
+Clive Dry,11,Falgun,kg,250.0,350.0,323.46,27
+Clive Dry,12,Chaitra,kg,150.0,360.0,290.28,30
+Clive Green,1,Baisakh,kg,80.0,180.0,133.04,28
+Clive Green,2,Jestha,kg,100.0,150.0,131.25,16
+Clive Green,5,Bhadra,kg,170.0,180.0,175.0,1
+Clive Green,7,Kartik,kg,120.0,200.0,151.39,18
+Clive Green,8,Mangsir,kg,90.0,180.0,133.27,28
+Clive Green,9,Poush,kg,80.0,150.0,111.17,30
+Clive Green,10,Magh,kg,80.0,120.0,94.88,28
+Clive Green,11,Falgun,kg,90.0,120.0,97.82,29
+Clive Green,12,Chaitra,kg,50.0,100.0,69.78,30
+Coriander Green,1,Baisakh,kg,200.0,600.0,339.05,30
+Coriander Green,2,Jestha,kg,50.0,300.0,126.69,31
+Coriander Green,3,Asar,kg,30.0,180.0,62.72,32
+Coriander Green,4,Shrawan,kg,50.0,600.0,269.76,31
+Coriander Green,5,Bhadra,kg,200.0,600.0,404.3,31
+Coriander Green,6,Ashwin,kg,50.0,500.0,157.33,31
+Coriander Green,7,Kartik,kg,70.0,600.0,162.11,30
+Coriander Green,8,Mangsir,kg,50.0,300.0,148.92,28
+Coriander Green,9,Poush,kg,40.0,120.0,74.94,30
+Coriander Green,10,Magh,kg,30.0,150.0,86.93,29
+Coriander Green,11,Falgun,kg,20.0,60.0,37.62,29
+Coriander Green,12,Chaitra,kg,25.0,60.0,39.02,30
+Cow pea(Long),1,Baisakh,kg,20.0,130.0,68.31,30
+Cow pea(Long),2,Jestha,kg,20.0,80.0,50.96,31
+Cow pea(Long),3,Asar,kg,20.0,70.0,43.89,32
+Cow pea(Long),4,Shrawan,kg,40.0,90.0,58.55,31
+Cow pea(Long),5,Bhadra,kg,50.0,120.0,69.17,31
+Cow pea(Long),6,Ashwin,kg,40.0,130.0,88.51,31
+Cow pea(Long),7,Kartik,kg,70.0,140.0,99.54,30
+Cow pea(Long),8,Mangsir,kg,80.0,120.0,92.08,28
+Cow pea(Long),9,Poush,kg,80.0,120.0,102.07,23
+Cow pea(Long),10,Magh,kg,60.0,100.0,89.67,5
+Cow pea(Long),11,Falgun,kg,160.0,180.0,174.17,4
+Cow pea(Long),12,Chaitra,kg,60.0,220.0,96.39,30
+Cowpea(Short),1,Baisakh,kg,80.0,120.0,96.88,8
+Cowpea(Short),2,Jestha,kg,50.0,90.0,71.31,28
+Cowpea(Short),3,Asar,kg,60.0,120.0,76.72,32
+Cowpea(Short),4,Shrawan,kg,70.0,110.0,90.7,31
+Cowpea(Short),5,Bhadra,kg,60.0,100.0,76.35,31
+Cowpea(Short),6,Ashwin,kg,50.0,90.0,67.56,28
+Cowpea(Short),7,Kartik,kg,40.0,80.0,60.72,28
+Cowpea(Short),8,Mangsir,kg,40.0,60.0,54.8,28
+Cowpea(Short),9,Poush,kg,40.0,70.0,55.92,30
+Cowpea(Short),10,Magh,kg,50.0,70.0,62.43,11
+Cowpea(Short),11,Falgun,kg,150.0,160.0,155.0,1
+Cowpea(Short),12,Chaitra,kg,110.0,190.0,145.21,8
+Cress Leaf,1,Baisakh,kg,120.0,180.0,141.0,30
+Cress Leaf,2,Jestha,kg,100.0,180.0,140.35,19
+Cress Leaf,3,Asar,kg,90.0,200.0,142.5,2
+Cress Leaf,6,Ashwin,kg,180.0,220.0,195.38,13
+Cress Leaf,7,Kartik,kg,120.0,350.0,222.44,30
+Cress Leaf,8,Mangsir,kg,80.0,200.0,125.3,28
+Cress Leaf,9,Poush,kg,60.0,120.0,82.61,30
+Cress Leaf,10,Magh,kg,40.0,130.0,81.21,29
+Cress Leaf,11,Falgun,kg,40.0,80.0,53.91,29
+Cress Leaf,12,Chaitra,kg,90.0,120.0,111.06,30
+Cucumber(Hybrid),1,Baisakh,kg,10.0,25.0,16.06,29
+Cucumber(Hybrid),2,Jestha,kg,10.0,40.0,23.85,31
+Cucumber(Hybrid),3,Asar,kg,30.0,70.0,47.33,32
+Cucumber(Hybrid),4,Shrawan,kg,25.0,80.0,45.46,31
+Cucumber(Hybrid),5,Bhadra,kg,30.0,80.0,49.27,31
+Cucumber(Hybrid),6,Ashwin,kg,12.0,60.0,33.71,31
+Cucumber(Hybrid),7,Kartik,kg,20.0,60.0,45.8,28
+Cucumber(Hybrid),8,Mangsir,kg,25.0,60.0,39.77,28
+Cucumber(Hybrid),9,Poush,kg,25.0,70.0,39.73,30
+Cucumber(Hybrid),10,Magh,kg,30.0,70.0,42.78,29
+Cucumber(Hybrid),11,Falgun,kg,30.0,60.0,45.84,29
+Cucumber(Hybrid),12,Chaitra,kg,15.0,60.0,25.05,30
+Cucumber(Local),1,Baisakh,kg,20.0,60.0,39.82,30
+Cucumber(Local),2,Jestha,kg,20.0,80.0,51.23,31
+Cucumber(Local),3,Asar,kg,50.0,130.0,82.4,32
+Cucumber(Local),4,Shrawan,kg,50.0,150.0,83.58,31
+Cucumber(Local),5,Bhadra,kg,60.0,140.0,81.82,31
+Cucumber(Local),6,Ashwin,kg,30.0,100.0,63.85,31
+Cucumber(Local),7,Kartik,kg,50.0,120.0,89.29,29
+Cucumber(Local),8,Mangsir,kg,40.0,100.0,63.89,28
+Cucumber(Local),9,Poush,kg,25.0,120.0,57.03,30
+Cucumber(Local),10,Magh,kg,60.0,120.0,77.24,29
+Cucumber(Local),11,Falgun,kg,80.0,150.0,102.18,29
+Cucumber(Local),12,Chaitra,kg,30.0,100.0,49.59,30
+Drumstick,1,Baisakh,kg,90.0,160.0,125.86,27
+Drumstick,2,Jestha,kg,100.0,300.0,133.75,8
+Drumstick,3,Asar,kg,150.0,300.0,225.28,12
+Drumstick,4,Shrawan,kg,90.0,300.0,182.8,25
+Drumstick,5,Bhadra,kg,100.0,250.0,133.64,11
+Drumstick,6,Ashwin,kg,180.0,200.0,190.0,4
+Drumstick,8,Mangsir,kg,110.0,300.0,216.81,12
+Drumstick,9,Poush,kg,150.0,250.0,206.16,23
+Drumstick,10,Magh,kg,200.0,500.0,270.74,27
+Drumstick,11,Falgun,kg,120.0,320.0,184.94,29
+Drumstick,12,Chaitra,kg,70.0,200.0,115.61,30
+Fennel Leaf,1,Baisakh,kg,100.0,160.0,132.11,30
+Fennel Leaf,2,Jestha,kg,90.0,150.0,125.74,18
+Fennel Leaf,6,Ashwin,kg,180.0,220.0,195.28,12
+Fennel Leaf,7,Kartik,kg,120.0,350.0,218.04,28
+Fennel Leaf,8,Mangsir,kg,90.0,200.0,127.04,27
+Fennel Leaf,9,Poush,kg,60.0,120.0,82.89,30
+Fennel Leaf,10,Magh,kg,40.0,130.0,80.75,29
+Fennel Leaf,11,Falgun,kg,40.0,80.0,55.95,29
+Fennel Leaf,12,Chaitra,kg,90.0,120.0,108.39,30
+Fenugreek Leaf,1,Baisakh,kg,100.0,160.0,130.67,30
+Fenugreek Leaf,2,Jestha,kg,100.0,150.0,125.56,18
+Fenugreek Leaf,6,Ashwin,kg,180.0,220.0,196.0,10
+Fenugreek Leaf,7,Kartik,kg,100.0,350.0,221.21,29
+Fenugreek Leaf,8,Mangsir,kg,80.0,200.0,126.07,28
+Fenugreek Leaf,9,Poush,kg,60.0,120.0,82.95,30
+Fenugreek Leaf,10,Magh,kg,40.0,130.0,80.81,29
+Fenugreek Leaf,11,Falgun,kg,40.0,80.0,55.52,29
+Fenugreek Leaf,12,Chaitra,kg,90.0,120.0,108.06,30
+Fish Fresh(Bachuwa),1,Baisakh,kg,270.0,300.0,280.5,30
+Fish Fresh(Bachuwa),2,Jestha,kg,250.0,300.0,285.16,31
+Fish Fresh(Bachuwa),3,Asar,kg,260.0,290.0,270.83,32
+Fish Fresh(Bachuwa),4,Shrawan,kg,250.0,290.0,263.23,31
+Fish Fresh(Bachuwa),5,Bhadra,kg,230.0,265.0,252.31,31
+Fish Fresh(Bachuwa),6,Ashwin,kg,230.0,260.0,243.71,31
+Fish Fresh(Bachuwa),7,Kartik,kg,230.0,260.0,246.33,30
+Fish Fresh(Bachuwa),8,Mangsir,kg,230.0,250.0,245.78,28
+Fish Fresh(Bachuwa),9,Poush,kg,230.0,300.0,249.72,30
+Fish Fresh(Bachuwa),10,Magh,kg,250.0,320.0,276.21,29
+Fish Fresh(Bachuwa),11,Falgun,kg,250.0,300.0,272.24,29
+Fish Fresh(Bachuwa),12,Chaitra,kg,240.0,380.0,276.94,30
+Fish Fresh(Chhadi),1,Baisakh,kg,240.0,300.0,260.46,29
+Fish Fresh(Chhadi),2,Jestha,kg,230.0,280.0,246.77,31
+Fish Fresh(Chhadi),3,Asar,kg,230.0,250.0,240.11,31
+Fish Fresh(Chhadi),4,Shrawan,kg,230.0,250.0,236.99,31
+Fish Fresh(Chhadi),5,Bhadra,kg,230.0,240.0,235.16,31
+Fish Fresh(Chhadi),6,Ashwin,kg,230.0,260.0,244.03,31
+Fish Fresh(Chhadi),7,Kartik,kg,230.0,270.0,245.39,30
+Fish Fresh(Chhadi),8,Mangsir,kg,230.0,260.0,245.31,28
+Fish Fresh(Chhadi),9,Poush,kg,230.0,300.0,249.28,30
+Fish Fresh(Chhadi),10,Magh,kg,240.0,300.0,262.87,29
+Fish Fresh(Chhadi),11,Falgun,kg,240.0,360.0,263.45,29
+Fish Fresh(Chhadi),12,Chaitra,kg,230.0,320.0,273.0,30
+Fish Fresh(Mungari),1,Baisakh,kg,270.0,300.0,280.67,30
+Fish Fresh(Mungari),2,Jestha,kg,250.0,300.0,270.65,31
+Fish Fresh(Mungari),3,Asar,kg,250.0,300.0,275.03,32
+Fish Fresh(Mungari),4,Shrawan,kg,250.0,300.0,276.51,31
+Fish Fresh(Mungari),5,Bhadra,kg,230.0,270.0,251.34,31
+Fish Fresh(Mungari),6,Ashwin,kg,230.0,260.0,241.83,31
+Fish Fresh(Mungari),7,Kartik,kg,210.0,270.0,236.72,30
+Fish Fresh(Mungari),8,Mangsir,kg,210.0,250.0,226.73,28
+Fish Fresh(Mungari),9,Poush,kg,210.0,350.0,257.83,30
+Fish Fresh(Mungari),10,Magh,kg,260.0,350.0,289.88,29
+Fish Fresh(Mungari),11,Falgun,kg,260.0,330.0,316.03,29
+Fish Fresh(Mungari),12,Chaitra,kg,260.0,350.0,314.44,30
+Fish Fresh(Rahu),1,Baisakh,kg,300.0,350.0,313.78,30
+Fish Fresh(Rahu),2,Jestha,kg,300.0,360.0,329.25,31
+Fish Fresh(Rahu),3,Asar,kg,300.0,340.0,317.76,32
+Fish Fresh(Rahu),4,Shrawan,kg,310.0,340.0,317.58,31
+Fish Fresh(Rahu),5,Bhadra,kg,300.0,320.0,310.38,31
+Fish Fresh(Rahu),6,Ashwin,kg,305.0,370.0,343.25,31
+Fish Fresh(Rahu),7,Kartik,kg,325.0,360.0,340.36,30
+Fish Fresh(Rahu),8,Mangsir,kg,315.0,350.0,336.79,28
+Fish Fresh(Rahu),9,Poush,kg,315.0,400.0,333.47,30
+Fish Fresh(Rahu),10,Magh,kg,340.0,400.0,372.45,29
+Fish Fresh(Rahu),11,Falgun,kg,330.0,400.0,348.05,29
+Fish Fresh(Rahu),12,Chaitra,kg,330.0,360.0,345.31,30
+French Bean(Hybrid),1,Baisakh,kg,40.0,120.0,71.09,29
+French Bean(Hybrid),2,Jestha,kg,30.0,90.0,60.97,31
+French Bean(Hybrid),3,Asar,kg,40.0,120.0,74.01,32
+French Bean(Hybrid),4,Shrawan,kg,60.0,120.0,93.28,31
+French Bean(Hybrid),5,Bhadra,kg,60.0,120.0,81.56,31
+French Bean(Hybrid),6,Ashwin,kg,30.0,120.0,76.31,28
+French Bean(Hybrid),7,Kartik,kg,50.0,120.0,79.83,29
+French Bean(Hybrid),8,Mangsir,kg,70.0,120.0,91.84,28
+French Bean(Hybrid),9,Poush,kg,50.0,100.0,77.89,30
+French Bean(Hybrid),10,Magh,kg,50.0,110.0,77.81,29
+French Bean(Hybrid),11,Falgun,kg,60.0,140.0,96.54,29
+French Bean(Hybrid),12,Chaitra,kg,40.0,120.0,79.83,30
+French Bean(Local),1,Baisakh,kg,30.0,100.0,55.83,30
+French Bean(Local),2,Jestha,kg,20.0,70.0,47.09,31
+French Bean(Local),3,Asar,kg,30.0,100.0,62.96,32
+French Bean(Local),4,Shrawan,kg,50.0,100.0,76.09,31
+French Bean(Local),5,Bhadra,kg,50.0,100.0,64.52,31
+French Bean(Local),6,Ashwin,kg,20.0,100.0,60.54,31
+French Bean(Local),7,Kartik,kg,40.0,100.0,62.17,30
+French Bean(Local),8,Mangsir,kg,60.0,100.0,80.54,28
+French Bean(Local),9,Poush,kg,50.0,80.0,70.37,30
+French Bean(Local),10,Magh,kg,40.0,90.0,62.3,29
+French Bean(Local),11,Falgun,kg,50.0,100.0,77.38,29
+French Bean(Local),12,Chaitra,kg,40.0,120.0,64.06,30
+French Bean(Rajma),1,Baisakh,kg,60.0,120.0,83.22,29
+French Bean(Rajma),2,Jestha,kg,60.0,100.0,80.38,31
+French Bean(Rajma),3,Asar,kg,70.0,160.0,108.61,30
+French Bean(Rajma),4,Shrawan,kg,100.0,150.0,127.78,24
+French Bean(Rajma),5,Bhadra,kg,120.0,150.0,131.07,14
+French Bean(Rajma),6,Ashwin,kg,150.0,250.0,186.67,9
+French Bean(Rajma),7,Kartik,kg,70.0,180.0,106.39,24
+French Bean(Rajma),8,Mangsir,kg,80.0,120.0,108.69,28
+French Bean(Rajma),9,Poush,kg,80.0,120.0,103.27,27
+French Bean(Rajma),10,Magh,kg,70.0,100.0,88.63,29
+French Bean(Rajma),11,Falgun,kg,70.0,140.0,98.45,29
+French Bean(Rajma),12,Chaitra,kg,90.0,150.0,114.83,30
+Garlic Dry Chinese,1,Baisakh,kg,160.0,190.0,178.53,30
+Garlic Dry Chinese,2,Jestha,kg,150.0,180.0,168.82,31
+Garlic Dry Chinese,3,Asar,kg,140.0,170.0,150.92,32
+Garlic Dry Chinese,4,Shrawan,kg,140.0,180.0,164.41,31
+Garlic Dry Chinese,5,Bhadra,kg,160.0,240.0,208.1,31
+Garlic Dry Chinese,6,Ashwin,kg,170.0,210.0,182.33,31
+Garlic Dry Chinese,7,Kartik,kg,140.0,170.0,151.2,30
+Garlic Dry Chinese,8,Mangsir,kg,160.0,190.0,170.79,28
+Garlic Dry Chinese,9,Poush,kg,170.0,180.0,175.78,30
+Garlic Dry Chinese,10,Magh,kg,170.0,200.0,185.31,29
+Garlic Dry Chinese,11,Falgun,kg,170.0,190.0,184.14,29
+Garlic Dry Chinese,12,Chaitra,kg,170.0,180.0,175.31,30
+Garlic Dry Nepali,1,Baisakh,kg,80.0,120.0,106.22,30
+Garlic Dry Nepali,2,Jestha,kg,80.0,120.0,101.56,31
+Garlic Dry Nepali,3,Asar,kg,60.0,120.0,98.02,32
+Garlic Dry Nepali,4,Shrawan,kg,110.0,150.0,126.74,31
+Garlic Dry Nepali,5,Bhadra,kg,120.0,170.0,144.22,31
+Garlic Dry Nepali,6,Ashwin,kg,130.0,150.0,144.46,31
+Garlic Dry Nepali,7,Kartik,kg,70.0,140.0,99.11,30
+Garlic Dry Nepali,8,Mangsir,kg,80.0,150.0,111.07,28
+Garlic Dry Nepali,9,Poush,kg,90.0,120.0,107.62,30
+Garlic Dry Nepali,10,Magh,kg,80.0,110.0,88.77,29
+Garlic Dry Nepali,11,Falgun,kg,80.0,160.0,103.92,17
+Garlic Dry Nepali,12,Chaitra,kg,90.0,150.0,111.33,20
+Garlic Green,1,Baisakh,kg,60.0,200.0,149.89,30
+Garlic Green,2,Jestha,kg,90.0,200.0,141.77,31
+Garlic Green,3,Asar,kg,120.0,400.0,232.4,32
+Garlic Green,4,Shrawan,kg,120.0,300.0,190.16,31
+Garlic Green,5,Bhadra,kg,90.0,350.0,138.71,31
+Garlic Green,6,Ashwin,kg,90.0,300.0,175.17,29
+Garlic Green,7,Kartik,kg,120.0,320.0,183.85,29
+Garlic Green,8,Mangsir,kg,90.0,180.0,137.92,28
+Garlic Green,9,Poush,kg,80.0,150.0,115.58,30
+Garlic Green,10,Magh,kg,60.0,150.0,111.32,29
+Garlic Green,11,Falgun,kg,30.0,80.0,51.32,29
+Garlic Green,12,Chaitra,kg,40.0,70.0,53.22,30
+Ginger,1,Baisakh,kg,50.0,80.0,58.09,30
+Ginger,2,Jestha,kg,50.0,80.0,66.42,31
+Ginger,3,Asar,kg,50.0,70.0,62.43,32
+Ginger,4,Shrawan,kg,50.0,80.0,64.33,31
+Ginger,5,Bhadra,kg,60.0,100.0,80.84,31
+Ginger,6,Ashwin,kg,40.0,80.0,58.35,31
+Ginger,7,Kartik,kg,30.0,60.0,44.48,30
+Ginger,8,Mangsir,kg,50.0,70.0,57.95,28
+Ginger,9,Poush,kg,50.0,70.0,62.03,30
+Ginger,10,Magh,kg,60.0,100.0,84.18,29
+Ginger,11,Falgun,kg,70.0,120.0,93.99,29
+Ginger,12,Chaitra,kg,90.0,130.0,113.33,30
+Grapes(Black),1,Baisakh,kg,200.0,350.0,252.87,29
+Grapes(Black),2,Jestha,kg,180.0,350.0,257.5,2
+Grapes(Black),7,Kartik,kg,380.0,400.0,390.48,7
+Grapes(Black),8,Mangsir,kg,250.0,400.0,345.3,28
+Grapes(Black),9,Poush,kg,250.0,350.0,303.11,30
+Grapes(Black),10,Magh,kg,250.0,320.0,289.25,29
+Grapes(Black),11,Falgun,kg,160.0,300.0,211.32,29
+Grapes(Black),12,Chaitra,kg,150.0,250.0,197.17,30
+Grapes(Green),1,Baisakh,kg,120.0,200.0,155.34,29
+Grapes(Green),2,Jestha,kg,180.0,250.0,212.17,30
+Grapes(Green),3,Asar,kg,200.0,350.0,269.48,29
+Grapes(Green),4,Shrawan,kg,280.0,350.0,303.75,8
+Grapes(Green),7,Kartik,kg,280.0,300.0,291.43,7
+Grapes(Green),8,Mangsir,kg,180.0,300.0,248.39,28
+Grapes(Green),9,Poush,kg,180.0,220.0,205.78,30
+Grapes(Green),10,Magh,kg,140.0,200.0,177.76,29
+Grapes(Green),11,Falgun,kg,110.0,180.0,133.71,29
+Grapes(Green),12,Chaitra,kg,100.0,180.0,131.69,30
+Green Peas,1,Baisakh,kg,40.0,150.0,85.54,28
+Green Peas,2,Jestha,kg,90.0,150.0,119.4,14
+Green Peas,5,Bhadra,kg,80.0,90.0,85.0,1
+Green Peas,6,Ashwin,kg,200.0,250.0,218.33,7
+Green Peas,7,Kartik,kg,110.0,300.0,192.46,29
+Green Peas,8,Mangsir,kg,80.0,160.0,124.29,28
+Green Peas,9,Poush,kg,40.0,100.0,59.31,30
+Green Peas,10,Magh,kg,40.0,80.0,56.91,29
+Green Peas,11,Falgun,kg,50.0,80.0,59.44,29
+Green Peas,12,Chaitra,kg,50.0,120.0,79.71,29
+Guava,4,Shrawan,kg,120.0,320.0,265.42,8
+Guava,5,Bhadra,kg,80.0,150.0,103.83,30
+Guava,6,Ashwin,kg,80.0,150.0,106.78,29
+Guava,7,Kartik,kg,100.0,200.0,128.41,22
+Guava,8,Mangsir,kg,120.0,250.0,156.43,21
+Guava,9,Poush,kg,100.0,160.0,128.28,30
+Guava,10,Magh,kg,90.0,150.0,119.71,29
+Guava,11,Falgun,kg,100.0,240.0,141.23,27
+Guava,12,Chaitra,kg,200.0,250.0,212.81,16
+Gundruk,1,Baisakh,kg,200.0,350.0,231.94,30
+Gundruk,2,Jestha,kg,200.0,350.0,245.83,18
+Gundruk,3,Asar,kg,250.0,350.0,300.0,4
+Gundruk,4,Shrawan,kg,250.0,300.0,275.0,29
+Gundruk,5,Bhadra,kg,250.0,300.0,275.56,30
+Gundruk,6,Ashwin,kg,250.0,300.0,276.23,27
+Gundruk,7,Kartik,kg,250.0,350.0,323.33,30
+Gundruk,8,Mangsir,kg,300.0,350.0,326.19,28
+Gundruk,9,Poush,kg,250.0,350.0,289.67,30
+Gundruk,10,Magh,kg,250.0,300.0,276.84,28
+Gundruk,11,Falgun,kg,250.0,300.0,275.83,28
+Gundruk,12,Chaitra,kg,250.0,300.0,275.28,30
+Jack Fruit,1,Baisakh,kg,60.0,90.0,75.33,30
+Jack Fruit,2,Jestha,kg,30.0,80.0,53.07,31
+Jack Fruit,3,Asar,kg,30.0,50.0,39.02,32
+Jack Fruit,4,Shrawan,kg,30.0,50.0,40.89,31
+Jack Fruit,5,Bhadra,kg,40.0,100.0,56.67,8
+Jack Fruit,7,Kartik,kg,120.0,150.0,135.0,4
+Jack Fruit,8,Mangsir,kg,100.0,120.0,112.0,20
+Jack Fruit,9,Poush,kg,100.0,130.0,115.89,30
+Jack Fruit,10,Magh,kg,90.0,120.0,107.22,29
+Jack Fruit,11,Falgun,kg,70.0,110.0,90.55,29
+Jack Fruit,12,Chaitra,kg,60.0,120.0,86.39,30
+Kinnow,1,Baisakh,kg,150.0,160.0,155.0,4
+Kinnow,9,Poush,kg,110.0,160.0,138.46,26
+Kinnow,10,Magh,kg,110.0,150.0,129.8,29
+Kinnow,11,Falgun,kg,110.0,150.0,130.43,29
+Kinnow,12,Chaitra,kg,120.0,150.0,135.52,29
+Kiwi,1,Baisakh,kg,450.0,500.0,475.29,29
+Kiwi,2,Jestha,kg,450.0,550.0,515.32,31
+Kiwi,3,Asar,kg,450.0,600.0,519.83,29
+Kiwi,4,Shrawan,kg,550.0,650.0,610.48,31
+Kiwi,5,Bhadra,kg,500.0,600.0,573.53,17
+Kiwi,6,Ashwin,kg,250.0,350.0,312.5,26
+Kiwi,7,Kartik,kg,180.0,350.0,227.47,29
+Kiwi,8,Mangsir,kg,150.0,250.0,211.78,28
+Kiwi,9,Poush,kg,150.0,300.0,196.61,30
+Kiwi,10,Magh,kg,200.0,400.0,303.16,29
+Kiwi,11,Falgun,kg,250.0,500.0,405.75,29
+Kiwi,12,Chaitra,kg,350.0,500.0,447.5,30
+Knolkhol,1,Baisakh,kg,70.0,90.0,82.44,30
+Knolkhol,2,Jestha,kg,70.0,90.0,79.35,28
+Knolkhol,3,Asar,kg,80.0,90.0,85.0,1
+Knolkhol,7,Kartik,kg,70.0,100.0,82.0,10
+Knolkhol,8,Mangsir,kg,50.0,90.0,75.91,22
+Knolkhol,9,Poush,kg,50.0,70.0,60.28,30
+Knolkhol,10,Magh,kg,40.0,70.0,55.98,29
+Knolkhol,11,Falgun,kg,40.0,70.0,56.61,27
+Knolkhol,12,Chaitra,kg,50.0,70.0,59.11,30
+Lemon,5,Bhadra,kg,50.0,90.0,69.03,31
+Lemon,6,Ashwin,kg,40.0,60.0,52.82,26
+Lemon,7,Kartik,kg,40.0,60.0,50.86,29
+Lemon,8,Mangsir,kg,40.0,50.0,46.28,26
+Lemon,9,Poush,kg,40.0,60.0,47.34,30
+Lemon,10,Magh,kg,40.0,80.0,66.55,28
+Lemon,11,Falgun,kg,60.0,90.0,76.54,26
+Lemon,12,Chaitra,kg,50.0,90.0,70.0,2
+Lettuce,1,Baisakh,kg,50.0,150.0,82.17,30
+Lettuce,2,Jestha,kg,70.0,200.0,104.84,31
+Lettuce,3,Asar,kg,70.0,150.0,103.33,31
+Lettuce,4,Shrawan,kg,70.0,200.0,105.64,21
+Lettuce,5,Bhadra,kg,100.0,200.0,146.28,30
+Lettuce,6,Ashwin,kg,120.0,300.0,206.09,26
+Lettuce,7,Kartik,kg,50.0,300.0,202.56,30
+Lettuce,8,Mangsir,kg,40.0,80.0,53.42,28
+Lettuce,9,Poush,kg,30.0,50.0,40.84,30
+Lettuce,10,Magh,kg,40.0,60.0,50.95,29
+Lettuce,11,Falgun,kg,40.0,70.0,52.99,29
+Lettuce,12,Chaitra,kg,40.0,60.0,49.89,30
+Lime,1,Baisakh,kg,300.0,400.0,362.05,30
+Lime,2,Jestha,kg,120.0,350.0,214.26,31
+Lime,3,Asar,kg,100.0,300.0,152.32,32
+Lime,4,Shrawan,kg,120.0,300.0,212.89,31
+Lime,5,Bhadra,kg,180.0,300.0,231.38,31
+Lime,6,Ashwin,kg,150.0,300.0,216.83,31
+Lime,7,Kartik,kg,100.0,220.0,150.25,30
+Lime,8,Mangsir,kg,100.0,240.0,119.96,28
+Lime,9,Poush,kg,90.0,120.0,101.43,30
+Lime,10,Magh,kg,110.0,150.0,127.63,29
+Lime,11,Falgun,kg,140.0,300.0,210.0,29
+Lime,12,Chaitra,kg,200.0,300.0,262.14,30
+Litchi(Indian),2,Jestha,kg,200.0,300.0,253.48,23
+Litchi(Indian),3,Asar,kg,200.0,250.0,230.0,4
+Litchi(Local),2,Jestha,kg,80.0,250.0,139.64,23
+Litchi(Local),3,Asar,kg,80.0,150.0,119.63,18
+Mandarin,1,Baisakh,kg,200.0,250.0,210.86,29
+Mandarin,2,Jestha,kg,200.0,250.0,210.5,30
+Mandarin,3,Asar,kg,200.0,250.0,210.57,32
+Mandarin,4,Shrawan,kg,200.0,250.0,210.17,30
+Mandarin,6,Ashwin,kg,250.0,380.0,281.94,18
+Mandarin,7,Kartik,kg,220.0,280.0,252.24,29
+Mandarin,8,Mangsir,kg,220.0,250.0,237.32,28
+Mandarin,9,Poush,kg,220.0,250.0,236.0,30
+Mandarin,10,Magh,kg,220.0,280.0,248.74,29
+Mandarin,11,Falgun,kg,150.0,280.0,234.02,29
+Mandarin,12,Chaitra,kg,220.0,250.0,235.43,29
+Mango(Calcutte),1,Baisakh,kg,200.0,250.0,221.67,18
+Mango(Calcutte),2,Jestha,kg,120.0,250.0,177.8,25
+Mango(Chousa),4,Shrawan,kg,200.0,300.0,241.58,19
+Mango(Chousa),5,Bhadra,kg,250.0,300.0,287.0,5
+Mango(Dushari),1,Baisakh,kg,200.0,300.0,255.28,18
+Mango(Dushari),2,Jestha,kg,80.0,300.0,196.29,31
+Mango(Dushari),3,Asar,kg,80.0,180.0,123.44,32
+Mango(Dushari),4,Shrawan,kg,150.0,240.0,194.23,13
+Mango(Maldah),2,Jestha,kg,80.0,200.0,122.32,23
+Mango(Maldah),3,Asar,kg,80.0,160.0,118.07,32
+Mango(Maldah),4,Shrawan,kg,150.0,300.0,226.55,22
+Mint,1,Baisakh,kg,200.0,500.0,309.17,30
+Mint,2,Jestha,kg,100.0,300.0,226.61,31
+Mint,3,Asar,kg,200.0,400.0,291.67,18
+Mint,7,Kartik,kg,400.0,700.0,583.33,12
+Mint,8,Mangsir,kg,200.0,700.0,550.93,27
+Mint,9,Poush,kg,150.0,500.0,267.11,30
+Mint,10,Magh,kg,150.0,600.0,442.24,29
+Mint,11,Falgun,kg,200.0,600.0,350.63,29
+Mint,12,Chaitra,kg,150.0,300.0,202.33,30
+Mombin,4,Shrawan,kg,50.0,90.0,64.45,21
+Mombin,5,Bhadra,kg,40.0,60.0,55.49,31
+Mombin,6,Ashwin,kg,40.0,90.0,60.66,29
+Mombin,7,Kartik,kg,50.0,80.0,70.45,30
+Mombin,8,Mangsir,kg,60.0,100.0,77.38,28
+Mombin,9,Poush,kg,70.0,150.0,98.16,30
+Mombin,10,Magh,kg,120.0,200.0,158.05,29
+Mombin,11,Falgun,kg,180.0,320.0,267.64,29
+Mombin,12,Chaitra,kg,300.0,400.0,361.0,5
+Mushroom(Button),1,Baisakh,kg,250.0,450.0,340.43,29
+Mushroom(Button),2,Jestha,kg,220.0,450.0,327.85,31
+Mushroom(Button),3,Asar,kg,250.0,500.0,330.34,32
+Mushroom(Button),4,Shrawan,kg,280.0,600.0,376.31,30
+Mushroom(Button),5,Bhadra,kg,300.0,600.0,373.85,31
+Mushroom(Button),6,Ashwin,kg,200.0,500.0,384.8,30
+Mushroom(Button),7,Kartik,kg,280.0,600.0,368.62,30
+Mushroom(Button),8,Mangsir,kg,250.0,450.0,346.06,28
+Mushroom(Button),9,Poush,kg,250.0,420.0,326.71,30
+Mushroom(Button),10,Magh,kg,250.0,400.0,333.86,29
+Mushroom(Button),11,Falgun,kg,240.0,420.0,308.4,29
+Mushroom(Button),12,Chaitra,kg,240.0,400.0,298.49,30
+Mushroom(Kanya),1,Baisakh,kg,80.0,300.0,182.99,29
+Mushroom(Kanya),2,Jestha,kg,80.0,300.0,176.65,31
+Mushroom(Kanya),3,Asar,kg,180.0,300.0,238.19,32
+Mushroom(Kanya),4,Shrawan,kg,120.0,300.0,185.89,30
+Mushroom(Kanya),5,Bhadra,kg,150.0,300.0,206.28,31
+Mushroom(Kanya),6,Ashwin,kg,100.0,300.0,196.25,31
+Mushroom(Kanya),7,Kartik,kg,70.0,200.0,157.23,30
+Mushroom(Kanya),8,Mangsir,kg,80.0,220.0,147.87,28
+Mushroom(Kanya),9,Poush,kg,80.0,200.0,143.42,30
+Mushroom(Kanya),10,Magh,kg,100.0,200.0,139.72,29
+Mushroom(Kanya),11,Falgun,kg,100.0,300.0,161.26,29
+Mushroom(Kanya),12,Chaitra,kg,140.0,220.0,169.01,30
+Mustard Leaf,1,Baisakh,kg,40.0,90.0,62.0,30
+Mustard Leaf,2,Jestha,kg,30.0,50.0,38.66,31
+Mustard Leaf,3,Asar,kg,30.0,80.0,53.91,32
+Mustard Leaf,4,Shrawan,kg,40.0,70.0,52.18,31
+Mustard Leaf,5,Bhadra,kg,30.0,80.0,48.5,30
+Mustard Leaf,6,Ashwin,kg,40.0,90.0,52.1,31
+Mustard Leaf,7,Kartik,kg,40.0,120.0,67.34,30
+Mustard Leaf,8,Mangsir,kg,40.0,60.0,46.98,27
+Mustard Leaf,9,Poush,kg,30.0,50.0,40.75,30
+Mustard Leaf,10,Magh,kg,30.0,50.0,43.11,29
+Mustard Leaf,11,Falgun,kg,20.0,40.0,29.54,29
+Mustard Leaf,12,Chaitra,kg,30.0,50.0,42.17,30
+Neuro,1,Baisakh,kg,80.0,150.0,112.87,29
+Neuro,2,Jestha,kg,60.0,100.0,73.17,31
+Neuro,3,Asar,kg,50.0,100.0,67.4,32
+Neuro,4,Shrawan,kg,90.0,120.0,103.28,31
+Neuro,5,Bhadra,kg,90.0,120.0,106.72,31
+Neuro,6,Ashwin,kg,70.0,120.0,94.53,25
+Neuro,7,Kartik,kg,70.0,90.0,80.74,9
+Neuro,8,Mangsir,kg,70.0,80.0,75.0,1
+Neuro,10,Magh,kg,100.0,120.0,106.67,3
+Neuro,11,Falgun,kg,90.0,120.0,108.1,29
+Neuro,12,Chaitra,kg,80.0,120.0,94.44,30
+Okara,1,Baisakh,kg,20.0,100.0,55.13,30
+Okara,2,Jestha,kg,15.0,40.0,26.99,31
+Okara,3,Asar,kg,10.0,50.0,33.27,32
+Okara,4,Shrawan,kg,25.0,65.0,44.39,31
+Okara,5,Bhadra,kg,25.0,70.0,47.94,31
+Okara,6,Ashwin,kg,30.0,100.0,62.98,31
+Okara,7,Kartik,kg,60.0,120.0,86.82,30
+Okara,8,Mangsir,kg,60.0,120.0,79.85,28
+Okara,9,Poush,kg,60.0,120.0,93.31,30
+Okara,10,Magh,kg,80.0,180.0,126.82,29
+Okara,11,Falgun,kg,100.0,160.0,127.62,28
+Okara,12,Chaitra,kg,90.0,140.0,110.92,30
+Onion Dry (Chinese),4,Shrawan,kg,35.0,40.0,37.67,1
+Onion Dry (Indian),1,Baisakh,kg,30.0,36.0,33.56,29
+Onion Dry (Indian),2,Jestha,kg,30.0,38.0,33.28,31
+Onion Dry (Indian),3,Asar,kg,38.0,41.0,39.11,32
+Onion Dry (Indian),4,Shrawan,kg,35.0,40.0,37.12,30
+Onion Dry (Indian),5,Bhadra,kg,35.0,40.0,37.55,31
+Onion Dry (Indian),6,Ashwin,kg,35.0,55.0,41.83,31
+Onion Dry (Indian),7,Kartik,kg,50.0,60.0,53.64,29
+Onion Dry (Indian),8,Mangsir,kg,34.0,55.0,42.58,28
+Onion Dry (Indian),9,Poush,kg,40.0,52.0,46.05,29
+Onion Dry (Indian),10,Magh,kg,36.0,45.0,40.67,29
+Onion Dry (Indian),11,Falgun,kg,30.0,38.0,33.91,29
+Onion Dry (Indian),12,Chaitra,kg,30.0,38.0,34.23,30
+Onion Green,1,Baisakh,kg,30.0,150.0,64.11,30
+Onion Green,2,Jestha,kg,60.0,150.0,84.89,31
+Onion Green,3,Asar,kg,80.0,300.0,221.04,32
+Onion Green,4,Shrawan,kg,140.0,350.0,242.42,31
+Onion Green,5,Bhadra,kg,90.0,250.0,166.34,31
+Onion Green,6,Ashwin,kg,70.0,200.0,104.0,30
+Onion Green,7,Kartik,kg,70.0,150.0,104.43,29
+Onion Green,8,Mangsir,kg,50.0,110.0,76.38,28
+Onion Green,9,Poush,kg,30.0,90.0,55.87,30
+Onion Green,10,Magh,kg,60.0,130.0,94.4,29
+Onion Green,11,Falgun,kg,30.0,80.0,52.03,28
+Onion Green,12,Chaitra,kg,40.0,60.0,51.17,30
+Orange(Indian),1,Baisakh,kg,140.0,180.0,157.59,29
+Orange(Indian),2,Jestha,kg,80.0,180.0,149.52,7
+Orange(Indian),6,Ashwin,kg,110.0,160.0,140.0,18
+Orange(Indian),7,Kartik,kg,90.0,130.0,108.78,30
+Orange(Indian),8,Mangsir,kg,90.0,120.0,100.83,18
+Orange(Indian),10,Magh,kg,120.0,150.0,134.52,7
+Orange(Indian),11,Falgun,kg,110.0,160.0,128.22,29
+Orange(Indian),12,Chaitra,kg,120.0,160.0,142.83,30
+Orange(Nepali),7,Kartik,kg,80.0,120.0,95.19,26
+Orange(Nepali),8,Mangsir,kg,90.0,120.0,109.07,27
+Orange(Nepali),9,Poush,kg,90.0,130.0,109.62,30
+Orange(Nepali),10,Magh,kg,120.0,200.0,151.11,29
+Orange(Nepali),11,Falgun,kg,160.0,200.0,188.0,5
+Orange(Nepali),12,Chaitra,kg,70.0,80.0,75.0,1
+Papaya(Indian),1,Baisakh,kg,70.0,90.0,78.63,28
+Papaya(Indian),2,Jestha,kg,80.0,120.0,90.84,30
+Papaya(Indian),3,Asar,kg,80.0,140.0,110.21,32
+Papaya(Indian),4,Shrawan,kg,90.0,130.0,107.89,30
+Papaya(Indian),5,Bhadra,kg,80.0,110.0,98.71,31
+Papaya(Indian),6,Ashwin,kg,80.0,150.0,102.37,31
+Papaya(Indian),7,Kartik,kg,80.0,160.0,117.89,30
+Papaya(Indian),8,Mangsir,kg,90.0,120.0,110.57,28
+Papaya(Indian),9,Poush,kg,80.0,110.0,93.95,30
+Papaya(Indian),10,Magh,kg,80.0,100.0,87.42,29
+Papaya(Indian),11,Falgun,kg,80.0,130.0,99.43,29
+Papaya(Indian),12,Chaitra,kg,80.0,120.0,93.85,29
+Papaya(Nepali),1,Baisakh,kg,50.0,70.0,61.15,29
+Papaya(Nepali),2,Jestha,kg,50.0,80.0,64.63,31
+Papaya(Nepali),3,Asar,kg,70.0,100.0,90.84,4
+Papaya(Nepali),4,Shrawan,kg,90.0,100.0,95.0,1
+Papaya(Nepali),6,Ashwin,kg,50.0,90.0,68.07,25
+Papaya(Nepali),7,Kartik,kg,50.0,120.0,79.89,30
+Papaya(Nepali),8,Mangsir,kg,60.0,100.0,86.01,28
+Papaya(Nepali),9,Poush,kg,60.0,90.0,81.0,30
+Papaya(Nepali),10,Magh,kg,60.0,80.0,72.93,29
+Papaya(Nepali),11,Falgun,kg,60.0,90.0,71.29,29
+Papaya(Nepali),12,Chaitra,kg,60.0,90.0,74.43,29
+Parseley,1,Baisakh,kg,150.0,500.0,369.0,30
+Parseley,2,Jestha,kg,150.0,400.0,260.0,30
+Parseley,3,Asar,kg,100.0,400.0,254.38,8
+Parseley,7,Kartik,kg,600.0,800.0,657.14,14
+Parseley,8,Mangsir,kg,400.0,600.0,508.64,27
+Parseley,9,Poush,kg,200.0,500.0,346.11,30
+Parseley,10,Magh,kg,200.0,500.0,369.83,29
+Parseley,11,Falgun,kg,200.0,500.0,334.94,29
+Parseley,12,Chaitra,kg,200.0,300.0,233.11,30
+Pear(Chinese),1,Baisakh,kg,200.0,250.0,234.63,27
+Pear(Chinese),2,Jestha,kg,200.0,300.0,240.29,17
+Pear(Chinese),3,Asar,kg,250.0,320.0,270.16,31
+Pear(Chinese),4,Shrawan,kg,280.0,350.0,306.72,31
+Pear(Chinese),5,Bhadra,kg,250.0,320.0,305.94,16
+Pear(Chinese),6,Ashwin,kg,280.0,420.0,343.33,18
+Pear(Chinese),7,Kartik,kg,220.0,350.0,274.66,29
+Pear(Chinese),8,Mangsir,kg,220.0,250.0,235.36,28
+Pear(Chinese),9,Poush,kg,220.0,300.0,237.5,30
+Pear(Chinese),10,Magh,kg,220.0,280.0,246.95,29
+Pear(Chinese),11,Falgun,kg,220.0,280.0,241.32,29
+Pear(Chinese),12,Chaitra,kg,220.0,250.0,235.17,30
+Pear(Local),3,Asar,kg,80.0,100.0,92.67,5
+Pear(Local),4,Shrawan,kg,70.0,100.0,88.17,31
+Pear(Local),5,Bhadra,kg,80.0,100.0,88.55,31
+Pear(Local),6,Ashwin,kg,80.0,150.0,96.29,22
+Pear(Local),7,Kartik,kg,90.0,100.0,95.0,1
+Pineapple,1,Baisakh,per piece,150.0,200.0,178.62,29
+Pineapple,2,Jestha,per piece,160.0,200.0,175.16,31
+Pineapple,3,Asar,per piece,150.0,200.0,178.18,32
+Pineapple,4,Shrawan,per piece,150.0,220.0,188.12,31
+Pineapple,5,Bhadra,per piece,150.0,250.0,195.16,31
+Pineapple,6,Ashwin,per piece,150.0,250.0,214.25,31
+Pineapple,7,Kartik,per piece,150.0,250.0,199.83,29
+Pineapple,8,Mangsir,per piece,120.0,200.0,167.5,28
+Pineapple,9,Poush,per piece,100.0,180.0,150.28,30
+Pineapple,10,Magh,per piece,150.0,180.0,165.86,29
+Pineapple,11,Falgun,per piece,150.0,200.0,173.05,29
+Pineapple,12,Chaitra,per piece,140.0,220.0,179.5,30
+Pointed Gourd(Local),1,Baisakh,kg,50.0,150.0,87.02,28
+Pointed Gourd(Local),2,Jestha,kg,35.0,80.0,56.27,31
+Pointed Gourd(Local),3,Asar,kg,20.0,80.0,41.26,32
+Pointed Gourd(Local),4,Shrawan,kg,45.0,90.0,62.81,31
+Pointed Gourd(Local),5,Bhadra,kg,30.0,80.0,49.79,31
+Pointed Gourd(Local),6,Ashwin,kg,35.0,80.0,52.35,30
+Pointed Gourd(Local),7,Kartik,kg,35.0,70.0,53.4,30
+Pointed Gourd(Local),8,Mangsir,kg,35.0,70.0,56.3,25
+Pointed Gourd(Local),9,Poush,kg,60.0,120.0,82.38,7
+Pointed Gourd(Local),11,Falgun,kg,180.0,220.0,204.44,3
+Pointed Gourd(Local),12,Chaitra,kg,90.0,140.0,109.13,23
+Pointed Gourd(Terai),1,Baisakh,kg,50.0,150.0,85.92,29
+Pointed Gourd(Terai),2,Jestha,kg,35.0,90.0,54.54,31
+Pointed Gourd(Terai),3,Asar,kg,20.0,80.0,41.35,31
+Pointed Gourd(Terai),4,Shrawan,kg,45.0,90.0,62.86,31
+Pointed Gourd(Terai),5,Bhadra,kg,30.0,80.0,50.28,29
+Pointed Gourd(Terai),6,Ashwin,kg,40.0,80.0,52.92,28
+Pointed Gourd(Terai),7,Kartik,kg,35.0,70.0,53.45,29
+Pointed Gourd(Terai),8,Mangsir,kg,35.0,70.0,56.61,27
+Pointed Gourd(Terai),9,Poush,kg,50.0,160.0,99.35,23
+Pointed Gourd(Terai),11,Falgun,kg,130.0,260.0,185.21,24
+Pointed Gourd(Terai),12,Chaitra,kg,70.0,140.0,101.95,29
+Pomegranate,1,Baisakh,kg,250.0,400.0,308.56,30
+Pomegranate,2,Jestha,kg,300.0,500.0,374.19,31
+Pomegranate,3,Asar,kg,350.0,400.0,378.7,32
+Pomegranate,4,Shrawan,kg,280.0,400.0,341.02,31
+Pomegranate,5,Bhadra,kg,250.0,350.0,303.44,31
+Pomegranate,6,Ashwin,kg,300.0,500.0,367.72,30
+Pomegranate,7,Kartik,kg,300.0,500.0,422.17,30
+Pomegranate,8,Mangsir,kg,250.0,400.0,337.98,28
+Pomegranate,9,Poush,kg,250.0,350.0,298.72,30
+Pomegranate,10,Magh,kg,300.0,350.0,327.24,29
+Pomegranate,11,Falgun,kg,250.0,350.0,292.07,29
+Pomegranate,12,Chaitra,kg,225.0,300.0,268.83,30
+Potato Red,1,Baisakh,kg,25.0,35.0,29.58,30
+Potato Red,2,Jestha,kg,30.0,45.0,36.13,31
+Potato Red,3,Asar,kg,42.0,55.0,49.6,32
+Potato Red,4,Shrawan,kg,53.0,65.0,58.29,31
+Potato Red,5,Bhadra,kg,60.0,62.0,61.0,31
+Potato Red,6,Ashwin,kg,60.0,100.0,78.6,26
+Potato Red,7,Kartik,kg,54.0,98.0,79.73,30
+Potato Red,8,Mangsir,kg,45.0,65.0,52.68,28
+Potato Red,9,Poush,kg,34.0,55.0,46.1,30
+Potato Red,10,Magh,kg,25.0,36.0,30.54,29
+Potato Red,11,Falgun,kg,24.0,30.0,26.36,29
+Potato Red,12,Chaitra,kg,23.0,32.0,25.76,30
+Potato Red(Indian),1,Baisakh,kg,24.0,30.0,26.71,30
+Potato Red(Indian),2,Jestha,kg,28.0,40.0,32.6,31
+Potato Red(Indian),3,Asar,kg,34.0,39.0,36.21,32
+Potato Red(Indian),4,Shrawan,kg,36.0,40.0,37.21,31
+Potato Red(Indian),5,Bhadra,kg,36.0,39.0,37.09,31
+Potato Red(Indian),6,Ashwin,kg,36.0,50.0,40.55,31
+Potato Red(Indian),7,Kartik,kg,33.0,52.0,43.24,29
+Potato Red(Indian),8,Mangsir,kg,32.0,42.0,36.16,28
+Potato Red(Indian),9,Poush,kg,25.0,42.0,33.26,29
+Potato Red(Indian),10,Magh,kg,23.0,28.0,25.88,29
+Potato Red(Indian),11,Falgun,kg,18.0,26.0,22.38,29
+Potato Red(Indian),12,Chaitra,kg,20.0,30.0,22.39,30
+Potato Red(Mude),2,Jestha,kg,32.0,40.0,35.47,15
+Potato Red(Mude),3,Asar,kg,36.0,43.0,38.96,32
+Potato Red(Mude),4,Shrawan,kg,42.0,58.0,51.96,31
+Potato Red(Mude),5,Bhadra,kg,52.0,57.0,54.8,31
+Potato Red(Mude),6,Ashwin,kg,55.0,88.0,69.52,24
+Potato Red(Mude),7,Kartik,kg,68.0,80.0,75.71,7
+Potato Red(Mude),9,Poush,kg,40.0,42.0,41.33,1
+Potato Red(Mude),12,Chaitra,kg,40.0,45.0,42.33,1
+Potato White,1,Baisakh,kg,22.0,25.0,23.38,4
+Potato White,2,Jestha,kg,22.0,36.0,27.81,31
+Potato White,3,Asar,kg,32.0,45.0,38.8,31
+Potato White,4,Shrawan,kg,40.0,52.0,47.58,21
+Potato White,5,Bhadra,kg,50.0,53.0,51.36,24
+Potato White,6,Ashwin,kg,52.0,85.0,55.44,14
+Potato White,7,Kartik,kg,38.0,90.0,62.48,28
+Potato White,8,Mangsir,kg,38.0,50.0,43.38,27
+Potato White,9,Poush,kg,24.0,42.0,31.2,22
+Potato White,10,Magh,kg,18.0,26.0,21.59,25
+Potato White,11,Falgun,kg,16.0,20.0,18.04,28
+Potato White,12,Chaitra,kg,16.0,27.0,19.51,30
+Pumpkin,1,Baisakh,kg,40.0,50.0,44.92,30
+Pumpkin,2,Jestha,kg,25.0,50.0,40.16,31
+Pumpkin,3,Asar,kg,25.0,40.0,31.8,32
+Pumpkin,4,Shrawan,kg,30.0,40.0,33.01,31
+Pumpkin,5,Bhadra,kg,30.0,60.0,47.59,31
+Pumpkin,6,Ashwin,kg,40.0,60.0,53.08,29
+Pumpkin,7,Kartik,kg,28.0,50.0,35.57,30
+Pumpkin,8,Mangsir,kg,20.0,50.0,36.06,28
+Pumpkin,9,Poush,kg,30.0,50.0,40.82,30
+Pumpkin,10,Magh,kg,30.0,50.0,40.09,29
+Pumpkin,11,Falgun,kg,30.0,50.0,40.44,29
+Pumpkin,12,Chaitra,kg,35.0,50.0,44.77,30
+Raddish Red,1,Baisakh,kg,30.0,100.0,77.27,11
+Raddish Red,2,Jestha,kg,40.0,50.0,45.0,10
+Raddish Red,3,Asar,kg,50.0,70.0,57.5,6
+Raddish Red,4,Shrawan,kg,30.0,60.0,43.36,31
+Raddish Red,5,Bhadra,kg,20.0,50.0,35.75,31
+Raddish Red,6,Ashwin,kg,30.0,50.0,40.45,25
+Raddish Red,7,Kartik,kg,20.0,100.0,41.09,29
+Raddish Red,8,Mangsir,kg,30.0,50.0,37.05,22
+Raddish Red,9,Poush,kg,30.0,70.0,44.28,30
+Raddish Red,10,Magh,kg,50.0,80.0,70.04,29
+Raddish Red,11,Falgun,kg,40.0,80.0,66.32,29
+Raddish Red,12,Chaitra,kg,40.0,80.0,59.89,30
+Raddish White(Hybrid),1,Baisakh,kg,20.0,80.0,33.59,30
+Raddish White(Hybrid),2,Jestha,kg,20.0,70.0,39.53,31
+Raddish White(Hybrid),3,Asar,kg,25.0,80.0,53.33,32
+Raddish White(Hybrid),4,Shrawan,kg,15.0,35.0,25.39,30
+Raddish White(Hybrid),5,Bhadra,kg,20.0,35.0,27.63,31
+Raddish White(Hybrid),6,Ashwin,kg,20.0,60.0,39.17,29
+Raddish White(Hybrid),7,Kartik,kg,25.0,100.0,43.03,30
+Raddish White(Hybrid),8,Mangsir,kg,30.0,55.0,41.64,28
+Raddish White(Hybrid),9,Poush,kg,25.0,50.0,33.47,30
+Raddish White(Hybrid),10,Magh,kg,25.0,50.0,32.66,29
+Raddish White(Hybrid),11,Falgun,kg,25.0,50.0,34.06,29
+Raddish White(Hybrid),12,Chaitra,kg,30.0,70.0,42.75,28
+Raddish White(Local),1,Baisakh,kg,15.0,60.0,24.42,30
+Raddish White(Local),2,Jestha,kg,15.0,60.0,29.35,31
+Raddish White(Local),3,Asar,kg,20.0,60.0,39.7,32
+Raddish White(Local),4,Shrawan,kg,10.0,30.0,17.47,31
+Raddish White(Local),5,Bhadra,kg,15.0,25.0,18.48,31
+Raddish White(Local),6,Ashwin,kg,15.0,40.0,28.69,25
+Raddish White(Local),7,Kartik,kg,15.0,45.0,28.2,27
+Raddish White(Local),8,Mangsir,kg,20.0,40.0,27.96,28
+Raddish White(Local),9,Poush,kg,15.0,30.0,22.95,30
+Raddish White(Local),10,Magh,kg,15.0,35.0,21.78,29
+Raddish White(Local),11,Falgun,kg,15.0,45.0,25.36,29
+Raddish White(Local),12,Chaitra,kg,20.0,50.0,33.1,30
+Red Cabbbage,1,Baisakh,kg,30.0,80.0,51.78,30
+Red Cabbbage,2,Jestha,kg,30.0,90.0,61.51,31
+Red Cabbbage,3,Asar,kg,80.0,180.0,127.26,31
+Red Cabbbage,4,Shrawan,kg,100.0,160.0,135.81,31
+Red Cabbbage,5,Bhadra,kg,100.0,200.0,143.49,31
+Red Cabbbage,6,Ashwin,kg,150.0,350.0,227.87,25
+Red Cabbbage,7,Kartik,kg,80.0,250.0,138.93,28
+Red Cabbbage,8,Mangsir,kg,60.0,150.0,96.37,28
+Red Cabbbage,9,Poush,kg,60.0,90.0,77.67,30
+Red Cabbbage,10,Magh,kg,60.0,90.0,76.5,29
+Red Cabbbage,11,Falgun,kg,60.0,90.0,74.83,29
+Red Cabbbage,12,Chaitra,kg,50.0,80.0,60.67,30
+Sarifa,4,Shrawan,kg,150.0,250.0,204.56,15
+Sarifa,5,Bhadra,kg,100.0,200.0,165.43,31
+Sarifa,6,Ashwin,kg,120.0,200.0,171.25,24
+Sarifa,7,Kartik,kg,150.0,200.0,170.0,10
+Sarifa,8,Mangsir,kg,200.0,450.0,296.15,13
+Sarifa,9,Poush,kg,220.0,300.0,271.36,22
+Smooth Gourd,1,Baisakh,kg,20.0,70.0,39.43,30
+Smooth Gourd,2,Jestha,kg,15.0,50.0,31.56,31
+Smooth Gourd,3,Asar,kg,20.0,60.0,43.3,32
+Smooth Gourd,4,Shrawan,kg,25.0,60.0,38.85,31
+Smooth Gourd,5,Bhadra,kg,15.0,100.0,37.18,31
+Smooth Gourd,6,Ashwin,kg,40.0,100.0,67.15,31
+Smooth Gourd,7,Kartik,kg,50.0,120.0,75.67,30
+Smooth Gourd,8,Mangsir,kg,50.0,90.0,76.11,27
+Smooth Gourd,9,Poush,kg,80.0,100.0,94.24,22
+Smooth Gourd,11,Falgun,kg,70.0,200.0,123.22,19
+Smooth Gourd,12,Chaitra,kg,40.0,140.0,95.14,30
+Snake Gourd,1,Baisakh,kg,20.0,80.0,48.34,30
+Snake Gourd,2,Jestha,kg,10.0,30.0,20.5,30
+Snake Gourd,3,Asar,kg,15.0,30.0,21.68,32
+Snake Gourd,4,Shrawan,kg,20.0,35.0,28.14,31
+Snake Gourd,5,Bhadra,kg,15.0,30.0,24.07,31
+Snake Gourd,6,Ashwin,kg,25.0,50.0,36.61,19
+Snake Gourd,7,Kartik,kg,30.0,80.0,43.82,12
+Snake Gourd,8,Mangsir,kg,50.0,80.0,67.41,9
+Snake Gourd,9,Poush,kg,60.0,80.0,74.29,7
+Snake Gourd,12,Chaitra,kg,70.0,80.0,75.0,5
+Soyabean Green,1,Baisakh,kg,90.0,300.0,197.05,13
+Soyabean Green,2,Jestha,kg,60.0,150.0,92.84,31
+Soyabean Green,3,Asar,kg,80.0,220.0,155.0,32
+Soyabean Green,4,Shrawan,kg,60.0,180.0,85.49,31
+Soyabean Green,5,Bhadra,kg,60.0,100.0,81.28,30
+Soyabean Green,6,Ashwin,kg,60.0,90.0,72.95,26
+Soyabean Green,7,Kartik,kg,60.0,90.0,75.89,15
+Spinach Leaf,1,Baisakh,kg,120.0,180.0,141.11,30
+Spinach Leaf,2,Jestha,kg,70.0,200.0,141.95,24
+Spinach Leaf,3,Asar,kg,70.0,130.0,95.88,19
+Spinach Leaf,6,Ashwin,kg,150.0,220.0,187.38,14
+Spinach Leaf,7,Kartik,kg,120.0,400.0,228.72,30
+Spinach Leaf,8,Mangsir,kg,80.0,200.0,124.05,28
+Spinach Leaf,9,Poush,kg,60.0,110.0,82.61,30
+Spinach Leaf,10,Magh,kg,40.0,120.0,79.75,29
+Spinach Leaf,11,Falgun,kg,40.0,80.0,54.0,29
+Spinach Leaf,12,Chaitra,kg,90.0,120.0,108.67,30
+Sponge Gourd,1,Baisakh,kg,40.0,80.0,61.08,17
+Sponge Gourd,2,Jestha,kg,30.0,70.0,48.1,31
+Sponge Gourd,3,Asar,kg,20.0,50.0,35.26,32
+Sponge Gourd,4,Shrawan,kg,30.0,60.0,44.82,31
+Sponge Gourd,5,Bhadra,kg,30.0,70.0,44.61,31
+Sponge Gourd,6,Ashwin,kg,50.0,100.0,78.67,10
+Sponge Gourd,12,Chaitra,kg,70.0,100.0,85.0,5
+Squash(Long),1,Baisakh,kg,15.0,60.0,28.11,29
+Squash(Long),2,Jestha,kg,20.0,50.0,32.68,27
+Squash(Long),3,Asar,kg,20.0,60.0,39.16,4
+Squash(Long),4,Shrawan,kg,40.0,50.0,45.0,1
+Squash(Long),7,Kartik,kg,40.0,60.0,53.61,6
+Squash(Long),8,Mangsir,kg,30.0,60.0,42.21,28
+Squash(Long),9,Poush,kg,20.0,40.0,25.67,30
+Squash(Long),10,Magh,kg,10.0,30.0,23.26,29
+Squash(Long),11,Falgun,kg,10.0,50.0,21.36,29
+Squash(Long),12,Chaitra,kg,30.0,60.0,44.54,29
+Squash(Round),1,Baisakh,kg,10.0,50.0,26.31,30
+Squash(Round),2,Jestha,kg,15.0,60.0,37.18,31
+Squash(Round),3,Asar,kg,20.0,60.0,39.67,28
+Squash(Round),4,Shrawan,kg,40.0,80.0,59.22,30
+Squash(Round),5,Bhadra,kg,30.0,70.0,53.82,31
+Squash(Round),6,Ashwin,kg,25.0,70.0,45.81,29
+Squash(Round),7,Kartik,kg,30.0,80.0,56.97,28
+Squash(Round),8,Mangsir,kg,30.0,60.0,43.33,28
+Squash(Round),9,Poush,kg,20.0,40.0,26.72,29
+Squash(Round),10,Magh,kg,10.0,30.0,23.9,29
+Squash(Round),11,Falgun,kg,10.0,60.0,22.97,29
+Squash(Round),12,Chaitra,kg,30.0,60.0,44.44,30
+Strawberry,7,Kartik,kg,600.0,700.0,641.67,3
+Strawberry,8,Mangsir,kg,400.0,700.0,542.56,28
+Strawberry,9,Poush,kg,350.0,500.0,422.78,30
+Strawberry,10,Magh,kg,250.0,450.0,379.88,29
+Strawberry,11,Falgun,kg,200.0,450.0,343.1,29
+Strawberry,12,Chaitra,kg,200.0,400.0,310.83,30
+Sugarbeet,1,Baisakh,kg,60.0,90.0,76.94,30
+Sugarbeet,2,Jestha,kg,70.0,100.0,79.41,31
+Sugarbeet,3,Asar,kg,70.0,100.0,78.8,32
+Sugarbeet,4,Shrawan,kg,70.0,80.0,75.75,31
+Sugarbeet,5,Bhadra,kg,70.0,80.0,75.86,31
+Sugarbeet,6,Ashwin,kg,70.0,90.0,76.08,31
+Sugarbeet,7,Kartik,kg,70.0,100.0,82.47,29
+Sugarbeet,8,Mangsir,kg,80.0,120.0,91.8,28
+Sugarbeet,9,Poush,kg,60.0,90.0,74.91,30
+Sugarbeet,10,Magh,kg,60.0,80.0,74.03,29
+Sugarbeet,11,Falgun,kg,60.0,80.0,74.71,29
+Sugarbeet,12,Chaitra,kg,60.0,80.0,75.11,30
+Sugarcane,7,Kartik,per piece,70.0,120.0,96.89,22
+Sugarcane,8,Mangsir,per piece,70.0,90.0,83.85,26
+Sugarcane,9,Poush,per piece,70.0,100.0,86.17,10
+Sugarcane,10,Magh,per piece,60.0,90.0,81.5,29
+Sugarcane,11,Falgun,per piece,60.0,120.0,81.95,29
+Sugarcane,12,Chaitra,per piece,120.0,130.0,125.17,10
+Sweet Lime,7,Kartik,kg,150.0,180.0,166.67,3
+Sweet Orange,1,Baisakh,kg,150.0,170.0,159.14,29
+Sweet Orange,2,Jestha,kg,150.0,200.0,171.02,31
+Sweet Orange,3,Asar,kg,180.0,200.0,190.83,32
+Sweet Orange,4,Shrawan,kg,180.0,200.0,191.77,31
+Sweet Orange,5,Bhadra,kg,120.0,200.0,155.27,31
+Sweet Orange,6,Ashwin,kg,120.0,150.0,131.94,31
+Sweet Orange,7,Kartik,kg,90.0,150.0,122.0,30
+Sweet Orange,8,Mangsir,kg,120.0,180.0,154.88,28
+Sweet Orange,9,Poush,kg,150.0,180.0,162.81,30
+Sweet Orange,10,Magh,kg,150.0,180.0,165.86,29
+Sweet Orange,11,Falgun,kg,140.0,200.0,165.69,29
+Sweet Orange,12,Chaitra,kg,140.0,200.0,168.33,30
+Sweet Potato,1,Baisakh,kg,50.0,80.0,73.33,22
+Sweet Potato,2,Jestha,kg,60.0,80.0,74.21,21
+Sweet Potato,3,Asar,kg,70.0,80.0,75.28,6
+Sweet Potato,6,Ashwin,kg,90.0,100.0,95.0,3
+Sweet Potato,7,Kartik,kg,30.0,90.0,56.7,28
+Sweet Potato,8,Mangsir,kg,40.0,80.0,55.74,28
+Sweet Potato,9,Poush,kg,30.0,80.0,60.11,30
+Sweet Potato,10,Magh,kg,60.0,90.0,73.08,29
+Sweet Potato,11,Falgun,kg,60.0,80.0,75.16,27
+Sweet Potato,12,Chaitra,kg,60.0,80.0,74.72,30
+Sword Bean,1,Baisakh,kg,70.0,120.0,99.52,7
+Sword Bean,2,Jestha,kg,200.0,225.0,212.5,1
+Sword Bean,3,Asar,kg,100.0,225.0,154.33,30
+Sword Bean,4,Shrawan,kg,100.0,150.0,126.16,31
+Sword Bean,5,Bhadra,kg,90.0,130.0,107.26,31
+Sword Bean,6,Ashwin,kg,80.0,150.0,113.52,27
+Sword Bean,7,Kartik,kg,80.0,150.0,119.47,28
+Sword Bean,8,Mangsir,kg,40.0,140.0,78.96,28
+Sword Bean,9,Poush,kg,25.0,60.0,36.74,30
+Sword Bean,10,Magh,kg,40.0,80.0,57.5,29
+Sword Bean,11,Falgun,kg,60.0,120.0,83.3,29
+Sword Bean,12,Chaitra,kg,50.0,80.0,65.57,30
+Tamarind,1,Baisakh,kg,150.0,220.0,184.39,30
+Tamarind,2,Jestha,kg,150.0,180.0,167.42,31
+Tamarind,3,Asar,kg,140.0,180.0,154.87,31
+Tamarind,4,Shrawan,kg,140.0,160.0,146.45,31
+Tamarind,5,Bhadra,kg,140.0,150.0,145.86,31
+Tamarind,6,Ashwin,kg,140.0,150.0,146.02,31
+Tamarind,7,Kartik,kg,140.0,150.0,145.98,30
+Tamarind,8,Mangsir,kg,140.0,150.0,146.11,27
+Tamarind,9,Poush,kg,140.0,150.0,146.26,30
+Tamarind,10,Magh,kg,140.0,160.0,146.38,29
+Tamarind,11,Falgun,kg,140.0,150.0,146.32,29
+Tamarind,12,Chaitra,kg,140.0,160.0,154.89,30
+Tofu,1,Baisakh,kg,90.0,120.0,100.5,30
+Tofu,2,Jestha,kg,110.0,120.0,115.38,31
+Tofu,3,Asar,kg,110.0,120.0,115.78,32
+Tofu,4,Shrawan,kg,110.0,120.0,115.97,31
+Tofu,5,Bhadra,kg,100.0,120.0,112.21,31
+Tofu,6,Ashwin,kg,100.0,120.0,106.13,31
+Tofu,7,Kartik,kg,90.0,130.0,115.84,30
+Tofu,8,Mangsir,kg,120.0,130.0,126.42,27
+Tofu,9,Poush,kg,120.0,130.0,126.28,30
+Tofu,10,Magh,kg,120.0,130.0,126.3,29
+Tofu,11,Falgun,kg,120.0,130.0,126.32,29
+Tofu,12,Chaitra,kg,90.0,130.0,124.45,30
+Tomato Big(Indian),1,Baisakh,kg,50.0,100.0,74.28,30
+Tomato Big(Indian),2,Jestha,kg,70.0,140.0,104.65,31
+Tomato Big(Indian),3,Asar,kg,50.0,120.0,92.35,30
+Tomato Big(Indian),4,Shrawan,kg,40.0,80.0,63.43,31
+Tomato Big(Indian),5,Bhadra,kg,50.0,80.0,60.21,31
+Tomato Big(Indian),6,Ashwin,kg,50.0,110.0,69.09,31
+Tomato Big(Indian),7,Kartik,kg,60.0,110.0,80.24,28
+Tomato Big(Indian),8,Mangsir,kg,40.0,70.0,56.85,28
+Tomato Big(Indian),9,Poush,kg,30.0,60.0,42.11,30
+Tomato Big(Indian),10,Magh,kg,40.0,60.0,49.78,29
+Tomato Big(Indian),11,Falgun,kg,35.0,70.0,53.86,29
+Tomato Big(Indian),12,Chaitra,kg,40.0,70.0,54.83,30
+Tomato Big(Nepali),1,Baisakh,kg,50.0,90.0,63.85,29
+Tomato Big(Nepali),2,Jestha,kg,90.0,160.0,119.44,12
+Tomato Big(Nepali),3,Asar,kg,50.0,100.0,79.61,17
+Tomato Big(Nepali),4,Shrawan,kg,40.0,70.0,56.67,17
+Tomato Big(Nepali),5,Bhadra,kg,40.0,70.0,54.54,28
+Tomato Big(Nepali),6,Ashwin,kg,40.0,80.0,54.71,31
+Tomato Big(Nepali),7,Kartik,kg,50.0,100.0,69.72,30
+Tomato Big(Nepali),8,Mangsir,kg,40.0,70.0,52.18,28
+Tomato Big(Nepali),9,Poush,kg,30.0,60.0,43.58,30
+Tomato Big(Nepali),10,Magh,kg,40.0,60.0,49.5,29
+Tomato Big(Nepali),11,Falgun,kg,30.0,70.0,52.64,28
+Tomato Big(Nepali),12,Chaitra,kg,40.0,70.0,53.06,30
+Tomato Small(Indian),1,Baisakh,kg,25.0,80.0,46.88,29
+Tomato Small(Indian),2,Jestha,kg,30.0,110.0,77.58,20
+Tomato Small(Indian),3,Asar,kg,40.0,55.0,47.42,2
+Tomato Small(Indian),9,Poush,kg,14.0,50.0,27.7,22
+Tomato Small(Indian),10,Magh,kg,10.0,40.0,25.55,29
+Tomato Small(Indian),11,Falgun,kg,20.0,55.0,32.27,29
+Tomato Small(Indian),12,Chaitra,kg,30.0,60.0,44.23,30
+Tomato Small(Local),1,Baisakh,kg,20.0,80.0,43.71,30
+Tomato Small(Local),2,Jestha,kg,25.0,100.0,63.74,31
+Tomato Small(Local),3,Asar,kg,20.0,65.0,38.07,32
+Tomato Small(Local),4,Shrawan,kg,22.0,50.0,32.04,31
+Tomato Small(Local),5,Bhadra,kg,22.0,55.0,33.59,31
+Tomato Small(Local),6,Ashwin,kg,15.0,55.0,29.89,31
+Tomato Small(Local),7,Kartik,kg,20.0,50.0,32.47,29
+Tomato Small(Local),8,Mangsir,kg,15.0,40.0,24.04,28
+Tomato Small(Local),9,Poush,kg,10.0,30.0,17.66,30
+Tomato Small(Local),10,Magh,kg,10.0,25.0,15.05,28
+Tomato Small(Local),11,Falgun,kg,10.0,50.0,22.03,29
+Tomato Small(Local),12,Chaitra,kg,15.0,50.0,32.13,30
+Tomato Small(Terai),1,Baisakh,kg,25.0,70.0,48.61,28
+Tomato Small(Terai),2,Jestha,kg,40.0,120.0,71.52,11
+Tomato Small(Terai),8,Mangsir,kg,25.0,50.0,36.14,13
+Tomato Small(Terai),9,Poush,kg,18.0,45.0,29.44,28
+Tomato Small(Terai),10,Magh,kg,15.0,45.0,26.47,29
+Tomato Small(Terai),11,Falgun,kg,18.0,60.0,31.57,29
+Tomato Small(Terai),12,Chaitra,kg,25.0,62.0,43.4,30
+Tomato Small(Tunnel),2,Jestha,kg,38.0,120.0,77.09,28
+Tomato Small(Tunnel),3,Asar,kg,28.0,77.0,47.39,32
+Tomato Small(Tunnel),4,Shrawan,kg,28.0,52.0,39.83,31
+Tomato Small(Tunnel),5,Bhadra,kg,28.0,63.0,41.39,31
+Tomato Small(Tunnel),6,Ashwin,kg,23.0,60.0,36.17,31
+Tomato Small(Tunnel),7,Kartik,kg,28.0,60.0,43.76,28
+Tomato Small(Tunnel),8,Mangsir,kg,22.0,55.0,34.29,28
+Tomato Small(Tunnel),9,Poush,kg,13.0,40.0,21.16,30
+Tomato Small(Tunnel),10,Magh,kg,10.0,25.0,16.29,23
+Tomato Small(Tunnel),11,Falgun,kg,10.0,50.0,22.2,27
+Tomato Small(Tunnel),12,Chaitra,kg,30.0,70.0,50.1,30
+Tree Tomato,8,Mangsir,kg,70.0,100.0,81.39,6
+Tree Tomato,9,Poush,kg,60.0,100.0,79.06,30
+Tree Tomato,10,Magh,kg,70.0,150.0,116.04,29
+Tree Tomato,11,Falgun,kg,80.0,120.0,99.2,29
+Tree Tomato,12,Chaitra,kg,110.0,180.0,145.56,15
+Turnip,2,Jestha,kg,60.0,80.0,72.42,11
+Turnip,3,Asar,kg,70.0,90.0,78.57,14
+Turnip,6,Ashwin,kg,70.0,90.0,78.78,15
+Turnip,7,Kartik,kg,50.0,90.0,73.62,29
+Turnip,8,Mangsir,kg,40.0,60.0,54.87,28
+Turnip,9,Poush,kg,40.0,60.0,50.45,30
+Turnip,10,Magh,kg,40.0,60.0,50.12,29
+Turnip,11,Falgun,kg,40.0,80.0,56.01,28
+Turnip,12,Chaitra,kg,50.0,90.0,66.9,29
+Turnip A,1,Baisakh,kg,60.0,90.0,79.0,30
+Turnip A,2,Jestha,kg,60.0,90.0,76.34,31
+Turnip A,3,Asar,kg,70.0,90.0,80.12,29
+Turnip A,4,Shrawan,kg,80.0,100.0,94.72,30
+Turnip A,5,Bhadra,kg,90.0,100.0,95.63,8
+Turnip A,6,Ashwin,kg,70.0,100.0,81.99,31
+Turnip A,7,Kartik,kg,70.0,100.0,83.39,30
+Turnip A,8,Mangsir,kg,70.0,90.0,84.32,27
+Turnip A,9,Poush,kg,40.0,90.0,67.56,30
+Turnip A,10,Magh,kg,50.0,70.0,61.55,29
+Turnip A,11,Falgun,kg,50.0,80.0,64.83,29
+Turnip A,12,Chaitra,kg,60.0,80.0,68.83,30
+Water Melon(Dotted),6,Ashwin,kg,80.0,90.0,85.0,1
+Water Melon(Green),1,Baisakh,kg,25.0,60.0,43.22,30
+Water Melon(Green),2,Jestha,kg,30.0,50.0,37.26,31
+Water Melon(Green),3,Asar,kg,35.0,60.0,49.83,31
+Water Melon(Green),4,Shrawan,kg,50.0,65.0,57.42,31
+Water Melon(Green),5,Bhadra,kg,50.0,70.0,58.2,31
+Water Melon(Green),6,Ashwin,kg,60.0,120.0,89.39,31
+Water Melon(Green),7,Kartik,kg,70.0,90.0,85.89,30
+Water Melon(Green),8,Mangsir,kg,40.0,90.0,62.35,27
+Water Melon(Green),9,Poush,kg,35.0,60.0,45.73,30
+Water Melon(Green),10,Magh,kg,40.0,50.0,46.04,29
+Water Melon(Green),11,Falgun,kg,30.0,60.0,40.2,29
+Water Melon(Green),12,Chaitra,kg,35.0,50.0,43.51,29
+Yam,7,Kartik,kg,60.0,120.0,80.18,19
+Yam,8,Mangsir,kg,50.0,100.0,63.5,28
+Yam,9,Poush,kg,50.0,90.0,63.14,30
+Yam,10,Magh,kg,50.0,90.0,66.49,28
+Yam,11,Falgun,kg,50.0,80.0,63.97,28
+Yam,12,Chaitra,kg,60.0,80.0,67.67,30

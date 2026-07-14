@@ -1,0 +1,91 @@
+crop_key,flood_risk_1to5,drought_risk_1to5,frost_risk_1to5,weather_vulnerability_composite_1to5,disease_frequency_nepal_1to5,storage_difficulty_1to5,market_price_volatility_1to5,composite_risk_score_1to5,risk_tier,scoring_notes
+tomato,4,3,2,3.0,5,4,5,3.83,High,"High flood risk (monsoon Terai/low hills); very frequent diseases (TYLCV, late blight endemic); extremely volatile Kalimati prices (85%+ swings within month)"
+potato,3,2,3,2.67,5,3,4,3.33,High,Moderate flood/frost risk; late blight extremely prevalent in Nepal hills; India import dependency drives price spikes (onion-potato 2023 episode)
+onion,3,3,2,2.67,3,3,5,3.17,High,Import-dependent; purple blotch frequent; price spiked 101%+ in 2023 after India export ban; very high market volatility
+carrot,2,2,2,2.0,2,3,3,2.33,Moderate,Low flood risk (well-drained); moderate disease; relatively stable demand but seasonal price swings
+cabbage,2,2,3,2.33,4,3,3,2.83,Moderate,Cool-season crop; clubroot and black rot frequent in hills; prices spike post-monsoon flood disruptions
+cauli,2,2,3,2.33,4,5,4,3.33,High,Very perishable; black rot and DMV frequent; Kalimati data shows 73% price jump within 2 months post-flood (2024)
+raddish,2,2,2,2.0,2,4,3,2.5,Moderate,Short shelf life; fewer major diseases; moderate price seasonality
+brinjal,3,3,1,2.33,4,4,3,3.0,High,Bacterial wilt endemic in Terai; fruit borer very frequent; prices 29% swing within days per Kalimati 2025 data
+cow_pea,3,2,1,2.0,3,4,3,2.67,Moderate,Terai flood exposure; mosaic virus moderate; 40% price drop documented in single Kalimati session
+peas,2,2,3,2.33,3,4,3,2.83,Moderate,Frost tolerant; powdery mildew and fusarium wilt frequent; seasonal price spikes noted in CSISA reports
+bean,2,2,2,2.0,3,4,3,2.67,Moderate,BCMV and anthracnose moderate frequency; French beans 53-61% price swings per Kalimati 2025 data
+soyabean,3,2,1,2.0,3,2,2,2.17,Moderate,Established monsoon crop; rust periodic; dry grain long shelf life stabilises market
+bitter_gourd,3,2,1,2.0,3,4,3,2.67,Moderate,Monsoon crop; powdery mildew common; fruit fly consistent pressure; moderate price swings
+bottle_gourd,3,2,1,2.0,3,4,2,2.5,Moderate,Monsoon crop; moderate disease; 44% price drop observed at Kalimati 2025
+pointed_gourd,3,2,1,2.0,3,4,2,2.5,Moderate,Low altitude Terai; fruit fly consistent; rhizomatous so moderate flood recovery
+snake_gourd,3,2,1,2.0,3,5,3,2.83,Moderate,Highly perishable; monsoon crop; 44% Kalimati price swing documented
+smooth_gourd,3,2,1,2.0,3,5,3,2.83,Moderate,Very perishable; similar volatility profile to snake gourd; moderate disease
+sponge_gourd,3,2,1,2.0,3,5,3,2.83,Moderate,Very perishable; similar profile to smooth gourd; CMV periodic
+pumpkin,3,2,1,2.0,3,2,2,2.17,Moderate,Good shelf life when mature; moderate disease; prices relatively stable; carrots/pumpkins more affordable per CSISA July 2024
+squash,2,2,2,2.0,3,3,2,2.33,Moderate,Similar to pumpkin for winter varieties; summer squash perishable
+turnip,2,2,3,2.33,2,3,2,2.33,Moderate,Cool-season; few major diseases; stable demand; good cellar storage
+okara,3,3,1,2.33,3,5,3,3.0,High,YVMV endemic in Nepal lowlands; very perishable; price spikes noted in monsoon supply disruption
+christophine,2,2,2,2.0,2,3,2,2.17,Moderate,Perennial vine; moderate disease; good local demand; relatively stable pricing
+brd_leaf_mustard,2,2,2,2.0,3,5,3,2.83,Moderate,Very perishable leaf; white rust and alternaria blight frequent in Nepal winters; moderate price swings
+spinach_leaf,2,2,2,2.0,3,5,3,2.83,Moderate,Very perishable; downy mildew common; moderate seasonal price variation
+cress_leaf,2,2,2,2.0,2,5,3,2.67,Moderate,Very perishable; few major diseases; niche market — limited volatility data
+mustard_leaf,2,2,2,2.0,3,5,3,2.83,Moderate,Very perishable; alternaria blight common in Nepal winters; moderate price swing
+fenugreek_leaf,2,2,2,2.0,3,5,3,2.83,Moderate,Very perishable leaf; powdery mildew occasional; moderate price variation
+mushroom,1,1,1,1.0,4,5,3,2.5,Moderate,Controlled environment; Trichoderma contamination frequent in Nepal production units; very perishable; prices moderately stable
+asparagus,2,2,3,2.33,3,5,3,3.0,High,Cool hills; asparagus rust occasional; very perishable (spears); limited market depth → moderate volatility
+neuro,2,1,2,1.67,1,5,2,2.17,Moderate,Wild/semi-cultivated; minimal disease; highly perishable fresh; fermented form stable
+brocauli,2,2,3,2.33,4,5,4,3.33,High,Very perishable; black rot frequent; Kathmandu market prices spike 4x in off-season (winter tunnel premium)
+sugarbeet,3,2,2,2.33,3,2,2,2.33,Moderate,Limited Nepal data; cercospora leaf spot moderate; processed immediately so fresh storage not issue
+drumstick,2,1,1,1.33,2,4,2,2.0,Low,Drought-hardy tree; few diseases; perishable pods but dried leaves stable; prices relatively stable
+lettuce,2,2,2,2.0,3,5,3,2.83,Moderate,Very perishable; downy mildew common in Nepal valleys; niche high-value market — moderate volatility
+celery,2,2,2,2.0,3,4,3,2.67,Moderate,Moderate diseases; 4-week shelf life; niche demand; moderate price variation
+parseley,2,2,2,2.0,2,4,2,2.33,Moderate,Few major diseases; perishable fresh; niche market — moderate volatility
+fennel_leaf,2,2,2,2.0,2,5,2,2.5,Moderate,Very perishable leaf; aphids common; small niche market
+mint,2,1,2,1.67,2,4,2,2.17,Moderate,Perennial; mint rust occasional; moderate perishability; stable local demand
+tamarind,2,1,1,1.33,2,1,2,1.5,Low,Drought-hardy; few serious diseases; very long shelf life (dry pods); stable pricing
+bamboo_shoot,2,1,2,1.67,2,5,2,2.33,Moderate,High-moisture habitat; minimal disease; very perishable fresh; fermented form shelf-stable
+tofu,1,1,1,1.0,2,4,2,1.83,Low,Processed product; bacterial spoilage if cold chain breaks; moderate volatility (tracks soybean/import prices)
+gundruk,1,1,1,1.0,1,1,2,1.17,Low,Fermented; minimal spoilage risk; very stable prices; traditional staple
+apple,1,2,4,2.33,4,2,3,2.67,Moderate,High frost risk (Himalayan belt); apple scab and fire blight frequent in Nepal orchards; VAT removed 2024/25 suggesting import price sensitivity
+banana,4,3,2,3.0,4,4,3,3.33,High,Very high flood risk (Terai floodplain); Fusarium wilt (Panama) and BBTV major threats; perishable
+lime,3,3,2,2.67,4,3,3,3.0,High,Monsoon flood risk; CTV and leaf miner frequent; price seasonal but not extreme
+pomegranate,2,2,2,2.0,3,2,3,2.33,Moderate,Moderate climate risks; bacterial blight emerging; fair shelf life; moderate price swings
+mango,3,2,1,2.0,4,4,3,2.83,Moderate,Flood risk (Terai); powdery mildew and anthracnose very frequent in Nepal; highly perishable ripe fruit
+grapes,2,2,3,2.33,4,3,3,2.83,Moderate,Limited altitudinal range; downy and powdery mildew very frequent; moderate volatility
+watermelon,3,3,1,2.33,3,3,3,2.67,Moderate,Terai flood/drought sensitive; fusarium wilt frequent; moderate price variability
+orange,3,3,2,2.67,4,3,3,3.0,High,Monsoon and CTV risk; leaf miner widespread; prices spike off-season
+pineapple,4,2,1,2.33,3,4,2,2.67,Moderate,High flood risk (low Terai); Phytophthora and mealybug common; perishable ripe fruit
+cucumber,3,2,1,2.0,3,4,3,2.67,Moderate,Monsoon crop; downy mildew very frequent; moderate Kalimati price swings
+jack_fruit,3,1,1,1.67,3,4,2,2.33,Moderate,Low-altitude tree; bark borer common; very perishable ripe; canned form stable
+papaya,4,2,1,2.33,4,4,3,3.0,High,Very high flood sensitivity (shallow roots); PRSV very frequent in Nepal; perishable
+sugarcane,5,2,1,2.67,3,1,2,2.33,Moderate,Extremely high flood risk (Terai river valleys); red rot and smut moderate; must be processed immediately
+ginger,3,2,1,2.0,4,3,3,2.67,Moderate,Rhizome rot and bacterial wilt very frequent in Nepal (major constraint); moderate price variation
+chilli,3,3,1,2.33,4,3,4,3.0,High,Leaf curl virus and anthracnose very frequent; green chilli perishable; dried chilli stable but price volatile (import sensitive)
+capsicum,2,2,2,2.0,4,4,4,3.0,High,Bacterial wilt and anthracnose moderate-frequent; perishable; high-value market → moderate volatility
+garlic,2,2,2,2.0,3,2,4,2.5,Moderate,White rot and rust moderate; good shelf life when cured; price volatile due to import dependency from India/China
+coriander,2,2,2,2.0,3,5,3,2.83,Moderate,Very perishable leaf; powdery mildew common; prices spike sharply in off-season
+clive,2,2,3,2.33,2,4,2,2.5,Moderate,Perennial; downy mildew occasional; moderate shelf life; niche market
+fish,3,2,1,2.0,4,5,3,3.0,High,Pond flood risk during monsoon; Aeromonas and EUS frequent in Nepal aquaculture; very perishable fresh
+arum,3,2,1,2.0,3,3,2,2.33,Moderate,Monsoon moisture required but flood can rottle rhizomes; DsMV moderate; moderate shelf life when cured
+maize,3,3,2,2.67,4,2,2,2.67,Moderate,Moderate flood risk; Turcicum blight and fall armyworm very frequent per NARC/NMRP; dry grain stores well
+sweet_lime,3,3,1,2.33,4,3,3,2.83,Moderate,Low-altitude citrus; CTV and greening risk; seasonal production → moderate price swings
+guava,3,2,1,2.0,4,4,2,2.67,Moderate,Flood-exposed Terai; Fusarium wilt frequent; very perishable ripe; stable pricing due to year-round availability
+mombin,2,1,1,1.33,2,3,2,1.83,Low,Lapsi: hilly Nepal; few serious diseases; perishable fresh but long shelf life when dried/pickled
+barela,2,2,2,2.0,3,5,2,2.67,Moderate,Leafy brassica; alternaria and aphids moderate; very perishable; limited market data
+lemon,3,3,1,2.33,4,3,3,2.83,Moderate,Similar to lime — monsoon and CTV risk; seasonal price swings
+sword_bean,3,2,1,2.0,3,4,2,2.5,Moderate,Terai monsoon crop; moderate disease; perishable fresh pods
+bakula,2,1,1,1.33,2,4,2,2.0,Low,Hardy tree; few diseases; very limited commercial market → minimal price data
+yam,3,2,1,2.0,3,3,2,2.33,Moderate,Monsoon crop; mosaic virus moderate; tuber stores reasonably if cured
+sweet_potato,3,2,1,2.0,3,3,2,2.33,Moderate,Terai crop; weevil and black rot moderate; stores better than most root vegetables
+mandarin,3,3,2,2.67,4,3,3,3.0,High,Mountain citrus; CTV and leaf miner frequent; seasonal supply drives price spikes
+knol_khol,2,2,3,2.33,3,3,2,2.5,Moderate,Cool-season; black rot and clubroot moderate; reasonable shelf life; moderate price variation
+kinnow,2,2,2,2.0,4,3,3,2.67,Moderate,Limited altitude zone; CTV risk; seasonal → moderate price swings
+strawberry,2,2,4,2.67,4,5,4,3.5,High,High frost risk (1000-2500m); Botrytis very frequent in Nepal hill tunnels; very perishable; high-value volatile market
+bauhania_flower,2,1,1,1.33,2,5,2,2.17,Moderate,Very perishable flower; few diseases; niche seasonal demand only
+pear,2,2,4,2.67,4,2,3,2.83,Moderate,High frost risk; fire blight frequent; moderate shelf life; moderate price swings
+litchi,3,2,1,2.0,3,4,3,2.67,Moderate,Low altitude; erinose mite very frequent in Nepal; very perishable; seasonal price spike
+musk_melon,3,3,1,2.33,3,3,3,2.67,Moderate,Terai summer; fusarium wilt and CMV moderate; moderate price seasonality
+bean_rajma,2,2,3,2.33,3,4,3,2.83,Moderate,Hill crop; BCMV moderate; 400%+ price spike at Kalimati post-flood 2024 for French beans
+kiwi,2,2,4,2.67,4,2,4,3.0,High,High altitude; PSA bacterial canker emerging; moderate shelf life; premium market — high volatility
+sarifa,2,2,1,1.67,3,4,2,2.33,Moderate,Low-altitude; anthracnose moderate; very perishable ripe; limited market
+avocado,2,2,2,2.0,3,4,4,2.83,Moderate,Emerging crop; Phytophthora root rot common; very perishable; niche high-value market → high volatility
+amla,2,1,1,1.33,2,2,2,1.67,Low,Hardy tree; very few diseases; long shelf life when dried; stable pricing
+tree_tomato,2,2,3,2.33,3,3,3,2.67,Moderate,Mid-hills; mosaic virus moderate; moderate shelf life; niche but growing market
+lentinula_edodes,1,1,1,1.0,3,5,4,2.5,Moderate,Controlled environment; Trichoderma contamination frequent; very perishable fresh; premium price — high volatility
+king_oyster,1,1,1,1.0,3,5,4,2.5,Moderate,Controlled environment; similar disease profile to shiitake; very perishable; premium niche — high volatility

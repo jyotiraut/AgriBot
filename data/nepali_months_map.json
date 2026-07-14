@@ -1,0 +1,26 @@
+{
+  "months": [
+    {"bs_month": 1,  "name": "Baisakh",  "approx_start": "April 14"},
+    {"bs_month": 2,  "name": "Jestha",   "approx_start": "May 15"},
+    {"bs_month": 3,  "name": "Ashadh",   "approx_start": "June 15"},
+    {"bs_month": 4,  "name": "Shrawan",  "approx_start": "July 16"},
+    {"bs_month": 5,  "name": "Bhadra",   "approx_start": "August 17"},
+    {"bs_month": 6,  "name": "Ashwin",   "approx_start": "September 17"},
+    {"bs_month": 7,  "name": "Kartik",   "approx_start": "October 17"},
+    {"bs_month": 8,  "name": "Mangsir",  "approx_start": "November 16"},
+    {"bs_month": 9,  "name": "Poush",    "approx_start": "December 16"},
+    {"bs_month": 10, "name": "Magh",     "approx_start": "January 15"},
+    {"bs_month": 11, "name": "Falgun",   "approx_start": "February 13"},
+    {"bs_month": 12, "name": "Chaitra",  "approx_start": "March 14"}
+  ],
+  "seasons": {
+    "Garmi":  [1, 2, 3],
+    "Barkhe": [4, 5, 6, 7],
+    "Hiude":  [8, 9, 10, 11, 12]
+  },
+  "season_risks": {
+    "Garmi":  {"flood": 0.5, "drought": 1.4, "frost": 0.2, "disease": 1.0},
+    "Barkhe": {"flood": 1.5, "drought": 0.4, "frost": 0.1, "disease": 1.4},
+    "Hiude":  {"flood": 0.3, "drought": 0.9, "frost": 1.6, "disease": 0.7}
+  }
+}

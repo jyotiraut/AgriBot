@@ -1,0 +1,17 @@
+
+data_cleaning_preprocess.ipynb
+*.ipynb
+.env
+cleared_noti.py
+crop_recommendation_model.pkl
+get_updates.py
+telegram_webhook.py
+__pycache__/
+set_dummy_data_chat_id.py
+test_trigger.py
+test1.py
+
+
+.env
+.env
+*.pkl
