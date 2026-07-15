@@ -55,13 +55,10 @@ async def _create_indexes() -> None:
         [("email", ASCENDING)], unique=True, name="unique_email"
     )
 
-    # conversations
-    await _db.conversations.create_index(
-        [("user_id", ASCENDING), ("created_at", DESCENDING)],
+    # conversation_history — one doc per chat message, queried by user + time
+    await _db.conversation_history.create_index(
+        [("user_id", ASCENDING), ("timestamp", ASCENDING)],
         name="user_timeline",
-    )
-    await _db.conversations.create_index(
-        [("session_id", ASCENDING)], name="session_lookup"
     )
 
     # farmer_profiles — sparse=True so null user_id docs don't conflict

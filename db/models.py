@@ -41,27 +41,6 @@ class TokenResponse(BaseModel):
     user: UserInDB
 
 
-# ── Step 2: Conversation ───────────────────────────────────────────────────────
-
-class ConversationTurn(BaseModel):
-    """A single Q&A exchange saved to MongoDB."""
-    user_id: str
-    session_id: str                     # groups turns in one sitting
-    stage: Optional[str] = None         # which guided stage this belongs to
-    question: str                       # what the farmer asked / said
-    answer: str                         # what the bot replied
-    created_at: datetime = Field(default_factory=datetime.utcnow)
-
-
-class ConversationTurnPublic(ConversationTurn):
-    id: str
-
-
-class ConversationHistory(BaseModel):
-    turns: List[ConversationTurnPublic]
-    total: int
-
-
 # ── Step 3: Stage tracking ────────────────────────────────────────────────────
 
 class StageEnum(str, Enum):

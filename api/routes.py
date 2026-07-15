@@ -5,7 +5,7 @@ REST endpoints for farmer profile management and advisory generation.
 
 from __future__ import annotations
 import logging
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import List, Optional
 from rules.zone_classifier import classify_zone
 from rules.weather_integration import fetch_7_day_forecast, format_weather_for_disease_prompt
@@ -656,15 +656,25 @@ async def chat(
         )
         profile["district"] = profile["location"]
 
-    # ── 2. Save user message ───────────────────────────────────────────────────
-    await hist.insert_one({
-        "user_id":   user_id,
-        "role":      "user",
-        "message":   payload.message,
-        "timestamp": datetime.utcnow(),
-    })
-    turn_count = await hist.count_documents({"user_id": user_id, "role": "user"})
+    # ── 2. Turn bookkeeping ────────────────────────────────────────────────────
+    # The user message is NOT persisted here. It is saved together with the
+    # assistant reply at each exit point via _persist_turn(), so a mid-turn crash
+    # writes both or neither — never an orphaned user message without an answer.
+    prior_user_msgs = await hist.count_documents({"user_id": user_id, "role": "user"})
+    turn_count = prior_user_msgs + 1
     is_first   = turn_count <= 1 and not profile.get("greeted")
+
+    async def _persist_turn(reply_text: str) -> None:
+        """Save this turn's user message + assistant reply as one atomic pair.
+        The assistant timestamp is nudged 1ms ahead so history always pairs
+        user→assistant in order regardless of clock resolution."""
+        now = datetime.utcnow()
+        await hist.insert_many([
+            {"user_id": user_id, "role": "user",
+             "message": payload.message, "timestamp": now},
+            {"user_id": user_id, "role": "assistant",
+             "message": reply_text, "timestamp": now + timedelta(milliseconds=1)},
+        ])
 
     # ── 3. FIRST MESSAGE — fixed reply, zero LLM ──────────────────────────────
     if is_first:
@@ -673,8 +683,7 @@ async def chat(
             "नमस्ते! म कृषिमित्र हुँ — तपाईंको खेतीको साथी। "
             "के तपाईंको खेतमा हाल कुनै बाली छ, कि रोप्ने योजना बनाउँदै हुनुहुन्छ?"
         )
-        await hist.insert_one({"user_id": user_id, "role": "assistant",
-                                "message": reply, "timestamp": datetime.utcnow()})
+        await _persist_turn(reply)
         return ChatResponse(user_id=user_id, reply=reply)
 
     # ── 4. MULTI-SLOT extraction — intent + EVERY field stated, in one call ────
@@ -810,8 +819,7 @@ async def chat(
             "राम्रो! बाली अहिले खेतमा छ भने 'छ' भन्नुस्, "
             "रोप्ने योजना छ भने 'योजना छ' भन्नुस्।"
         )
-        await hist.insert_one({"user_id": user_id, "role": "assistant",
-                                "message": reply, "timestamp": datetime.utcnow()})
+        await _persist_turn(reply)
         await col.update_one({"_id": profile["_id"]}, {"$set": {"last_task": "classify"}})
         return ChatResponse(user_id=user_id, reply=reply)
 
@@ -993,13 +1001,8 @@ async def chat(
         }
         reply = fallback_map.get(task, next_question or "राम्रो! अगाडि बढौं।")
 
-    # ── 11. Save reply + remember this turn's task (for bridge-back next turn) ──
-    await hist.insert_one({
-        "user_id":   user_id,
-        "role":      "assistant",
-        "message":   reply,
-        "timestamp": datetime.utcnow(),
-    })
+    # ── 11. Save the turn + remember this turn's task (for bridge-back next turn) ──
+    await _persist_turn(reply)
     await col.update_one({"_id": profile["_id"]}, {"$set": {"last_task": task}})
 
     logger.info(

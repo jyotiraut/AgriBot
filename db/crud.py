@@ -51,64 +51,10 @@ async def user_get_by_id(user_id: str) -> Optional[dict]:
 # ══════════════════════════════════════════════════════════════════════════════
 # STEP 2 — Conversations
 # ══════════════════════════════════════════════════════════════════════════════
-
-async def conversation_save_turn(
-    user_id: str,
-    session_id: str,
-    question: str,
-    answer: str,
-    stage: Optional[str] = None,
-) -> dict:
-    db = get_db()
-    doc = {
-        "user_id":    user_id,
-        "session_id": session_id,
-        "stage":      stage,
-        "question":   question,
-        "answer":     answer,
-        "created_at": datetime.utcnow(),
-    }
-    result = await db.conversations.insert_one(doc)
-    doc["_id"] = result.inserted_id
-    return _id(doc)
-
-
-async def conversation_get_by_user(user_id: str, limit: int = 100) -> List[dict]:
-    db = get_db()
-    cursor = (
-        db.conversations.find({"user_id": user_id})
-        .sort("created_at", 1)
-        .limit(limit)
-    )
-    return [_id(doc) async for doc in cursor]
-
-
-async def conversation_get_by_session(session_id: str) -> List[dict]:
-    db = get_db()
-    cursor = db.conversations.find({"session_id": session_id}).sort("created_at", 1)
-    return [_id(doc) async for doc in cursor]
-
-
-async def conversation_count(user_id: str) -> int:
-    db = get_db()
-    return await db.conversations.count_documents({"user_id": user_id})
-
-
-async def conversation_get_since(user_id: str, since: datetime) -> List[dict]:
-    db = get_db()
-    cursor = (
-        db.conversations.find({
-            "user_id":    user_id,
-            "created_at": {"$gt": since},
-        })
-        .sort("created_at", 1)
-    )
-    return [_id(doc) async for doc in cursor]
-
-
-# ── conversation_history (the store the /chat endpoint actually writes) ────────
-# Individual {role, message, timestamp} docs are paired into {question, answer}
-# turns for the profile extractor.
+# The /chat endpoint writes one doc per message to `conversation_history`:
+#   {user_id, role, message, timestamp}
+# Consecutive user→assistant messages are paired into {question, answer} turns
+# for the profile extractor.
 
 def _pair_history(docs: List[dict]) -> List[dict]:
     """Pair consecutive user→assistant messages into question/answer turns."""
