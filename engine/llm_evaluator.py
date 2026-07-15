@@ -1,11 +1,13 @@
 import os
 import json
 from dotenv import load_dotenv
-from groq import Groq
+from openai import OpenAI
+from config import get_settings
 from engine.nepali_calendar import get_calendar_context
 from engine.smart_recommender import build_recommendations
 
 load_dotenv()
+_settings = get_settings()
 
 MONTH_ORDER = [
     'Baisakh', 'Jestha',  'Ashadh',  'Shrawan', 'Bhadra',
@@ -21,15 +23,15 @@ NEPALI_MONTH_NAMES = {
 }
 
 
-# ── Groq client ───────────────────────────────────────────
+# ── Gemini client (via OpenAI-compatible endpoint) ────────
 def get_client():
-    api_key = os.environ.get('GROQ_API_KEY')
+    api_key = _settings.google_api_key or os.environ.get('GOOGLE_API_KEY')
     if not api_key:
         raise ValueError(
-            'GROQ_API_KEY not found. '
-            'Set it in your .env file or environment variables.'
+            'google_api_key not found. '
+            'Set GOOGLE_API_KEY in your .env file or environment variables.'
         )
-    return Groq(api_key=api_key)
+    return OpenAI(api_key=api_key, base_url=_settings.gemini_base_url)
 
 # ── system prompt ─────────────────────────────────────────
 SYSTEM_PROMPT = """
@@ -145,7 +147,7 @@ def build_correction_prompt(recommendations, ctx):
 def call_grok(prompt, system_prompt=SYSTEM_PROMPT):
     client   = get_client()
     response = client.chat.completions.create(
-        model       = 'llama-3.3-70b-versatile',
+        model       = _settings.llm_model,
         messages    = [
             {'role': 'system', 'content': system_prompt},
             {'role': 'user',   'content': prompt},

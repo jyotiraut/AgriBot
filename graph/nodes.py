@@ -30,7 +30,7 @@ from datetime import date, datetime
 from typing import Any, Dict, List, Optional
 
 from langchain_core.messages import HumanMessage, SystemMessage
-from langchain_groq import ChatGroq
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 from config import get_settings
 from crop_recommender import get_current_season, predict_crops_with_fallback
@@ -714,7 +714,7 @@ def synthesize_llm_node(state: KrishiMitraState) -> KrishiMitraState:
     Strategy (conversation-mode aware):
     • Python builds the full prompt via build_user_message() — the LLM only
       writes the natural-language reply.
-    • Falls back to _fallback_message() when the Groq API is unavailable.
+    • Falls back to _fallback_message() when the Gemini API is unavailable.
     """
     language   = state.get("language", "nepali")
     lang_label = "Nepali (नेपाली)" if language == "nepali" else "English"
@@ -752,26 +752,26 @@ def synthesize_llm_node(state: KrishiMitraState) -> KrishiMitraState:
 
     system = KRISHIMITRA_SYSTEM_PROMPT
 
-    api_key = settings.GROQ_API_KEY
+    api_key = settings.google_api_key
     if api_key:
         try:
-            llm = ChatGroq(
-                model="llama-3.3-70b-versatile",
+            llm = ChatGoogleGenerativeAI(
+                model=settings.llm_model,
                 temperature=0.3,
-                api_key=api_key,
+                google_api_key=api_key,
             )
             messages = [
                 SystemMessage(content=system),
                 HumanMessage(content=user_msg),
             ]
             response      = llm.invoke(messages)
-            final_message = response.content.strip()
+            final_message = response.text.strip()
             logger.info("LLM synthesis completed (mode=%s task=%s)", mode, task)
         except Exception as exc:
             logger.error("LLM synthesis failed: %s", exc)
             final_message = _fallback_message(rule_output, language)
     else:
-        logger.warning("No GROQ_API_KEY — using rule-based fallback.")
+        logger.warning("No google_api_key — using rule-based fallback.")
         final_message = _fallback_message(rule_output, language)
 
     return {**state, "final_message": final_message}

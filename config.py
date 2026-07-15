@@ -12,7 +12,9 @@ class Settings(BaseSettings):
     mongodb_db_name: str = "krishimitra"
 
     # LLM and Embeddings
-    GROQ_API_KEY: str = ""
+    GROQ_API_KEY: str = ""  # deprecated — kept so old .env files don't break
+    # Gemini's OpenAI-compatible endpoint (used by the native OpenAI-SDK callers)
+    gemini_base_url: str = "https://generativelanguage.googleapis.com/v1beta/openai/"
 
     # Vector DB
     QDRANT_URL: str
@@ -27,7 +29,7 @@ class Settings(BaseSettings):
     #   embedding_model = "paraphrase-multilingual-MiniLM-L12-v2"   (384-dim, light)
     # After changing the model, run `python -m rag.ingest` again — ingestion
     # auto-recreates the collection when the dimension changes.
-    embedding_model: str = "BAAI/bge-small-en-v1.5"
+    embedding_model: str = "BAAI/bge-m3"  # multilingual (1024-dim) — needed for Nepali
     embedding_device: str = "cpu"
     embedding_normalize: bool = True
 
@@ -40,7 +42,14 @@ class Settings(BaseSettings):
     pdf_folder: str = ""
     
     # LLM Settings
-    llm_model: str = "llama-3.3-70b-versatile"
+    # llm_model      → quality-critical reasoning (advisory synthesis, crop
+    #                  validation, disease advice). Slower/pricier.
+    # llm_model_fast → the latency-sensitive chat loop (reply + field extraction).
+    # Use Google's maintained "-latest" aliases: they always resolve to the
+    # newest stable model in each tier, so they won't 404 when a generation is
+    # retired (gemini-2.5-* is already blocked for new API keys).
+    llm_model: str = "gemini-pro-latest"        # quality tier (best available)
+    llm_model_fast: str = "gemini-flash-latest"  # fast chat-loop tier
     temperature: float = 0.3
     google_api_key: str = ""
 

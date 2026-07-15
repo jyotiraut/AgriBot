@@ -2,15 +2,20 @@ import os
 from openai import OpenAI
 from dotenv import load_dotenv
 
+from config import get_settings
+
 # -----------------------------------------
 # 1. SETUP
 # -----------------------------------------
 
 load_dotenv()
+_settings = get_settings()
 
+# Gemini via its OpenAI-compatible endpoint — the chat.completions calls below
+# stay unchanged; only the client's base_url/key/model point at Google now.
 client = OpenAI(
-    api_key=os.getenv("groq_api_key"),
-    base_url="https://api.groq.com/openai/v1",
+    api_key=_settings.google_api_key,
+    base_url=_settings.gemini_base_url,
 )
 
 
@@ -211,7 +216,7 @@ def get_first_recommendation(
         print(f"First message: {len(first_message)//4} tokens (est)")
         print(f"TOTAL INPUT EST: {(len(system_prompt)+len(rag_context)+len(first_message))//4} tokens")
         response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model=_settings.llm_model,
             messages=[
                 {"role": "system", "content": system_prompt},
                 *conversation_history,
@@ -285,7 +290,7 @@ def get_followup_response(
 
     try:
         response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model=_settings.llm_model,
             messages=[
                 {"role": "system", "content": system_prompt},
                 *conversation_history,   # full history = Grok remembers everything

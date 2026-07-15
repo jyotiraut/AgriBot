@@ -24,7 +24,7 @@ import re as _re
 from bson import ObjectId
 
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
-from langchain_groq import ChatGroq
+from langchain_google_genai import ChatGoogleGenerativeAI
 import nepali_datetime
 import nepali_datetime as _npdt
  
@@ -432,15 +432,15 @@ async def trigger_notifications():
 # router   = APIRouter()
  
 # ── Module-level singletons — NOT recreated per request ──────────────────────
-_llm_reply = ChatGroq(
-    model="llama-3.3-70b-versatile",
+_llm_reply = ChatGoogleGenerativeAI(
+    model=settings.llm_model_fast,   # fast chat loop — flash
     temperature=0.3,
-    api_key=settings.GROQ_API_KEY,
+    google_api_key=settings.google_api_key,
 )
-_llm_extract = ChatGroq(
-    model="llama-3.3-70b-versatile",
+_llm_extract = ChatGoogleGenerativeAI(
+    model=settings.llm_model_fast,   # fast chat loop — flash
     temperature=0.0,          # deterministic for extraction
-    api_key=settings.GROQ_API_KEY,
+    google_api_key=settings.google_api_key,
 )
  
 # ── Question signals — detect when farmer is asking something ─────────────────
@@ -719,7 +719,7 @@ async def chat(
                 SystemMessage(content=MULTISLOT_SYSTEM),
                 HumanMessage(content=build_multislot_prompt(payload.message, profile, current_field)),
             ])
-            parsed = _parse_llm_json(raw_resp.content)
+            parsed = _parse_llm_json(raw_resp.text)
             if parsed:
                 intent = parsed.get("intent") or "answer"
                 fields = parsed.get("fields") or {}
@@ -983,8 +983,8 @@ async def chat(
     reply = ""
     try:
         resp   = await _llm_reply.ainvoke(messages)
-        logger.info("RAW LLM response: %s", resp.content[:300])
-        parsed = _parse_llm_json(resp.content)
+        logger.info("RAW LLM response: %s", resp.text[:300])
+        parsed = _parse_llm_json(resp.text)
         reply  = parsed.get("reply", "").strip()
 
         logger.info("parsed reply: '%s'", reply) 

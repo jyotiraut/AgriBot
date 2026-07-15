@@ -2,7 +2,7 @@
 import json
 from datetime import datetime
 
-from langchain_groq import ChatGroq  # type: ignore
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import SystemMessage, HumanMessage
 
 from config import get_settings
@@ -20,10 +20,10 @@ from rules.zone_classifier   import classify_zone, month_to_season, month_to_nam
 # LLM
 # ══════════════════════════════════════════════════════════════
 
-_llm = ChatGroq(
+_llm = ChatGoogleGenerativeAI(
     model=settings.llm_model,
     temperature=0.0,
-    api_key=settings.GROQ_API_KEY,
+    google_api_key=settings.google_api_key,
 )
 
 FULL_EXTRACTION_THRESHOLD = 10
@@ -197,7 +197,7 @@ async def extract_full(user_id: str) -> dict:
     ]
 
     response  = _llm.invoke(messages)
-    extracted = _parse_json(response.content)
+    extracted = _parse_json(response.text)
     cleaned   = clean_and_type(extracted)          # ← from rules/field_validator
 
     if not cleaned:
@@ -264,7 +264,7 @@ async def extract_incremental(user_id: str, since: datetime) -> dict:
     ]
 
     response  = _llm.invoke(messages)
-    extracted = _parse_json(response.content)
+    extracted = _parse_json(response.text)
     new_clean = clean_and_type(extracted)          # ← from rules/field_validator
 
     if not new_clean:
