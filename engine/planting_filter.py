@@ -206,10 +206,15 @@ def get_planting_status(planting_str, current_month_name):
 
     return 'out_of_season'
 
-def get_filtered_crops(month=None):          # ← month added
+def get_filtered_crops(month=None):
+    """Crops from the calendar tagged plant_now / coming_soon / out_of_season.
+
+    month: Bikram Sambat month number (1-12). When given, filtering is done for
+    that month; when None, falls back to the UI override month, then today's
+    real month (see get_calendar_context).
+    """
     df      = load_calendar()
-    ctx = get_calendar_context()
-    # ctx     = get_calendar_context(month=month)
+    ctx     = get_calendar_context(bs_month=month)
     current = ctx['month_name']
 
     results = []

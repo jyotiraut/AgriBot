@@ -220,10 +220,9 @@ def score_market_opportunity(crop_key, harvest_months):
         'price_score':   round(price_score, 2),
     }
 
-def get_market_scores(month=None):           # ← month added
+def get_market_scores(month=None):
     crops   = get_filtered_crops(month=month)
-    # ctx     = get_calendar_context(month=month)
-    ctx     = get_calendar_context()
+    ctx     = get_calendar_context(bs_month=month)
     current = ctx['month_name']
 
     results = []
