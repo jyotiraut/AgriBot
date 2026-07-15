@@ -125,6 +125,7 @@
 #     return results
 
 
+import re
 import pandas as pd
 import os
 from engine.nepali_calendar import get_calendar_context
@@ -133,6 +134,46 @@ MONTH_ORDER = [
     "Baisakh", "Jestha", "Ashadh", "Shrawan", "Bhadra",
     "Ashwin", "Kartik", "Mangsir", "Poush", "Magh", "Falgun", "Chaitra"
 ]
+
+# ── Agro-ecological altitude bands (masl) ─────────────────────────────────────
+# Nepal has no per-district elevation in this dataset — only district→zone. Each
+# zone maps to the elevation band where its cultivation actually happens. A crop
+# is altitude-suitable for a district if the crop's required altitude range
+# OVERLAPS that district's zone band. Bands overlap deliberately (inner-Terai,
+# mid-hills) so a crop is never wrongly excluded at a boundary.
+ZONE_ALTITUDE_BANDS = {
+    "terai":     (60, 900),
+    "hills":     (300, 2500),
+    "mountains": (1500, 4500),
+}
+
+
+def parse_altitude_range(altitude_str) -> tuple | None:
+    """Parse a crop's 'Required Altitude Range (masl)' cell into (min, max).
+
+    Handles '60–1500', '60-1500', '500 to 2500', trailing 'masl', and a lone
+    number. Returns None when no number is present (unknown → treated as
+    suitable, never excluded).
+    """
+    nums = [int(n) for n in re.findall(r"\d+", str(altitude_str))]
+    if not nums:
+        return None
+    if len(nums) == 1:
+        return (0, nums[0])          # open-ended low bound
+    return (min(nums), max(nums))
+
+
+def is_altitude_suitable(altitude_str, zone: str) -> bool | None:
+    """True/False if the crop's altitude range overlaps the zone band; None when
+    either the crop range or the zone is unknown (caller decides — we don't drop
+    unknowns)."""
+    band = ZONE_ALTITUDE_BANDS.get((zone or "").strip().lower())
+    crop_range = parse_altitude_range(altitude_str)
+    if band is None or crop_range is None:
+        return None
+    (c_lo, c_hi), (z_lo, z_hi) = crop_range, band
+    return c_lo <= z_hi and c_hi >= z_lo
+
 
 def load_calendar():
     path = os.path.join(os.path.dirname(__file__), '..', 'data', 'crop_calendar.csv')
@@ -206,12 +247,18 @@ def get_planting_status(planting_str, current_month_name):
 
     return 'out_of_season'
 
-def get_filtered_crops(month=None):
+def get_filtered_crops(month=None, zone=None):
     """Crops from the calendar tagged plant_now / coming_soon / out_of_season.
 
     month: Bikram Sambat month number (1-12). When given, filtering is done for
     that month; when None, falls back to the UI override month, then today's
     real month (see get_calendar_context).
+
+    zone: optional agro-ecological zone ('Terai' | 'Hills' | 'Mountains',
+    case-insensitive) — usually derived from the farmer's district. When given,
+    each crop gains 'altitude_suitable' (True/False/None). Crops are NOT dropped
+    here (callers filter), so existing callers see identical behaviour plus the
+    extra flag.
     """
     df      = load_calendar()
     ctx     = get_calendar_context(bs_month=month)
@@ -222,6 +269,7 @@ def get_filtered_crops(month=None):
         planting_str         = row['Planting Seasons (Nepali Months)']
         status               = get_planting_status(planting_str, current)
         weeks_min, weeks_max = parse_growth_weeks(row['Growth Duration (Weeks)'])
+        altitude_range       = row['Required Altitude Range (masl)']
 
         results.append({
             'crop_key':           row['crop_key'],
@@ -231,10 +279,30 @@ def get_filtered_crops(month=None):
             'growth_weeks_min':   weeks_min,
             'growth_weeks_max':   weeks_max,
             'harvest_months':     row['Typical Harvest Months (Nepali)'],
-            'altitude_min':       row['Required Altitude Range (masl)'],
+            'altitude_min':       altitude_range,
+            'altitude_suitable':  is_altitude_suitable(altitude_range, zone) if zone else None,
             'water_requirement':  row['Water Requirement'],
             'diseases':           row['Typical Disease Vulnerabilities'],
             'storage_shelf_life': row['Storage Shelf Life (Days)'],
         })
 
     return results
+
+
+def get_crops_for_location(zone, month=None, statuses=("plant_now",)):
+    """District-accurate recommendation: crops whose season matches AND whose
+    altitude range fits the zone. This is the function the chat intent-router
+    should call for 'what can I plant in <district> now'.
+
+    zone: 'Terai' | 'Hills' | 'Mountains' (derive from district via
+    rules.zone_classifier.classify_zone). month: BS month (None = current).
+    statuses: which planting statuses to keep (default only 'plant_now').
+
+    Altitude-unknown crops (flag None) are kept — we never exclude on missing
+    data, only on a confirmed mismatch (flag False).
+    """
+    crops = get_filtered_crops(month=month, zone=zone)
+    return [
+        c for c in crops
+        if c['planting_status'] in statuses and c['altitude_suitable'] is not False
+    ]
