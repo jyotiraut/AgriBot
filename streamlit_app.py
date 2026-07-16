@@ -1,3 +1,5 @@
+import os
+
 import streamlit as st
 import streamlit.components.v1 as components
 import requests
@@ -7,9 +9,12 @@ from PIL import Image
 # ─────────────────────────────────────────────────────────
 # CONFIGURATION
 # ─────────────────────────────────────────────────────────
-API_URL     = "http://localhost:8050/api/v1"
-AUTH_URL    = "http://localhost:8050/api/v1/auth"
-BACKEND_URL = "http://localhost:8050/api/v1"
+# Backend base URL — override with API_BASE_URL when the backend isn't local
+# (e.g. a deployed API or an ngrok tunnel). Must include the /api/v1 prefix.
+_BASE       = os.environ.get("API_BASE_URL", "http://localhost:8000/api/v1").rstrip("/")
+API_URL     = _BASE
+AUTH_URL    = f"{_BASE}/auth"
+BACKEND_URL = _BASE
 ADMIN_EMAIL = "admin@gmail.com"
 
 # ─────────────────────────────────────────────────────────
