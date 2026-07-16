@@ -193,7 +193,52 @@ def build_extract_prompt(field: str, message: str) -> str:
 # Replaces scattered keyword heuristics (_is_asking / _is_disease_question) with
 # a single structured decision, and also captures out-of-order corrections.
 
-VALID_INTENTS = ("answer", "question", "disease", "smalltalk", "offtopic", "correction")
+VALID_INTENTS = (
+    "answer", "question", "disease", "smalltalk", "offtopic", "correction",
+    # Advisory intents — dispatched to engines, answered with computed DATA facts
+    "planting", "price", "weather", "harvest",
+)
+
+# ── Deterministic advisory-intent detection ───────────────────────────────────
+# Cheap keyword fast-paths (Nepali / Romanized / English) that OVERRIDE a generic
+# LLM label so advisory questions never depend on the LLM alone. Disease keeps
+# priority — callers must not apply this when intent == "disease".
+
+_PLANTING_KW = (
+    "ke lagaune", "k lagaune", "ke ropne", "k ropne", "kun bali",
+    "के लगाउने", "के रोप्ने", "कुन बाली", "कुन तरकारी",
+    "what to plant", "which crop", "what should i plant", "what can i grow",
+)
+_PRICE_KW = (
+    "bhau", "mulya", "dam kati", "rate kati", "price", "market price",
+    "भाउ", "मूल्य", "दाम", "बजार मूल्य", "कतिमा बिक्छ",
+)
+_WEATHER_KW = (
+    "pani parcha", "mausam", "barsat", "tusaro", "garmi kasto", "hawa pani",
+    "पानी पर्छ", "मौसम", "वर्षा", "तुषारो", "हावापानी",
+    "weather", "rain", "forecast", "frost",
+)
+_HARVEST_KW = (
+    "kahile tipne", "kahile katne", "kahile jhikne", "kati din ma pakcha",
+    "कहिले टिप्ने", "कहिले काट्ने", "कहिले भित्र्याउने", "कहिले पाक्छ",
+    "when to harvest", "harvest time", "ready to harvest",
+)
+
+
+def detect_advisory_intent(message: str):
+    """Return 'planting' | 'price' | 'weather' | 'harvest' | None from keywords.
+    Ordered by specificity: harvest before planting (both mention crops),
+    price before weather (\"bhau\" questions often name a month too)."""
+    m = (message or "").lower()
+    if any(k in m for k in _HARVEST_KW):
+        return "harvest"
+    if any(k in m for k in _PLANTING_KW):
+        return "planting"
+    if any(k in m for k in _PRICE_KW):
+        return "price"
+    if any(k in m for k in _WEATHER_KW):
+        return "weather"
+    return None
 
 _VALUE_SCHEMA = {
     "land_size":        '"value": float|null, "unit": "bigha|ropani|kattha|hectare"|null',
@@ -305,7 +350,11 @@ def build_multislot_prompt(
         "- has_loan: true | false\n"
         "\nAlso classify intent:\n"
         "  disease = describing/asking about a crop disease, pest, or problem\n"
-        "  question = a general farming question\n"
+        "  planting = asking WHICH crop/vegetable to plant or grow now\n"
+        "  price = asking a crop's price / rate / market value\n"
+        "  weather = asking about weather, rain, frost, or temperature\n"
+        "  harvest = asking WHEN to harvest/pick a crop or when it will be ready\n"
+        "  question = any other general farming question\n"
         "  smalltalk = greeting/thanks/chit-chat, offtopic = unrelated\n"
         "  answer = giving profile information\n\n"
         + asked
@@ -317,6 +366,10 @@ def build_multislot_prompt(
         '  "Kavre ma 2 ropani alu cha" -> {"intent":"answer","fields":{"farmer_type":{"value":"A","confidence":0.9},"district":{"value":"kavre","confidence":1.0},"land_size":{"value":2,"unit":"ropani","confidence":1.0},"crop":{"value":"potato","confidence":1.0}}}\n'
         '  (asked about irrigation_type) "barshako pani nai ho" -> {"intent":"answer","fields":{"irrigation_type":{"value":"rainfed","confidence":1.0}}}\n'
         '  "mero tomato ma pat kalo bhayo" -> {"intent":"disease","fields":{}}\n'
+        '  "aile ke lagaune hola?" -> {"intent":"planting","fields":{}}\n'
+        '  "alu ko bhau kati cha?" -> {"intent":"price","fields":{"crop":{"value":"potato","confidence":1.0}}}\n'
+        '  "bholi pani parcha?" -> {"intent":"weather","fields":{}}\n'
+        '  "tomato kahile tipne?" -> {"intent":"harvest","fields":{"crop":{"value":"tomato","confidence":1.0}}}\n'
         '  "kahile mal halne ho" -> {"intent":"question","fields":{}}\n'
         f'Farmer said: "{message}"\n'
         "Return JSON only:"

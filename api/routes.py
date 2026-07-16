@@ -49,11 +49,26 @@ from schemas.farmer import ChatMessage, ChatResponse
 from rules.field_extractor import (
     build_multislot_prompt,
     try_regex_extract,
+    detect_advisory_intent,
     MULTISLOT_SYSTEM,
     MULTISLOT_FIELDS,
     VALID_INTENTS,
 )
 from rules.dialogue_policy import select_task, ACCEPT_CONFIDENCE
+from engine.crop_advisor import (
+    recommend_crops,
+    harvest_facts,
+    format_planting_facts,
+    format_harvest_facts,
+)
+from engine.price_snapshot import price_snapshot, format_price_facts
+from rules.weather_integration import summarize_forecast, format_weather_facts
+
+# Advisory tasks answered from engine-computed DATA facts (see dialogue_policy).
+# On these turns the profile question is suppressed and crop_tip RAG is skipped —
+# the reply focuses on the farmer's question; collection resumes next turn.
+ADVISORY_TASKS = {"plant_advice", "price_info", "weather_info", "harvest_info"}
+SUPPRESS_PROFILE_Q = {"disease_answer"} | ADVISORY_TASKS
  
 
 from db.mongo import get_db
@@ -750,6 +765,14 @@ async def chat(
             else:
                 intent = "answer" if current_field else "question"
 
+        # Deterministic advisory fast-path — a keyword hit overrides a generic
+        # label so planting/price/weather/harvest never depend on the LLM alone.
+        # Disease keeps priority (crop problems are answered first).
+        if intent != "disease":
+            kw_advisory = detect_advisory_intent(payload.message)
+            if kw_advisory:
+                intent = kw_advisory
+
         # Decide which candidates to accept ────────────────────────────────────
         # Fill empty fields freely; overwrite a KNOWN field only when it's the one
         # we're asking now or a very high-confidence restatement (correction).
@@ -854,6 +877,59 @@ async def chat(
         await col.update_one({"_id": profile["_id"]},
                               {"$set": {"_session_greeted": True}})
 
+    # ── 6b. Advisory dispatch — engines compute the facts, LLM only phrases ────
+    # data_facts becomes the authoritative DATA block. Sentinels (ASK_DISTRICT /
+    # ASK_CROP / NO_DATA) make the bot ask for missing context instead of
+    # guessing. All engine reads are cached (calendar/forecast lru, weather TTL).
+    data_facts = ""
+    if task in ADVISORY_TASKS:
+        adv_district = profile.get("district")
+        adv_crop     = profile.get("crop") or normalise_crop(payload.message.lower())
+        adv_month    = profile.get("farming_month")   # BS int | None → current
+
+        try:
+            if task == "plant_advice":
+                if not adv_district:
+                    data_facts = "ASK_DISTRICT"
+                else:
+                    zone = classify_zone(adv_district).value
+                    wx = summarize_forecast(zone)
+                    notes = []
+                    if wx.get("heavy_rain_upcoming"):
+                        notes.append("heavy rain expected within 3 days")
+                    if wx.get("frost_risk"):
+                        notes.append("frost risk this week")
+                    if wx.get("heat_stress"):
+                        notes.append("heat stress this week")
+                    recs = recommend_crops(
+                        adv_district, month=adv_month,
+                        irrigation=profile.get("irrigation_type"), top_n=4,
+                    )
+                    data_facts = format_planting_facts(
+                        recs, adv_district, weather_note="; ".join(notes),
+                    )
+
+            elif task == "weather_info":
+                zone = classify_zone(adv_district).value if adv_district else "Hills"
+                data_facts = format_weather_facts(summarize_forecast(zone), zone)
+
+            elif task == "harvest_info":
+                data_facts = (
+                    format_harvest_facts(harvest_facts(adv_crop, sowing_month=adv_month))
+                    if adv_crop else "ASK_CROP"
+                )
+
+            elif task == "price_info":
+                data_facts = (
+                    format_price_facts(price_snapshot(adv_crop, month=adv_month))
+                    if adv_crop else "ASK_CROP"
+                )
+        except Exception as e:
+            logger.warning("Advisory dispatch failed | task=%s: %s", task, e)
+            data_facts = "NO_DATA (temporary error)"
+
+        logger.info("Advisory DATA | task=%s | facts=%s", task, data_facts[:120])
+
     # ── 7. RAG fetch ───────────────────────────────────────────────────────────
     import re as _re
 
@@ -886,7 +962,7 @@ async def chat(
         except Exception as e:
             logger.warning("Disease RAG failed: %s", e)
 
-    elif crop_for_rag:
+    elif crop_for_rag and task not in ADVISORY_TASKS:
         try:
             from rag.retriever import get_retriever
             retriever = get_retriever()
@@ -954,7 +1030,7 @@ async def chat(
     # ── 8. Build prompt — one system prompt, dynamic user message ─────────────
     # On a disease turn, suppress the profile question so the bot answers the
     # problem fully; collection resumes automatically on the next turn.
-    prompt_next_question = "" if task == "disease_answer" else next_question
+    prompt_next_question = "" if task in SUPPRESS_PROFILE_Q else next_question
     known    = build_known_summary(profile, user_name)
     user_msg = build_user_message(
         task,
@@ -963,6 +1039,7 @@ async def chat(
         payload.message,
         rag,
         crop_tip=crop_tip,
+        data_facts=data_facts,
     )
 
     logger.info("user_msg to LLM:\n%s", user_msg)
@@ -998,6 +1075,10 @@ async def chat(
             "redirect":       f"हजुर! {next_question}",
             "clarify":        f"अलि स्पष्ट गर्नुस् — {next_question}",
             "disease_answer": "तपाईंको बालीमा देखिएको समस्या बुझ्न, कृपया लक्षण अलि विस्तारमा बताउनुहोस् वा स्थानीय कृषि विशेषज्ञसँग एकपटक सम्पर्क गर्नुहोस्।",
+            "plant_advice":   "अहिले सिफारिस तयार गर्न सकिएन — कृपया आफ्नो जिल्ला बताएर फेरि सोध्नुहोस्।",
+            "price_info":     "अहिले भाउ जानकारी तयार गर्न सकिएन — कुन बालीको भाउ चाहियो, फेरि भन्नुस् है।",
+            "weather_info":   "अहिले मौसम जानकारी ल्याउन सकिएन — केही बेरपछि फेरि सोध्नुहोस् है।",
+            "harvest_info":   "काट्ने समय बताउन कुन बाली हो भन्नुस् है — म तुरुन्तै हेरिदिन्छु।",
         }
         reply = fallback_map.get(task, next_question or "राम्रो! अगाडि बढौं।")
 

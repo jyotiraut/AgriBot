@@ -126,6 +126,7 @@
 
 
 import re
+import functools
 import pandas as pd
 import os
 from engine.nepali_calendar import get_calendar_context
@@ -175,7 +176,11 @@ def is_altitude_suitable(altitude_str, zone: str) -> bool | None:
     return c_lo <= z_hi and c_hi >= z_lo
 
 
+@functools.lru_cache(maxsize=1)
 def load_calendar():
+    """crop_calendar.csv, loaded once per process. The file never changes at
+    runtime and callers only read from the frame, so caching is safe — and this
+    runs on every chat advisory turn, so it matters."""
     path = os.path.join(os.path.dirname(__file__), '..', 'data', 'crop_calendar.csv')
     return pd.read_csv(path)
 

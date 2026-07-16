@@ -18,7 +18,20 @@ ACCEPT_CONFIDENCE = 0.65
 # Tasks that represent a "detour" away from profile collection. When the NEXT
 # turn returns to collection, we bridge back warmly (resume_ask) instead of a
 # cold ack_ask.
-DETOUR_TASKS = {"disease_answer", "answer_ask", "redirect"}
+DETOUR_TASKS = {
+    "disease_answer", "answer_ask", "redirect",
+    "plant_advice", "price_info", "weather_info", "harvest_info",
+}
+
+# Advisory intents → engine-backed tasks. These are answered with computed
+# DATA facts (crop_advisor / price cache / weather) regardless of how much of
+# the profile has been collected — help first, collect later.
+ADVISORY_INTENT_TASKS = {
+    "planting": "plant_advice",
+    "price":    "price_info",
+    "weather":  "weather_info",
+    "harvest":  "harvest_info",
+}
 
 
 def select_task(
@@ -45,6 +58,11 @@ def select_task(
     # Crop problems always take priority — help first, collect later.
     if intent == "disease":
         return "disease_answer"
+
+    # Advisory questions (what to plant / price / weather / harvest) are
+    # answered directly from engines, even mid-collection.
+    if intent in ADVISORY_INTENT_TASKS:
+        return ADVISORY_INTENT_TASKS[intent]
 
     next_field = get_next_field(profile)
     is_complete = next_field is None

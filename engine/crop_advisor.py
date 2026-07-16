@@ -24,10 +24,14 @@ from typing import Optional
 
 import pandas as pd
 
-from engine.planting_filter import get_crops_for_location
+from engine.planting_filter import (
+    get_crops_for_location,
+    load_calendar,
+    parse_growth_weeks,
+)
 from engine.nepali_calendar import get_current_nepali_month
 from rules.crop_normalizer import normalize_crop
-from rules.zone_classifier import classify_zone, month_to_season
+from rules.zone_classifier import classify_zone, month_to_season, month_to_name
 from rules.crop_suitability import get_suitable_crops
 from schemas.farmer import Zone, Season, IrrigationAccess
 
@@ -175,3 +179,66 @@ def recommend_crops(
 
     enriched.sort(key=_rank_key, reverse=True)
     return enriched[:top_n]
+
+
+def harvest_facts(crop: str, sowing_month: Optional[int] = None) -> dict:
+    """Harvest-timing facts for one crop from the calendar.
+
+    Returns {crop, harvest_months, growth_weeks_min, growth_weeks_max} plus,
+    when sowing_month (BS 1-12) is known, expected_harvest_month and
+    expected_harvest_month_name projected from the mean growth duration.
+    Empty dict when the crop is not in the calendar.
+    """
+    key = _norm(crop)
+    df = load_calendar()
+    match = df[df["crop_key"].map(_norm) == key]
+    if match.empty:
+        return {}
+    row = match.iloc[0]
+    wmin, wmax = parse_growth_weeks(row["Growth Duration (Weeks)"])
+    facts = {
+        "crop":             crop,
+        "harvest_months":   row["Typical Harvest Months (Nepali)"],
+        "growth_weeks_min": wmin,
+        "growth_weeks_max": wmax,
+    }
+    if sowing_month and 1 <= int(sowing_month) <= 12 and wmin and wmax:
+        months = round(((wmin + wmax) / 2) / 4.345)   # avg weeks → whole months
+        expected = ((int(sowing_month) - 1 + months) % 12) + 1
+        facts["expected_harvest_month"] = expected
+        facts["expected_harvest_month_name"] = month_to_name(expected)
+    return facts
+
+
+# ── DATA-block formatters ─────────────────────────────────────────────────────
+# Compact plain-text renderings of engine facts for the LLM's DATA block.
+# Sentinels (ASK_DISTRICT / ASK_CROP / NO_DATA) are handled by the system
+# prompt's grounding rule.
+
+def format_planting_facts(recs: list, district: str, weather_note: str = "") -> str:
+    if not recs:
+        return f"NO_DATA (no in-season crops matched {district})"
+    lines = [f"District: {district}"]
+    if weather_note:
+        lines.append(f"Weather: {weather_note}")
+    for i, c in enumerate(recs, 1):
+        varieties = ", ".join(c["varieties"][:2]) if c["varieties"] else "-"
+        lines.append(
+            f"{i}. {c['crop_name']} | harvest: {c['harvest_months']}"
+            f" | varieties: {varieties}"
+            f" | market: {c['market_value'] or '?'} | risk: {c['risk_tier'] or '?'}"
+        )
+    return "\n".join(lines)
+
+
+def format_harvest_facts(facts: dict) -> str:
+    if not facts:
+        return "NO_DATA (crop not in calendar)"
+    lines = [
+        f"Crop: {facts['crop']}",
+        f"Typical harvest months: {facts['harvest_months']}",
+        f"Growth duration: {facts['growth_weeks_min']}-{facts['growth_weeks_max']} weeks",
+    ]
+    if facts.get("expected_harvest_month_name"):
+        lines.append(f"Expected harvest month (from sowing): {facts['expected_harvest_month_name']}")
+    return "\n".join(lines)
