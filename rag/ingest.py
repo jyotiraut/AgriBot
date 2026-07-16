@@ -114,6 +114,11 @@ def ingest_document(file_path: str) -> int:
     return len(chunks)
 
 
+# PDFs whose text layer is legacy-font garbage — handled by the vision pipeline
+# (rag.ingest_vision) instead. Plain-text ingesting them would pollute the
+# collection with unreadable chunks.
+_VISION_ONLY = {"agriculture-diary-2082.pdf"}
+
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     ingest_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "ingest")
@@ -124,7 +129,11 @@ if __name__ == "__main__":
 
     total = 0
     for filename in sorted(os.listdir(ingest_dir)):
-        if filename.lower().endswith(".pdf"):
-            print(f"\nIngesting: {filename}")
-            total += ingest_document(os.path.join(ingest_dir, filename))
+        if not filename.lower().endswith(".pdf"):
+            continue
+        if filename in _VISION_ONLY:
+            print(f"\nSkipping {filename} (vision-only — ingest via: python -m rag.ingest_vision ingest)")
+            continue
+        print(f"\nIngesting: {filename}")
+        total += ingest_document(os.path.join(ingest_dir, filename))
     print(f"\nDone. Total chunks ingested/updated: {total}")

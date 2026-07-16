@@ -27,13 +27,24 @@ def get_embeddings() -> HuggingFaceEmbeddings:
 
 @lru_cache(maxsize=1)
 def get_qdrant_client() -> QdrantClient:
-    """Return the process-wide Qdrant client (created once)."""
+    """Return the process-wide Qdrant client (created once).
+
+    QDRANT_URL forms:
+      http(s)://...  → remote Qdrant server / Qdrant Cloud (QDRANT_API_KEY used)
+      anything else  → EMBEDDED local mode: the value is a folder path where
+                       Qdrant stores its data (e.g. ./qdrant_local). No server
+                       or Docker needed. Note: embedded mode is single-process —
+                       stop the API server before running an ingest script.
+    """
     settings = get_settings()
-    return QdrantClient(
-        url=settings.QDRANT_URL,
-        api_key=settings.QDRANT_API_KEY or None,
-        check_compatibility=False,
-    )
+    url = settings.QDRANT_URL.strip()
+    if url.lower().startswith(("http://", "https://")):
+        return QdrantClient(
+            url=url,
+            api_key=settings.QDRANT_API_KEY or None,
+            check_compatibility=False,
+        )
+    return QdrantClient(path=url)
 
 
 @lru_cache(maxsize=1)
