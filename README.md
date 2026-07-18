@@ -24,8 +24,7 @@ An AI farming companion for Nepali farmers — chat in Nepali (Devanagari or Rom
 - **Disease & pest answers** — RAG-grounded first-aid guidance with treatment options.
 - **Knowledge base (RAG)** — crop guide PDFs + the *Krishi Diary 2082* (legacy-font pages OCR'd to Devanagari via Gemini vision, table-aware chunking, BGE-M3 embeddings in Qdrant).
 - **Credit scoring** — estimates seasonal income (district yields × market prices) and produces a 0–850 score with breakdown; admin dashboard included.
-- **Market intelligence** — Prophet price forecasts, demand rankings, planting-window filtering by Nepali (BS) calendar.
-- **Notifications** — scheduled weather/advisory alerts (simulated or Telegram).
+
 
 ## Architecture
 
