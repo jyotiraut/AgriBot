@@ -2,6 +2,17 @@
 
 An AI farming companion for Nepali farmers — chat in Nepali (Devanagari or Romanized), get district-accurate crop advice, live weather alerts, market price forecasts, disease help, and a credit-readiness score built from your own conversation.
 
+## Demo
+
+<!-- Drag & drop your demo video (.mp4, <10 MB) into this file on GitHub's web editor
+     and it will embed automatically. For YouTube, use the thumbnail-link form below. -->
+
+> 🎬 Demo video coming soon.
+
+<!-- YouTube option:
+[![KrishiMitra Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+-->
+
 ## Features
 
 - **Conversational profile collection** — the bot chats naturally in Nepali and extracts crop, district, land size, irrigation, experience, loans etc. from free-form messages (multi-slot LLM extraction + rule validation).
