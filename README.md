@@ -20,16 +20,16 @@ An AI farming companion for Nepali farmers — chat in Nepali (Devanagari or Rom
 ![Chat — profile collection](docs/screenshots/chat-profile-collection.png)
 ![Chat — price advisory](docs/screenshots/chat-price-advisory.png)
 
-The chat runs a **multi-slot extraction** on every message — one LLM call pulls out every profile field the farmer stated (crop, district, land size, irrigation, experience, loans), not just whatever field was last asked, so a message like "Kavre ma 2 ropani alu cha" fills district + land + crop in one turn. Rules then validate/normalise each value before it's saved to MongoDB (`farmer_profiles`).
+The chat runs a **multi-slot extraction** on every message — one LLM call pulls out every profile field the farmer stated (crop, district, land size, irrigation, experience, loans), not just whatever field was last asked, so a message like "Kavre ma 2 ropani alu cha" fills district + land + crop in one turn. Rules then validate and normalise each value before it's saved.
 
-Direct questions (price, weather, harvest timing, "what should I plant/harvest this month") bypass profile collection entirely — a keyword + LLM intent router in `rules/field_extractor.py` sends them straight to the relevant **engine** (`engine/price_snapshot.py`, `engine/market_calendar.py`, `engine/crop_advisor.py`, `rules/weather_integration.py`). Those engines compute the actual facts (prices, dates, forecasts) from CSV data / the Prophet cache / the Open-Meteo API; the LLM (Gemini) is only ever handed those computed facts and told to phrase them naturally in Nepali — it never invents a number or date itself. Disease/pest questions and general farming knowledge instead pull from a **RAG pipeline**: crop guide PDFs and the *Krishi Diary 2082* (its legacy-font pages were OCR'd to Devanagari via Gemini vision) are chunked and embedded with BGE-M3 into Qdrant, then retrieved by similarity search to ground the answer.
+Direct questions (price, weather, harvest timing, "what should I plant/harvest this month") bypass profile collection entirely — a keyword + LLM intent router sends them straight to the relevant engine, which computes the actual facts (prices, dates, forecasts) from real data — the crop calendar, the price forecast model, the live weather API. The LLM (Gemini) is only ever handed those computed facts and told to phrase them naturally in Nepali — it never invents a number or date itself. Disease/pest questions and general farming knowledge instead pull from a **RAG pipeline**: crop guide PDFs and the *Krishi Diary 2082* (its legacy-font pages were OCR'd to Devanagari via Gemini vision) are chunked and embedded into a vector store, then retrieved by similarity search to ground the answer.
 
 ### Market Analysis
 
 ![Market Analysis](docs/screenshots/market-analysis.png)
 ![Crop recommendations](docs/screenshots/crop-recommendations.png)
 
-Picking a Nepali month shows two things computed from the same data: a **12-month overview** of the single best-forecast crop per month (`engine/price_forecaster.py`'s Prophet model, trained per crop on years of Kalimati wholesale price history), and a **"harvest & sell now" ranking** for the selected month specifically — `engine/market_calendar.py` joins the crop calendar's harvest windows against that month's forecast and demand-opportunity score, so it surfaces crops actually in season, not just whatever is priciest that month.
+Picking a Nepali month shows two things computed from the same data: a **12-month overview** of the single best-forecast crop per month (a price forecasting model trained per crop on years of Kalimati wholesale price history), and a **"harvest & sell now" ranking** for the selected month specifically — the crop calendar's harvest windows are joined against that month's forecast and demand-opportunity score, so it surfaces crops actually in season, not just whatever is priciest that month.
 
 Below that, the recommendation cards run a full feasibility + risk + price evaluation per candidate crop for the selected month (district zone, altitude, growth duration, weather) and rank them — this is the same evaluation the chat's "what to plant" answers are grounded in, just browsable by month instead of asked one at a time.
 
@@ -37,7 +37,7 @@ Below that, the recommendation cards run a full feasibility + risk + price evalu
 
 ![Admin Dashboard](docs/screenshots/admin-dashboard.png)
 
-Every registered farmer, pulled from MongoDB and joined with their account email, alongside the credit-readiness score `core/credit_scorer.py` already computed from their conversation (land size, irrigation, experience, crop, debt-to-income ratio) — nothing is recalculated for this view, it just displays what scoring already produced. The table (built with TanStack Table) is sortable by score and searchable by name/district/crop; clicking a row expands the full score breakdown, loan/income figures, and the risk notes the scorer generated, so a loan officer can review or decline without re-reading the whole conversation.
+Every registered farmer, joined with their account email, alongside the credit-readiness score already computed from their conversation (land size, irrigation, experience, crop, debt-to-income ratio) — nothing is recalculated for this view, it just displays what scoring already produced. The table is sortable by score and searchable by name/district/crop; clicking a row expands the full score breakdown, loan/income figures, and the risk notes the scorer generated, so a loan officer can review or decline without re-reading the whole conversation.
 
 ## Features
 
