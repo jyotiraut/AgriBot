@@ -7,11 +7,7 @@ An AI farming companion for Nepali farmers — chat in Nepali (Devanagari or Rom
 <!-- Drag & drop your demo video (.mp4, <10 MB) into this file on GitHub's web editor
      and it will embed automatically. For YouTube, use the thumbnail-link form below. -->
 
-> 🎬 Demo video coming soon.
 
-<!-- YouTube option:
-[![KrishiMitra Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
--->
 
 ## Screenshots
 
