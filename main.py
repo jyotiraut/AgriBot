@@ -14,7 +14,7 @@ from config import get_settings
 from db.mongo import connect_db, disconnect_db
 from api.routes import router
 from api.auth_routes import router as auth_router
-from notifications import start_schedular, stop_scheduler
+from core.notifications import start_schedular, stop_scheduler
 
 logging.basicConfig(
     level=logging.INFO,

@@ -91,13 +91,16 @@ Note: embedded Qdrant is single-process — stop the backend before running inge
 
 ## Data
 
+All CSV/JSON data lives under `data/` (previously split across `data/` and a separate `dataset/`, now merged):
+
 | Source | Coverage |
 |---|---|
 | `data/crop_calendar.csv` | 90 crops — planting/harvest months, altitude range, diseases |
 | `data/crop_risks.csv` | 90 crops — flood/drought/frost/price-volatility risk scores |
-| `dataset/yield.csv` | 80 districts — per-district crop yields |
+| `data/yield.csv` | 80 districts — per-district crop yields |
 | `data/forecast_cache.csv` | Prophet price forecasts per crop per BS month |
 | `rules/zone_classifier.py` | 83 districts → Terai / Hills / Mountains |
+| `data/legacy/` | superseded/unused source files, kept for reference only |
 
 ## Key endpoints
 
@@ -122,9 +125,11 @@ python -m pytest tests/ -q     # 114 tests: dialogue flow, intents, engines, ext
 ## Project layout
 
 ```
-api/        routes, auth            rules/      dialogue policy, extractors, validators
-engine/     crop/price/market/risk  rag/        embeddings, retriever, ingestion
-core/       profile + credit score  graph/      LangGraph advisory workflow
-db/         MongoDB models + CRUD   data/ dataset/  CSVs (calendar, risks, yields, prices)
-tests/      pytest suite            frontend/   React + TanStack Router/Query UI
+api/        routes, auth                    rules/      dialogue policy, extractors, validators
+engine/     crop/price/market/risk engines   rag/        embeddings, retriever, ingestion
+core/       profile, credit score,           graph/      LangGraph advisory workflow
+            scheduled notifications         data/       CSVs (calendar, risks, yields, prices)
+db/         MongoDB models + CRUD           models/     trained model artifacts (.pkl, .keras)
+tests/      pytest suite                    scripts/    one-off/maintenance scripts (run with -m)
+frontend/   React + TanStack Router/Query UI
 ```

@@ -432,7 +432,7 @@ async def trigger_notifications():
     Run the notification job right now — useful for demos.
     Calls the same function the scheduler calls daily.
     """
-    from notifications import run_notification_job
+    from core.notifications import run_notification_job
     try:
         result = await run_notification_job()
         return {

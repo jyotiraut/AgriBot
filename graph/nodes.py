@@ -33,7 +33,7 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 from config import get_settings
-from crop_recommender import get_current_season, predict_crops_with_fallback
+from engine.crop_recommender import get_current_season, predict_crops_with_fallback
 from graph.state import KrishiMitraState
 from rag.prompts import (
     KRISHIMITRA_SYSTEM_PROMPT,

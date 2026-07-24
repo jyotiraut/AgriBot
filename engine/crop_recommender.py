@@ -28,9 +28,9 @@ import xgboost  # Ensure xgboost is available for unpickling
 logger = logging.getLogger(__name__)
 
 # ── File paths ─────────────────────────────────────────────────────────────
-BASE_DIR = Path(__file__).parent
+BASE_DIR = Path(__file__).parent.parent  # repo root (this module lives in engine/)
 MODEL_PATH   = BASE_DIR / "models" / "crop_recommendation_model.pkl"
-SCALER_PATH  = BASE_DIR / "crop_recommendation_scaler.pkl"
+SCALER_PATH  = BASE_DIR / "models" / "crop_recommendation_scaler.pkl"
 
 # ── Season → months mapping ───────────────────────────────────────────────
 SEASONS: dict[str, list[int]] = {
