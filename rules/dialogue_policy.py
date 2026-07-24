@@ -21,16 +21,18 @@ ACCEPT_CONFIDENCE = 0.65
 DETOUR_TASKS = {
     "disease_answer", "answer_ask", "redirect",
     "plant_advice", "price_info", "weather_info", "harvest_info",
+    "market_trend_info",
 }
 
 # Advisory intents → engine-backed tasks. These are answered with computed
 # DATA facts (crop_advisor / price cache / weather) regardless of how much of
 # the profile has been collected — help first, collect later.
 ADVISORY_INTENT_TASKS = {
-    "planting": "plant_advice",
-    "price":    "price_info",
-    "weather":  "weather_info",
-    "harvest":  "harvest_info",
+    "planting":     "plant_advice",
+    "price":        "price_info",
+    "weather":      "weather_info",
+    "harvest":      "harvest_info",
+    "market_trend": "market_trend_info",
 }
 
 

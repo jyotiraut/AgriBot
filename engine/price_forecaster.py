@@ -1,7 +1,9 @@
 import pandas as pd
 import numpy as np
 import os
+import json
 import warnings
+from datetime import datetime, timezone
 warnings.filterwarnings('ignore')
 
 from prophet import Prophet
@@ -19,6 +21,21 @@ VALID_UNIT    = 'kg'
 CACHE_PATH    = os.path.join(
     os.path.dirname(__file__), '..', 'data', 'forecast_cache.csv'
 )
+CACHE_META_PATH = os.path.join(
+    os.path.dirname(__file__), '..', 'data', 'forecast_cache_meta.json'
+)
+
+
+def cache_generated_at() -> str | None:
+    """ISO timestamp of the last successful run_all_forecasts(force_retrain=True),
+    or None if the cache predates this tracking / meta file is missing. Lets
+    callers (API responses, the Streamlit dashboard) show how stale the
+    forecast is instead of presenting it as always-fresh."""
+    try:
+        with open(CACHE_META_PATH, 'r', encoding='utf-8') as f:
+            return json.load(f).get('generated_at')
+    except (FileNotFoundError, json.JSONDecodeError):
+        return None
 
 # ── nepali month tagger ───────────────────────────────────
 def tag_nepali_month(date_series):
@@ -173,7 +190,7 @@ def run_all_forecasts(force_retrain=False):
     Set force_retrain=True to retrain from scratch.
     """
     if os.path.exists(CACHE_PATH) and not force_retrain:
-        print('✅ Loading forecasts from cache...')
+        print('[ok] Loading forecasts from cache...')
         return pd.read_csv(CACHE_PATH)
 
     df    = load_prices()
@@ -191,7 +208,7 @@ def run_all_forecasts(force_retrain=False):
             monthly  = aggregate_to_nepali_months(forecast)
             all_results.append(monthly)
         except Exception as e:
-            print(f'  ⚠️  Skipped {crop_key}: {e}')
+            print(f'  [skip] Skipped {crop_key}: {e}')
             continue
 
     if not all_results:
@@ -199,7 +216,9 @@ def run_all_forecasts(force_retrain=False):
 
     combined = pd.concat(all_results, ignore_index=True)
     combined.to_csv(CACHE_PATH, index=False)
-    print(f'\n✅ Forecasts saved to {CACHE_PATH}')
+    with open(CACHE_META_PATH, 'w', encoding='utf-8') as f:
+        json.dump({'generated_at': datetime.now(timezone.utc).isoformat()}, f)
+    print(f'\n[ok] Forecasts saved to {CACHE_PATH}')
     return combined
 
 # ── full analysis entry point ─────────────────────────────

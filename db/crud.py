@@ -93,6 +93,74 @@ async def chat_history_pairs_since(user_id: str, since: datetime) -> List[dict]:
 
 
 # ══════════════════════════════════════════════════════════════════════════════
+# STEP 2b — Chat sessions (sidebar threads)
+# ══════════════════════════════════════════════════════════════════════════════
+# A session is purely a display grouping over `conversation_history` (each
+# message doc gets a `session_id`). The farmer's PROFILE (crop/district/land/
+# last_task in `farmer_profiles`) is NOT session-scoped — it's the farmer's
+# ongoing relationship with the bot, so starting a new session clears the
+# visible thread but the advisory logic still remembers who they are.
+
+async def session_create(user_id: str, title: str = "New chat") -> dict:
+    db = get_db()
+    now = datetime.utcnow()
+    doc = {"user_id": user_id, "title": title, "created_at": now, "updated_at": now}
+    result = await db.chat_sessions.insert_one(doc)
+    doc["_id"] = result.inserted_id
+    return _id(doc)
+
+
+async def session_list(user_id: str, limit: int = 100) -> List[dict]:
+    db = get_db()
+    cursor = db.chat_sessions.find({"user_id": user_id}).sort("updated_at", -1).limit(limit)
+    return [_id(doc) async for doc in cursor]
+
+
+async def session_get(user_id: str, session_id: str) -> Optional[dict]:
+    db = get_db()
+    if not ObjectId.is_valid(session_id):
+        return None
+    doc = await db.chat_sessions.find_one({"_id": ObjectId(session_id), "user_id": user_id})
+    return _id(doc) if doc else None
+
+
+async def session_latest(user_id: str) -> Optional[dict]:
+    db = get_db()
+    doc = await db.chat_sessions.find_one({"user_id": user_id}, sort=[("updated_at", -1)])
+    return _id(doc) if doc else None
+
+
+async def session_touch(session_id: str, title: Optional[str] = None) -> None:
+    db = get_db()
+    update = {"updated_at": datetime.utcnow()}
+    if title:
+        update["title"] = title
+    await db.chat_sessions.update_one({"_id": ObjectId(session_id)}, {"$set": update})
+
+
+async def session_messages(user_id: str, session_id: str) -> List[dict]:
+    db = get_db()
+    cursor = (
+        db.conversation_history
+        .find({"user_id": user_id, "session_id": session_id})
+        .sort("timestamp", 1)
+    )
+    return [
+        {"role": d["role"], "message": d["message"], "timestamp": d["timestamp"]}
+        async for d in cursor
+    ]
+
+
+async def session_delete(user_id: str, session_id: str) -> bool:
+    db = get_db()
+    if not ObjectId.is_valid(session_id):
+        return False
+    res = await db.chat_sessions.delete_one({"_id": ObjectId(session_id), "user_id": user_id})
+    await db.conversation_history.delete_many({"user_id": user_id, "session_id": session_id})
+    return res.deleted_count > 0
+
+
+# ══════════════════════════════════════════════════════════════════════════════
 # STEP 3 — Stage tracking
 # ══════════════════════════════════════════════════════════════════════════════
 

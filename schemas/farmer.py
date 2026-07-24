@@ -119,16 +119,30 @@ class SafetyCheckOut(BaseModel):
 
 
 class ChatMessage(BaseModel):
-    message:  str
-    language: Optional[str] = None
+    message:    str
+    language:   Optional[str] = None
+    session_id: Optional[str] = None   # omit to use/create the farmer's latest session
 
 
 class ChatResponse(BaseModel):
     user_id: str
-    user_id: str
+    session_id: str
     reply: str
     disease_detected: Optional[bool] = False
     disease_info: Optional[Dict[str, Any]] = None
+
+
+class ChatSessionOut(BaseModel):
+    id:         str
+    title:      str
+    created_at: datetime
+    updated_at: datetime
+
+
+class ChatMessageOut(BaseModel):
+    role:      str
+    message:   str
+    timestamp: datetime
 
 class FarmerProfilePublic(BaseModel):
     id:      str

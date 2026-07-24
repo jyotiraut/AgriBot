@@ -44,7 +44,12 @@ from rules.conversation_rules import (
 from rules.nepali_date_converter import nepali_to_english_date, bs_month_from_raw
 from rules.unit_converter import convert_to_hectares, NEPALI_MONTH_TO_INT
 from rules.zone_classifier import classify_zone, month_to_season, month_to_name
-from schemas.farmer import ChatMessage, ChatResponse
+from schemas.farmer import ChatMessage, ChatResponse, ChatSessionOut, ChatMessageOut
+from db.crud import (
+    session_create, session_list, session_get, session_latest,
+    session_touch, session_messages, session_delete,
+    admin_get_all_profiles, admin_profile_count,
+)
 
 from rules.field_extractor import (
     build_multislot_prompt,
@@ -62,12 +67,20 @@ from engine.crop_advisor import (
     format_harvest_facts,
 )
 from engine.price_snapshot import price_snapshot, format_price_facts
+from engine.market_calendar import (
+    crops_in_harvest_this_month,
+    full_market_calendar,
+    format_market_calendar_facts,
+)
 from rules.weather_integration import summarize_forecast, format_weather_facts
 
 # Advisory tasks answered from engine-computed DATA facts (see dialogue_policy).
 # On these turns the profile question is suppressed and crop_tip RAG is skipped —
 # the reply focuses on the farmer's question; collection resumes next turn.
-ADVISORY_TASKS = {"plant_advice", "price_info", "weather_info", "harvest_info"}
+ADVISORY_TASKS = {
+    "plant_advice", "price_info", "weather_info", "harvest_info",
+    "market_trend_info",
+}
 SUPPRESS_PROFILE_Q = {"disease_answer"} | ADVISORY_TASKS
  
 
@@ -102,7 +115,7 @@ from fastapi import Query
 import engine.nepali_calendar as _cal
 from engine.nepali_calendar   import get_calendar_context
 from engine.market_analysis   import run_market_analysis, NEPALI_MONTHS
-from engine.price_forecaster  import get_full_price_analysis
+from engine.price_forecaster  import get_full_price_analysis, cache_generated_at
 from engine.planting_filter   import get_filtered_crops
 from engine.risk_scorer       import get_risk_scores
 from engine.ranker            import get_ranked_crops
@@ -657,6 +670,18 @@ async def chat(
     user_id    = str(current_user["_id"])
     user_name  = current_user.get("name", "")
 
+    # ── 0. Resolve chat session (sidebar thread) ───────────────────────────────
+    # Sessions are a display grouping only — the farmer's profile below is NOT
+    # session-scoped, so a new session clears the visible thread but the bot
+    # still remembers crop/district/land from earlier sessions.
+    if payload.session_id:
+        sess = await session_get(user_id, payload.session_id)
+        if not sess:
+            raise HTTPException(status_code=404, detail="Chat session not found")
+    else:
+        sess = await session_latest(user_id) or await session_create(user_id)
+    session_id = sess["id"]
+
     # ── 1. Single profile read ─────────────────────────────────────────────────
     profile = await col.find_one({"user_id": user_id})
     if not profile:
@@ -685,11 +710,14 @@ async def chat(
         user→assistant in order regardless of clock resolution."""
         now = datetime.utcnow()
         await hist.insert_many([
-            {"user_id": user_id, "role": "user",
+            {"user_id": user_id, "session_id": session_id, "role": "user",
              "message": payload.message, "timestamp": now},
-            {"user_id": user_id, "role": "assistant",
+            {"user_id": user_id, "session_id": session_id, "role": "assistant",
              "message": reply_text, "timestamp": now + timedelta(milliseconds=1)},
         ])
+        # Auto-title the session from its first message, like a GPT thread title.
+        title = payload.message.strip()[:48] if sess.get("title") == "New chat" else None
+        await session_touch(session_id, title=title)
 
     # ── 3. FIRST MESSAGE — fixed reply, zero LLM ──────────────────────────────
     if is_first:
@@ -699,7 +727,7 @@ async def chat(
             "के तपाईंको खेतमा हाल कुनै बाली छ, कि रोप्ने योजना बनाउँदै हुनुहुन्छ?"
         )
         await _persist_turn(reply)
-        return ChatResponse(user_id=user_id, reply=reply)
+        return ChatResponse(user_id=user_id, session_id=session_id, reply=reply)
 
     # ── 4. MULTI-SLOT extraction — intent + EVERY field stated, in one call ────
     # A farmer volunteers facts non-linearly ("Kavre ma 2 ropani alu cha" = type
@@ -844,7 +872,7 @@ async def chat(
         )
         await _persist_turn(reply)
         await col.update_one({"_id": profile["_id"]}, {"$set": {"last_task": "classify"}})
-        return ChatResponse(user_id=user_id, reply=reply)
+        return ChatResponse(user_id=user_id, session_id=session_id, reply=reply)
 
     # ── 6. Pure dialogue policy picks the task for this turn ──────────────────
     # rules/dialogue_policy.select_task owns all routing (unit-tested); the LLM
@@ -923,6 +951,11 @@ async def chat(
                 data_facts = (
                     format_price_facts(price_snapshot(adv_crop, month=adv_month))
                     if adv_crop else "ASK_CROP"
+                )
+
+            elif task == "market_trend_info":
+                data_facts = format_market_calendar_facts(
+                    crops_in_harvest_this_month(month=adv_month, top_n=5)
                 )
         except Exception as e:
             logger.warning("Advisory dispatch failed | task=%s: %s", task, e)
@@ -1044,8 +1077,12 @@ async def chat(
 
     logger.info("user_msg to LLM:\n%s", user_msg)
 
-    # ── Fetch last 6 turns for conversation context ───────────────────────────
-    recent = await hist.find({"user_id": user_id}).sort("timestamp", -1).limit(6).to_list(6)
+    # ── Fetch last 6 turns for conversation context (this session only, so a
+    # new chat thread doesn't drag in an unrelated earlier conversation) ───────
+    recent = (
+        await hist.find({"user_id": user_id, "session_id": session_id})
+        .sort("timestamp", -1).limit(6).to_list(6)
+    )
     recent.reverse()
 
     messages = [SystemMessage(content=KRISHIMITRA_SYSTEM)]
@@ -1079,6 +1116,7 @@ async def chat(
             "price_info":     "अहिले भाउ जानकारी तयार गर्न सकिएन — कुन बालीको भाउ चाहियो, फेरि भन्नुस् है।",
             "weather_info":   "अहिले मौसम जानकारी ल्याउन सकिएन — केही बेरपछि फेरि सोध्नुहोस् है।",
             "harvest_info":   "काट्ने समय बताउन कुन बाली हो भन्नुस् है — म तुरुन्तै हेरिदिन्छु।",
+            "market_trend_info": "यो महिनाको बजार जानकारी ल्याउन सकिएन — केही बेरपछि फेरि सोध्नुहोस् है।",
         }
         reply = fallback_map.get(task, next_question or "राम्रो! अगाडि बढौं।")
 
@@ -1091,8 +1129,40 @@ async def chat(
         user_id, turn_count, task, current_field, len(reply),
     )
 
-    return ChatResponse(user_id=user_id, reply=reply)
+    return ChatResponse(user_id=user_id, session_id=session_id, reply=reply)
 
+
+# ── CHAT SESSIONS (sidebar threads) ──────────────────────────────────────────
+
+@router.get("/chat/sessions", response_model=List[ChatSessionOut], tags=["Chat"],
+            summary="List the farmer's chat sessions, most recent first")
+async def list_chat_sessions(current_user=Depends(get_current_user)):
+    user_id = str(current_user["_id"])
+    return await session_list(user_id)
+
+
+@router.post("/chat/sessions", response_model=ChatSessionOut, tags=["Chat"],
+             summary="Start a new chat session (sidebar 'New chat')")
+async def create_chat_session(current_user=Depends(get_current_user)):
+    user_id = str(current_user["_id"])
+    return await session_create(user_id)
+
+
+@router.get("/chat/sessions/{session_id}/messages", response_model=List[ChatMessageOut],
+            tags=["Chat"], summary="Full message history for one chat session")
+async def get_chat_session_messages(session_id: str, current_user=Depends(get_current_user)):
+    user_id = str(current_user["_id"])
+    if not await session_get(user_id, session_id):
+        raise HTTPException(status_code=404, detail="Chat session not found")
+    return await session_messages(user_id, session_id)
+
+
+@router.delete("/chat/sessions/{session_id}", tags=["Chat"], summary="Delete a chat session")
+async def delete_chat_session(session_id: str, current_user=Depends(get_current_user)):
+    user_id = str(current_user["_id"])
+    if not await session_delete(user_id, session_id):
+        raise HTTPException(status_code=404, detail="Chat session not found")
+    return {"status": "deleted", "session_id": session_id}
 
 
 # ── CALENDAR ──────────────────────────────────────────────────────────────────
@@ -1151,6 +1221,7 @@ def market_forecast(top_n: int = Query(5, ge=1, le=20)):
         return {
             'source':              'prophet_forecast',
             'top_n':               top_n,
+            'generated_at':        cache_generated_at(),
             'historical_rankings': {
                 NEPALI_MONTHS[m-1]: crops[:top_n]
                 for m, crops in analysis['historical_rankings'].items()
@@ -1160,6 +1231,40 @@ def market_forecast(top_n: int = Query(5, ge=1, le=20)):
                 for m, crops in analysis['forecasted_rankings'].items()
             },
             'forecast_months': int(analysis['forecast_df']['bs_month'].nunique()),
+        }
+    except Exception as e:
+        handle_error(e)
+
+
+@router.get("/market/calendar", tags=["Market"], summary="Harvest + price calendar, all months")
+def market_calendar_all(top_n: int = Query(5, ge=1, le=20)):
+    """Reverse index of price_info/harvest_info: for every BS month, the crops
+    typically harvested THEN ranked by that month's forecasted price. Powers
+    the Streamlit 'Market Analysis' calendar and the market_trend_info chat task."""
+    try:
+        calendar = full_market_calendar(top_n=top_n)
+        return {
+            'source':       'harvest_calendar_x_prophet_forecast',
+            'top_n':        top_n,
+            'generated_at': cache_generated_at(),
+            'calendar': {
+                NEPALI_MONTHS[m-1]: rows
+                for m, rows in calendar.items()
+            },
+        }
+    except Exception as e:
+        handle_error(e)
+
+
+@router.get("/market/calendar/{bs_month}", tags=["Market"], summary="Harvest + price outlook for one month")
+def market_calendar_month(bs_month: int, top_n: int = Query(5, ge=1, le=20)):
+    try:
+        rows = crops_in_harvest_this_month(month=bs_month, top_n=top_n)
+        return {
+            'bs_month':     bs_month,
+            'month_name':   NEPALI_MONTHS[bs_month - 1],
+            'generated_at': cache_generated_at(),
+            'crops':        rows,
         }
     except Exception as e:
         handle_error(e)
@@ -1350,9 +1455,13 @@ def get_dashboard(
 def retrain_forecast():
     try:
         from engine.price_forecaster import run_all_forecasts, CACHE_PATH
+        import engine.price_snapshot as price_snapshot_mod
+        import engine.market_calendar as market_calendar_mod
         if os.path.exists(CACHE_PATH):
             os.remove(CACHE_PATH)
         forecasts = run_all_forecasts(force_retrain=True)
+        price_snapshot_mod.refresh_cache()
+        market_calendar_mod.refresh_cache()
         return {
             'status':  'retrained',
             'message': 'All Prophet models retrained successfully',
@@ -1364,18 +1473,13 @@ def retrain_forecast():
 
 @router.get("/admin/farmers", summary="Admin — all farmer profiles with scores")
 async def admin_get_all_farmers(
+    skip: int = Query(0, ge=0),
+    limit: int = Query(200, ge=1, le=1000),
     current_user=Depends(get_current_user),
 ):
     if current_user.get("email") != "admin@gmail.com":
         raise HTTPException(status_code=403, detail="Access denied.")
 
-    db = get_db()
-    col = db["farmer_profiles"]
-
-    cursor = col.find({}).sort("scored_at", -1)
-    farmers = await cursor.to_list(length=None)
-
-    for f in farmers:
-        f["_id"] = str(f["_id"])
-
-    return farmers
+    farmers = await admin_get_all_profiles(skip=skip, limit=limit)
+    total = await admin_profile_count()
+    return {"total": total, "skip": skip, "limit": limit, "farmers": farmers}

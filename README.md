@@ -30,13 +30,13 @@ An AI farming companion for Nepali farmers — chat in Nepali (Devanagari or Rom
 ## Architecture
 
 ```
-Streamlit UI ──► FastAPI (/api/v1) ──► Dialogue policy (rules, unit-tested)
+React (TanStack Router/Query) ──► FastAPI (/api/v1) ──► Dialogue policy (rules, unit-tested)
                       │                     │
                       │                     ├── Engines: crop_advisor · price_snapshot ·
-                      │                     │   weather · calendar · credit scorer
+                      │                     │   market_calendar · weather · calendar · credit scorer
                       ├── MongoDB           └── LLM (Gemini) renders replies from
                       │   users · profiles ·     engine-computed DATA facts
-                      │   conversation_history
+                      │   conversation_history · chat_sessions
                       └── Qdrant (embedded local or cloud) ── BGE-M3 embeddings
 ```
 
@@ -66,9 +66,13 @@ JWT_SECRET=change-this-in-production
 # Backend (port 8000)
 uvicorn main:app --reload
 
-# Frontend (port 8501) — set API_BASE_URL if the backend isn't on localhost:8000
-streamlit run streamlit_app.py
+# Frontend (port 5173)
+cd frontend
+npm install
+npm run dev
 ```
+
+Set `VITE_API_BASE_URL` in `frontend/.env.local` if the backend isn't on `http://127.0.0.1:8000/api/v1`.
 
 API docs: http://localhost:8000/docs
 
@@ -101,16 +105,19 @@ Note: embedded Qdrant is single-process — stop the backend before running inge
 | Endpoint | Purpose |
 |---|---|
 | `POST /api/v1/auth/register` · `/login` | JWT auth |
-| `POST /api/v1/chat` | main conversational endpoint |
+| `POST /api/v1/chat` | main conversational endpoint (accepts/returns `session_id`) |
+| `GET /api/v1/chat/sessions` · `POST` | list / start chat sessions (sidebar threads) |
+| `GET /api/v1/chat/sessions/{id}/messages` · `DELETE` | one session's history / delete it |
 | `POST /api/v1/advisory` | full LangGraph advisory pipeline |
 | `GET /api/v1/market/forecast` | Prophet price forecasts |
+| `GET /api/v1/market/calendar` · `/{bs_month}` | harvest calendar × price forecast, joined |
 | `GET /api/v1/crops/filtered/{bs_month}` | plantable crops for a BS month |
 | `POST /api/v1/forecast/retrain` | refresh the Prophet cache |
 
 ## Tests
 
 ```bash
-python -m pytest tests/ -q     # 111 tests: dialogue flow, intents, engines, extraction
+python -m pytest tests/ -q     # 114 tests: dialogue flow, intents, engines, extraction
 ```
 
 ## Project layout
@@ -120,5 +127,5 @@ api/        routes, auth            rules/      dialogue policy, extractors, val
 engine/     crop/price/market/risk  rag/        embeddings, retriever, ingestion
 core/       profile + credit score  graph/      LangGraph advisory workflow
 db/         MongoDB models + CRUD   data/ dataset/  CSVs (calendar, risks, yields, prices)
-tests/      pytest suite            streamlit_app.py  frontend
+tests/      pytest suite            frontend/   React + TanStack Router/Query UI
 ```

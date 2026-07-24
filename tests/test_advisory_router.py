@@ -11,13 +11,14 @@ from engine.crop_advisor import (
     recommend_crops,
 )
 from engine.price_snapshot import price_snapshot, format_price_facts
+from engine.market_calendar import crops_in_harvest_this_month, format_market_calendar_facts
 from rag.prompts import TASKS, KRISHIMITRA_SYSTEM, build_user_message
 
 
 # ── intent detection ──────────────────────────────────────────────────────────
 
 def test_new_intents_registered():
-    for i in ("planting", "price", "weather", "harvest"):
+    for i in ("planting", "price", "weather", "harvest", "market_trend"):
         assert i in VALID_INTENTS
 
 
@@ -30,6 +31,12 @@ def test_keyword_detection_nepali_and_romanized():
     assert detect_advisory_intent("मौसम कस्तो छ") == "weather"
     assert detect_advisory_intent("tomato kahile tipne") == "harvest"
     assert detect_advisory_intent("कहिले काट्ने धान") == "harvest"
+    assert detect_advisory_intent("yo mahina k bechne") == "market_trend"
+    assert detect_advisory_intent("यो महिना कुन बाली बेच्ने") == "market_trend"
+    assert detect_advisory_intent("best crop to sell this month") == "market_trend"
+    # natural variation not in the fixed phrase list — caught by the
+    # (month-cue AND action-cue) combinator
+    assert detect_advisory_intent("yo mahina k bechda ramro huncha?") == "market_trend"
 
 
 def test_keyword_detection_negative():
@@ -104,6 +111,34 @@ def test_price_snapshot_unknown_crop_and_sentinel():
 def test_price_format_mentions_kalimati():
     out = format_price_facts(price_snapshot("tomato", month=1))
     assert "Kalimati" in out
+
+
+def test_price_snapshot_fuzzy_typo_still_resolves():
+    # "poteto" isn't in CROP_NORMALIZE's alias table nor an exact forecast key —
+    # fuzzy_match_crop should still land it on "potato".
+    facts = price_snapshot("poteto", month=4)
+    assert facts.get("crop") == "potato"
+
+
+# ── market calendar (month -> crops to harvest & sell) ────────────────────────
+
+def test_market_calendar_returns_ranked_crops():
+    rows = crops_in_harvest_this_month(month=9, top_n=5)  # Poush — potato harvest
+    assert rows
+    for r in rows:
+        assert r["price_avg"] > 0
+        assert r["price_low"] <= r["price_avg"] <= r["price_high"]
+    # ranked by demand_score descending (seasonal opportunity, not raw price —
+    # a raw-price ranking would let rare high-value crops dominate every month)
+    scores = [r["demand_score"] for r in rows]
+    assert scores == sorted(scores, reverse=True)
+
+
+def test_market_calendar_format_and_sentinel():
+    rows = crops_in_harvest_this_month(month=9, top_n=3)
+    out = format_market_calendar_facts(rows)
+    assert "avg" in out
+    assert format_market_calendar_facts([]).startswith("NO_DATA")
 
 
 # ── planting facts ────────────────────────────────────────────────────────────

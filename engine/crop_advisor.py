@@ -30,7 +30,7 @@ from engine.planting_filter import (
     parse_growth_weeks,
 )
 from engine.nepali_calendar import get_current_nepali_month
-from rules.crop_normalizer import normalize_crop
+from rules.crop_normalizer import normalize_crop, fuzzy_match_crop
 from rules.zone_classifier import classify_zone, month_to_season, month_to_name
 from rules.crop_suitability import get_suitable_crops
 from schemas.farmer import Zone, Season, IrrigationAccess
@@ -193,11 +193,16 @@ def harvest_facts(crop: str, sowing_month: Optional[int] = None) -> dict:
     df = load_calendar()
     match = df[df["crop_key"].map(_norm) == key]
     if match.empty:
+        fallback = fuzzy_match_crop(crop, df["crop_key"].map(_norm).unique())
+        if fallback:
+            key = fallback
+            match = df[df["crop_key"].map(_norm) == key]
+    if match.empty:
         return {}
     row = match.iloc[0]
     wmin, wmax = parse_growth_weeks(row["Growth Duration (Weeks)"])
     facts = {
-        "crop":             crop,
+        "crop":             key,
         "harvest_months":   row["Typical Harvest Months (Nepali)"],
         "growth_weeks_min": wmin,
         "growth_weeks_max": wmax,

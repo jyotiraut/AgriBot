@@ -4,6 +4,7 @@ Single source of truth for crop-name normalisation across the whole app.
 Both the batch extractor (core/profile_extractor.py, rules/field_validator.py)
 and the live chat (rules/conversation_rules.normalise_crop) resolve crops here.
 """
+import difflib
 
 CROP_NORMALIZE = {
     # Potato
@@ -109,3 +110,21 @@ def normalize_crop(crop: str) -> str:
 def is_valid_crop(crop: str) -> bool:
     """Check if a normalized crop name is in the known valid set."""
     return normalize_crop(crop) in VALID_CROPS
+
+
+def fuzzy_match_crop(crop: str, candidates, cutoff: float = 0.72) -> str | None:
+    """Best-effort fallback when normalize_crop's alias table still misses —
+    a typo ('poteto'), an unlisted local name, or an underscored dataset key
+    close to but not exactly the query. Only called after an exact lookup on
+    `candidates` fails, so it never shadows a real match.
+
+    candidates: the crop_keys actually present in the dataset being queried
+    (e.g. forecast_cache's crop_key column) — matching against them, not
+    VALID_CROPS, means a fallback always resolves to something the caller can
+    look up. Returns None below `cutoff` rather than guessing wildly.
+    """
+    if not crop:
+        return None
+    key = normalize_crop(crop)
+    matches = difflib.get_close_matches(key, list(candidates), n=1, cutoff=cutoff)
+    return matches[0] if matches else None

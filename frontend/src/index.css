@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+/*
+  Design system — "field notes" aesthetic: warm paper background, deep
+  moss/forest green as the primary ink, a terracotta accent for actions.
+  Deliberately NOT the generic AI-product look (no violet/blue gradients,
+  no glassmorphism, no glowing borders). Flat surfaces, hairline borders,
+  a serif display face for headings paired with system sans for UI text.
+*/
+@theme {
+  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-sans: -apple-system, "Segoe UI", system-ui, sans-serif;
+
+  /* Paper + ink */
+  --color-paper: #f7f4ec;
+  --color-paper-raised: #fffdf8;
+  --color-ink: #201d16;
+  --color-ink-soft: #55503f;
+  --color-ink-muted: #8b8571;
+  --color-hairline: #ddd6c4;
+  --color-hairline-strong: #c9c0a6;
+
+  /* Brand */
+  --color-moss-50: #eef1e6;
+  --color-moss-100: #d9e0c5;
+  --color-moss-300: #9db06a;
+  --color-moss-500: #5c7a3d;
+  --color-moss-600: #46602e;
+  --color-moss-700: #364a24;
+  --color-moss-900: #1f2b15;
+
+  --color-terracotta-100: #f3ded0;
+  --color-terracotta-400: #c96a3f;
+  --color-terracotta-500: #b6572e;
+  --color-terracotta-600: #984723;
+
+  /* Status */
+  --color-good: #2f7a2f;
+  --color-warning: #b5790f;
+  --color-critical: #b0392f;
+}
+
+/*
+  Dark mode — same role names, redefined values, so every utility built on
+  these tokens (bg-paper, text-ink, border-hairline, ...) flips automatically.
+  Toggled via a `dark` class on <html> (see lib/ui.ts), not prefers-color-scheme
+  alone, so the in-app toggle always wins.
+*/
+.dark {
+  --color-paper: #17160f;
+  --color-paper-raised: #201e15;
+  --color-ink: #f3efe2;
+  --color-ink-soft: #c9c2ab;
+  --color-ink-muted: #8b8571;
+  --color-hairline: #34321f;
+  --color-hairline-strong: #46442c;
+
+  --color-moss-50: #26301b;
+  --color-moss-100: #313f22;
+  --color-moss-300: #7f9757;
+  --color-moss-500: #7fa35a;
+  --color-moss-600: #92b86c;
+  --color-moss-700: #a9cf85;
+  --color-moss-900: #eef1e6;
+
+  --color-terracotta-100: #3a2419;
+  --color-terracotta-400: #d98455;
+  --color-terracotta-500: #e2916a;
+  --color-terracotta-600: #eaa886;
+
+  --color-good: #5fbf5f;
+  --color-warning: #e0a83f;
+  --color-critical: #e2685c;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html {
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+::selection {
+  background: var(--color-moss-100);
+  color: var(--color-moss-900);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+}

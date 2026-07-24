@@ -17,7 +17,7 @@ from typing import Optional
 import pandas as pd
 
 from engine.nepali_calendar import get_current_nepali_month
-from rules.crop_normalizer import normalize_crop
+from rules.crop_normalizer import normalize_crop, fuzzy_match_crop
 
 _CACHE_CSV = os.path.join(os.path.dirname(__file__), "..", "data", "forecast_cache.csv")
 
@@ -54,7 +54,13 @@ def price_snapshot(crop: str, month: Optional[int] = None) -> dict:
     month = int(month)
 
     df = _forecast_df()
-    rows = df[df["_key"] == _norm(crop)]
+    key = _norm(crop)
+    rows = df[df["_key"] == key]
+    if rows.empty:
+        match = fuzzy_match_crop(crop, df["_key"].unique())
+        if match:
+            key = match
+            rows = df[df["_key"] == key]
     if rows.empty:
         return {}
 
@@ -69,7 +75,7 @@ def price_snapshot(crop: str, month: Optional[int] = None) -> dict:
     peak = rows.loc[rows["forecasted_avg"].idxmax()]
 
     facts = {
-        "crop":            crop,
+        "crop":            key,
         "month":           month,
         "month_name":      cur["nepali_month"],
         "price_avg":       round(float(cur["forecasted_avg"]), 1),

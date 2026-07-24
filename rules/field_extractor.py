@@ -196,7 +196,7 @@ def build_extract_prompt(field: str, message: str) -> str:
 VALID_INTENTS = (
     "answer", "question", "disease", "smalltalk", "offtopic", "correction",
     # Advisory intents — dispatched to engines, answered with computed DATA facts
-    "planting", "price", "weather", "harvest",
+    "planting", "price", "weather", "harvest", "market_trend",
 )
 
 # ── Deterministic advisory-intent detection ───────────────────────────────────
@@ -223,13 +223,36 @@ _HARVEST_KW = (
     "कहिले टिप्ने", "कहिले काट्ने", "कहिले भित्र्याउने", "कहिले पाक्छ",
     "when to harvest", "harvest time", "ready to harvest",
 )
+# "What should I harvest/sell THIS MONTH" — no specific crop named, unlike
+# _HARVEST_KW/_PRICE_KW which ask about one crop. Checked first since it's
+# the most specific phrasing (month + sell/harvest combined).
+_MARKET_TREND_KW = (
+    "market trend", "बजार प्रवृत्ति", "बजार ट्रेन्ड",
+    "best crop to sell this month", "best crop to harvest this month",
+    "what to harvest this month", "what to sell this month",
+    "which crop is in demand", "best price this month",
+)
+# Fixed phrases above catch the unambiguous cases; this (month-cue AND
+# action-cue) combinator catches natural variations a phrase list would miss
+# word-form by word-form ("yo mahina k bechda ramro huncha", "यो महिना के
+# काट्दा फाइदा हुन्छ").
+_MARKET_MONTH_CUES = ("yo mahina", "this month", "यो महिना", "यस महिना")
+_MARKET_ACTION_CUES = (
+    "bech", "katne", "katda", "kaatne", "tipne", "kun bali",
+    "बेच", "काट्ने", "काट्दा", "टिप्ने", "कुन बाली",
+)
 
 
 def detect_advisory_intent(message: str):
-    """Return 'planting' | 'price' | 'weather' | 'harvest' | None from keywords.
-    Ordered by specificity: harvest before planting (both mention crops),
-    price before weather (\"bhau\" questions often name a month too)."""
+    """Return 'planting' | 'price' | 'weather' | 'harvest' | 'market_trend' |
+    None from keywords. Ordered by specificity: market_trend (month + sell/
+    harvest, no crop named) before harvest/planting (name a crop), price
+    before weather ("bhau" questions often name a month too)."""
     m = (message or "").lower()
+    if any(k in m for k in _MARKET_TREND_KW):
+        return "market_trend"
+    if any(c in m for c in _MARKET_MONTH_CUES) and any(c in m for c in _MARKET_ACTION_CUES):
+        return "market_trend"
     if any(k in m for k in _HARVEST_KW):
         return "harvest"
     if any(k in m for k in _PLANTING_KW):
@@ -354,6 +377,7 @@ def build_multislot_prompt(
         "  price = asking a crop's price / rate / market value\n"
         "  weather = asking about weather, rain, frost, or temperature\n"
         "  harvest = asking WHEN to harvest/pick a crop or when it will be ready\n"
+        "  market_trend = asking WHICH crop(s) to harvest/sell THIS MONTH for the best price (no single crop named)\n"
         "  question = any other general farming question\n"
         "  smalltalk = greeting/thanks/chit-chat, offtopic = unrelated\n"
         "  answer = giving profile information\n\n"
@@ -370,6 +394,7 @@ def build_multislot_prompt(
         '  "alu ko bhau kati cha?" -> {"intent":"price","fields":{"crop":{"value":"potato","confidence":1.0}}}\n'
         '  "bholi pani parcha?" -> {"intent":"weather","fields":{}}\n'
         '  "tomato kahile tipne?" -> {"intent":"harvest","fields":{"crop":{"value":"tomato","confidence":1.0}}}\n'
+        '  "yo mahina k bechda ramro huncha?" -> {"intent":"market_trend","fields":{}}\n'
         '  "kahile mal halne ho" -> {"intent":"question","fields":{}}\n'
         f'Farmer said: "{message}"\n'
         "Return JSON only:"
