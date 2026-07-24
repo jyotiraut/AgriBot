@@ -13,6 +13,16 @@ An AI farming companion for Nepali farmers — chat in Nepali (Devanagari or Rom
 [![KrishiMitra Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
 -->
 
+## Screenshots
+
+| | |
+|---|---|
+| ![Chat — profile collection](docs/screenshots/chat-profile-collection.png) Chat collecting the farmer's profile (irrigation, experience) mid-conversation | ![Chat — price advisory](docs/screenshots/chat-price-advisory.png) Chat answering a direct price/timing/fertilizer question, in Nepali |
+| ![Market Analysis](docs/screenshots/market-analysis.png) Market Analysis — best crop per month + harvest/sell ranking for the selected month | ![Crop recommendations](docs/screenshots/crop-recommendations.png) Ranked "what to plant" cards for the selected month |
+| ![Admin Dashboard](docs/screenshots/admin-dashboard.png) Admin Dashboard — every farmer with their computed credit score and risk level | |
+
+**How it works, end to end:** a farmer registers/logs in → the chat asks for crop, district, land size, irrigation etc. one turn at a time, but answers any direct question (price, weather, harvest timing) immediately without waiting for the profile to finish → once enough is known, `core/credit_scorer.py` computes a credit-readiness score from that profile → the Market Analysis page reads the same engines (Prophet price forecast × harvest calendar) to show what to plant/harvest by month → the Admin Dashboard lists every farmer with their score, so a loan officer can review/decline without re-asking anything.
+
 ## Features
 
 - **Conversational profile collection** — the bot chats naturally in Nepali and extracts crop, district, land size, irrigation, experience, loans etc. from free-form messages (multi-slot LLM extraction + rule validation).
