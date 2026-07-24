@@ -13,9 +13,8 @@ You can see the full technical analysis [here](docs/case_analysis.md).
 ## Screenshots
 
 ### Chat
-
-![Chat — profile collection](docs/screenshots/chat-profile-collection.png)
 ![Chat — price advisory](docs/screenshots/chat-price-advisory.png)
+![Chat — profile collection](docs/screenshots/chat-profile-collection.png)
 
 The chat runs a **multi-slot extraction** on every message — one LLM call pulls out every profile field the farmer stated (crop, district, land size, irrigation, experience, loans), not just whatever field was last asked, so a message like "Kavre ma 2 ropani alu cha" fills district + land + crop in one turn. Rules then validate and normalise each value before it's saved.
 
