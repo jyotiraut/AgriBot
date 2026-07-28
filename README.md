@@ -1,4 +1,4 @@
-# 🌾 KrishiMitra (कृषिमित्र)
+# 🌾 AgriBot
 
 An AI farming companion for Nepali farmers — chat in Nepali (Devanagari or Romanized), get district-accurate crop advice, live weather alerts, market price forecasts, disease help, and a credit-readiness score built from your own conversation.
 
